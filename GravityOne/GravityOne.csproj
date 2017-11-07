@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22F6AB5B-0455-4B8E-A08D-853DE97CAF75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GravityOne</RootNamespace>
+    <AssemblyName>GravityOne</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|x86'">
+    <OutputPath>bin\x86\Release64\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|x64'">
+    <OutputPath>bin\x64\Release64\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release64|AnyCPU'">
+    <OutputPath>bin\Release64\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BarnesHut\Node.cs" />
+    <Compile Include="BarnesHut\QuadTree.cs" />
+    <Compile Include="CustomControls\Display.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\GradientButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\GradientPanel2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCircle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCircle.Designer.cs">
+      <DependentUpon>FormCircle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPlanetSystems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPlanetSystems.Designer.cs">
+      <DependentUpon>FormPlanetSystems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormGalaxy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGalaxy.Designer.cs">
+      <DependentUpon>FormGalaxy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormBinary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBinary.Designer.cs">
+      <DependentUpon>FormBinary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGrid.Designer.cs">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLoadSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLoadSave.Designer.cs">
+      <DependentUpon>FormLoadSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPreferences.Designer.cs">
+      <DependentUpon>FormPreferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRandom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRandom.Designer.cs">
+      <DependentUpon>FormRandom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSplashScreen.Designer.cs">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gravity\Calculation.cs" />
+    <Compile Include="Gravity\GravityObject.cs" />
+    <Compile Include="Gravity\GravitySystem.cs" />
+    <Compile Include="Gravity\Message.cs" />
+    <Compile Include="Gravity\Recording.cs" />
+    <Compile Include="Gravity\Trace.cs" />
+    <Compile Include="MacTrackbar\ColorHelper.cs" />
+    <Compile Include="MacTrackbar\DrawMACStyleHelper.cs" />
+    <Compile Include="MacTrackbar\MACTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MacTrackbar\MACTrackBarDesigner.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenRecorder.cs" />
+    <Compile Include="SpaceObjects\Galaxy.cs" />
+    <Compile Include="SpaceObjects\Circle.cs" />
+    <Compile Include="SpaceObjects\Grid.cs" />
+    <Compile Include="SpaceObjects\Position.cs" />
+    <Compile Include="SpaceObjects\PositionSpeed.cs" />
+    <Compile Include="SpaceObjects\RandomObjects.cs" />
+    <Compile Include="SpaceObjects\SmallDot.cs" />
+    <Compile Include="SpaceObjects\Vector.cs" />
+    <Compile Include="WinformsGraphicsDevice\GraphicsDeviceControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinformsGraphicsDevice\GraphicsDeviceService.cs" />
+    <Compile Include="WinformsGraphicsDevice\ServiceContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.manifest" />
+    <None Include="Properties\DataSources\SharpAvi.Codecs.CodecInfo.datasource" />
+    <None Include="Resources\arrow.xnb" />
+    <None Include="Resources\asteroid.xnb" />
+    <None Include="Resources\ball.xnb" />
+    <None Include="Resources\cross10.xnb" />
+    <None Include="Resources\cross11.xnb" />
+    <None Include="Resources\cross12.xnb" />
+    <None Include="Resources\cross3.xnb" />
+    <None Include="Resources\cross4.xnb" />
+    <None Include="Resources\cross5.xnb" />
+    <None Include="Resources\cross6.xnb" />
+    <None Include="Resources\cross7.xnb" />
+    <None Include="Resources\cross8.xnb" />
+    <None Include="Resources\cross9.xnb" />
+    <None Include="Resources\earth.xnb" />
+    <None Include="Resources\font.xnb" />
+    <None Include="Resources\font_kootenay.xnb" />
+    <None Include="Resources\font_lindsey.xnb" />
+    <None Include="Resources\font_miramonte.xnb" />
+    <None Include="Resources\font_pericles.xnb" />
+    <None Include="Resources\font_pescadero.xnb" />
+    <None Include="Resources\font_segoeuimono.xnb" />
+    <None Include="Resources\font_small.xnb" />
+    <None Include="Resources\goldenball.xnb" />
+    <None Include="Resources\jupiter.xnb" />
+    <None Include="Resources\largedot.xnb" />
+    <None Include="Resources\mars.xnb" />
+    <None Include="Resources\mercury.xnb" />
+    <None Include="Resources\metalball.xnb" />
+    <None Include="Resources\moon.xnb" />
+    <None Include="Resources\neptune.xnb" />
+    <None Include="Resources\planet.xnb" />
+    <None Include="Resources\pluto.xnb" />
+    <None Include="Resources\saturn.xnb" />
+    <None Include="Resources\smalldot10.xnb" />
+    <None Include="Resources\smalldot11.xnb" />
+    <None Include="Resources\smalldot12.xnb" />
+    <None Include="Resources\smalldot3.xnb" />
+    <None Include="Resources\smalldot4.xnb" />
+    <None Include="Resources\smalldot5.xnb" />
+    <None Include="Resources\smalldot6.xnb" />
+    <None Include="Resources\smalldot7.xnb" />
+    <None Include="Resources\smalldot8.xnb" />
+    <None Include="Resources\smalldot9.xnb" />
+    <None Include="Resources\space.xnb" />
+    <None Include="Resources\space2.xnb" />
+    <None Include="Resources\space3.xnb" />
+    <None Include="Resources\space4.xnb" />
+    <None Include="Resources\space5.xnb" />
+    <None Include="Resources\sun.xnb" />
+    <None Include="Resources\uranus.xnb" />
+    <None Include="Resources\vector.xnb" />
+    <None Include="Resources\venus.xnb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FormCircle.resx">
+      <DependentUpon>FormCircle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPlanetSystems.resx">
+      <DependentUpon>FormPlanetSystems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGalaxy.resx">
+      <DependentUpon>FormGalaxy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBinary.resx">
+      <DependentUpon>FormBinary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGrid.resx">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLoadSave.resx">
+      <DependentUpon>FormLoadSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPreferences.resx">
+      <DependentUpon>FormPreferences.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRandom.resx">
+      <DependentUpon>FormRandom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSplashScreen.resx">
+      <DependentUpon>FormSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MacTrackbar\MACTrackBar.resx">
+      <DependentUpon>MACTrackBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GravityOne.ico" />
+    <Content Include="MacTrackbar\MACTrackBar.bmp" />
+    <Content Include="Resources\arrow.png" />
+    <Content Include="Resources\arrowdown.png" />
+    <Content Include="Resources\arrowleft.png" />
+    <Content Include="Resources\arrowright.png" />
+    <Content Include="Resources\arrowup.png" />
+    <None Include="Resources\camera-icon.jpg" />
+    <None Include="Resources\camera-icon.png" />
+    <None Include="Resources\icon-camera-32.png" />
+    <None Include="Resources\icon-pause-32.png" />
+    <None Include="Resources\icon-playone-32.png" />
+    <None Include="Resources\icon-play-32.png" />
+    <None Include="Resources\icon-rewind-32.png" />
+    <Content Include="Resources\largedot.png" />
+    <None Include="Resources\splashscreen.jpg" />
+    <Content Include="Resources\vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpAvi\SharpAvi.csproj">
+      <Project>{07b83677-e9b8-4166-a383-cf3b3d393fbd}</Project>
+      <Name>SharpAvi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Product Id="*" Name="GravityOne" Language="1033" Version="1.3.0.0" Manufacturer="Peter Popma" UpgradeCode="764ea1e4-f27a-4b7c-a883-a31543a94dc3">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of GravityOne is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <WixVariable Id="WixUILicenseRtf" Value="eula.rtf" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!--Directory Id="ProgramFilesFolder"-->
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="APPLICATIONROOTDIRECTORY">
+          <Directory Id="GravityOneID" Name="GravityOne">
+            <Directory Id="RecordingsID" Name="Recordings">
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="GravityOne"/>
+      </Directory>
+    </Directory>
+
+    <DirectoryRef Id="RecordingsID">
+      <Component Id="CreateRecordingsDir" Guid="09497797-EC72-4074-BB1A-54F0497A0B88">
+        <CreateFolder>
+          <util:PermissionEx User="Users" GenericAll="yes" />
+        </CreateFolder>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="GravityOneID">
+      <Component Id="GravityOneExe" Guid="D31054E8-8311-42FB-8E49-1F81466789D8">
+        <File Id="GravityOne.exe" Source="$(var.GravityOne.TargetPath)" Vital="yes" KeyPath="yes" />
+      </Component>
+      <Component Id="Monogame" Guid="D5B17AAB-DD16-448A-95C4-068314A29266">
+        <File Id="MonoGame.Framework.dll" Source="$(var.GravityOne.TargetDir)\MonoGame.Framework.dll" Vital="no" KeyPath="yes" />
+        <File Id="MonoGame.Framework.xml" Source="$(var.GravityOne.TargetDir)\MonoGame.Framework.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct2D1.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct2D1.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct2D1.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct2D1.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct3D9.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct3D9.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct3D9.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct3D9.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct3D11.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct3D11.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.Direct3D11.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.Direct3D11.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.DXGI.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.DXGI.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.DXGI.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.DXGI.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.MediaFoundation.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.MediaFoundation.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.MediaFoundation.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.MediaFoundation.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.XAudio2.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.XAudio2.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.XAudio2.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.XAudio2.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.XInput.dll" Source="$(var.GravityOne.TargetDir)\SharpDX.XInput.dll" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.XInput.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.XInput.xml" Vital="no" KeyPath="no" />
+        <File Id="SharpDX.xml" Source="$(var.GravityOne.TargetDir)\SharpDX.xml" Vital="no" KeyPath="no" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="RegistryEntries" Guid="6204A19C-3B02-4B66-B38D-17DCF3B5929F">
+        <CreateFolder/>
+        <RegistryKey Root="HKCU"
+                     Key="Software\Peter Popma\GravityOne">
+
+          <!--RegistryValue Type="string" Name="AllTrails" Value="True"/>
+          <RegistryValue Type="string" Name="AllVectors" Value="False"/>
+          <RegistryValue Type="integer" Name="Background" Value="2"/>
+          <RegistryValue Type="string" Name="BarnesHutTreshold" Value="0.5"/>
+          <RegistryValue Type="string" Name="CompressRecordings" Value="True"/>
+          <RegistryValue Type="integer" Name="CustomShapeAlpha" Value="2"/>
+          <RegistryValue Type="integer" Name="CustomShapePixelSize" Value="3"/>
+          <RegistryValue Type="string" Name="CustomShapeRandomSize" Value="False"/>
+          <RegistryValue Type="integer" Name="CustomShapeType" Value="1"/>
+          <RegistryValue Type="integer" Name="FrameRate" Value="20"/>
+          <RegistryValue Type="string" Name="GalaxyAddSolarSystem" Value="False"/>
+          <RegistryValue Type="integer" Name="GalaxyBarPercentage" Value="20"/>
+          <RegistryValue Type="string" Name="GalaxyBlackHoleMass" Value="4100000"/>
+          <RegistryValue Type="string" Name="GalaxyCalculateStableSpeed" Value="true"/>
+          <RegistryValue Type="integer" Name="GalaxyCrossSection" Value="1700"/>
+          <RegistryValue Type="string" Name="GalaxyEllipse" Value="True"/>
+          <RegistryValue Type="integer" Name="GalaxyEllipseBlurriness" Value="50"/>
+          <RegistryValue Type="integer" Name="GalaxyEllipseObjectsPercentage" Value="30"/>
+          <RegistryValue Type="string" Name="GalaxyEllipseRatio" Value="0.5"/>
+          <RegistryValue Type="integer" Name="GalaxyEllipseSizePercentage" Value="50"/>
+          <RegistryValue Type="string" Name="GalaxyHasBar" Value="True"/>
+          <RegistryValue Type="string" Name="GalaxyBlackHole" Value="True"/>
+          <RegistryValue Type="string" Name="GalaxyMass" Value="12000"/>
+          <RegistryValue Type="string" Name="GalaxyMassVariation" Value="20"/>
+          <RegistryValue Type="integer" Name="GalaxyNumberOfObjects" Value="10000"/>
+          <RegistryValue Type="string" Name="GalaxyRotateCCW" Value="True"/>
+          <RegistryValue Type="integer" Name="GalaxyRotationPeriod" Value="360"/>
+          <RegistryValue Type="string" Name="GalaxyXSpeed" Value="0"/>
+          <RegistryValue Type="string" Name="GalaxyYSpeed" Value="0"/>
+          <RegistryValue Type="string" Name="GalaxySpiral" Value="True"/>
+          <RegistryValue Type="string" Name="GalaxySpiralArmLength" Value="1.1"/>
+          <RegistryValue Type="integer" Name="GalaxySpiralArms" Value="2"/>
+          <RegistryValue Type="integer" Name="GalaxySpiralBlurriness" Value="50"/>
+          <RegistryValue Type="string" Name="GalaxyVelocityIncreaseFactor" Value="0.2"/>
+          <RegistryValue Type="string" Name="GravitationalConstant" Value="667408000000"/>
+          <RegistryValue Type="integer" Name="MinimumTextureSize" Value="11"/>
+          <RegistryValue Type="string" Name="PrecalcAutoIncrease" Value="False"/>
+          <RegistryValue Type="integer" Name="PrecalcTime" Value="10"/>
+          <RegistryValue Type="integer" Name="PreCalculationIncreaseFactor" Value="10"/>
+          <RegistryValue Type="string" Name="Reverse" Value="False"/>
+          <RegistryValue Type="string" Name="SaveDir" Value=""/>
+          <RegistryValue Type="string" Name="ShowAsDots" Value="False"/>
+          <RegistryValue Type="string" Name="ShowNames" Value="True"/>
+          <RegistryValue Type="string" Name="ShowScale" Value="True"/>
+          <RegistryValue Type="string" Name="UseBarnesHut" Value="True"/-->
+        </RegistryKey>
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="5DA99FBE-8D21-4CB6-8872-A3D2992EC489">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="Gravity One"
+                  Description="The number one gravity simulator"
+                  Target="[!GravityOne.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY">
+          <Icon Id="GravityOne.ico" SourceFile="GravityOne.ico" />
+        </Shortcut>
+        <RemoveFolder Id="CleanUpShortCut" Directory="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Peter Popma\GravityOne" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="ProductFeature" Title="GravityOne" Level="1">
+      <ComponentRef Id="GravityOneExe" />
+      <ComponentRef Id="Monogame" />
+      <ComponentRef Id="RegistryEntries" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="CreateRecordingsDir" />
+    </Feature>
+
+    <!-- Step 2: Add UI to your installer / Step 4: Trigger the custom action -->
+    <UI>
+      <UIRef Id="WixUI_Minimal" />
+      <Publish Dialog="ExitDialog"
+          Control="Finish"
+          Event="DoAction"
+          Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch Gravity One" />
+
+    <!-- Step 3: Include the custom action -->
+    <Property Id="WixShellExecTarget" Value="[#GravityOne.exe]" />
+    <CustomAction Id="LaunchApplication"
+        BinaryKey="WixCA"
+        DllEntry="WixShellExec"
+        Impersonate="yes" />
+
+  </Product>
+
+</Wix>
