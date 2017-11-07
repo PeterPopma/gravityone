@@ -64,23 +64,17 @@ namespace GravityOne.Gravity
 
         static Message message = new Message();
 
-        public GravitySystem(int viewportWidth_, int viewportHeight_)
-        {
-            viewportWidth = viewportWidth_;
-            viewportHeight = viewportHeight_;
-        }
-
-        public int NumPrecalculatedFrames()
+        static public int NumPrecalculatedFrames()
         {
             return preCalculationTime * targetFrameRate;
         }
 
-        public void SelectObjectAtMousePointer(int x, int y)
+        static public void SelectObjectAtMousePointer(int x, int y)
         {
             objectIndex = FindClosestObject(ScreenToRealCoordinateX(x), ScreenToRealCoordinateY(y));
         }
 
-        private int FindClosestObject(double x, double y)
+        static private int FindClosestObject(double x, double y)
         {
             int closestObjectIndex = -1;
             double closestDistance = double.MaxValue;
@@ -98,7 +92,7 @@ namespace GravityOne.Gravity
             return closestObjectIndex;
         }
 
-        public void ObtainMinMaxValues()
+        static public void ObtainMinMaxValues()
         {
             minSpeed = double.MaxValue;
             maxSpeed = double.MinValue;
@@ -172,7 +166,7 @@ namespace GravityOne.Gravity
             accelerationRange = maxAcceleration - minAcceleration;
         }
 
-        public long OffsetY
+        static public long OffsetY
         {
             get
             {
@@ -185,7 +179,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public long OffsetX
+        static public long OffsetX
         {
             get
             {
@@ -198,7 +192,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public long Scale
+        static public long Scale
         {
             get
             {
@@ -211,7 +205,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int ObjectIndex
+        static public int ObjectIndex
         {
             get
             {
@@ -224,7 +218,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int CenterIndex
+        static public int CenterIndex
         {
             get
             {
@@ -237,7 +231,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int CalculationsPerStepSetting
+        static public int CalculationsPerStepSetting
         {
             get
             {
@@ -250,7 +244,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int CalculationsPerStepActual
+        static public int CalculationsPerStepActual
         {
             get
             {
@@ -263,7 +257,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int TargetFrameRate
+        static public int TargetFrameRate
         {
             get
             {
@@ -276,7 +270,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int PreCalculationTime
+        static public int PreCalculationTime
         {
             get
             {
@@ -289,7 +283,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal Calculation[][] Calculation
+        static internal Calculation[][] Calculation
         {
             get
             {
@@ -302,7 +296,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int FrameNumberPlay
+        static public int FrameNumberPlay
         {
             get
             {
@@ -315,7 +309,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int CalculationsPerStepPrecalculated
+        static public int CalculationsPerStepPrecalculated
         {
             get
             {
@@ -328,7 +322,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int FrameNumberCalc
+        static public int FrameNumberCalc
         {
             get
             {
@@ -341,7 +335,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public bool IsCalculating
+        static public bool IsCalculating
         {
             get
             {
@@ -354,7 +348,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public BackgroundWorker BackgroundWorkerPreCalculate
+        static public BackgroundWorker BackgroundWorkerPreCalculate
         {
             get
             {
@@ -367,7 +361,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int PreCalculationIncreaseFactor
+        static public int PreCalculationIncreaseFactor
         {
             get
             {
@@ -380,7 +374,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double GravitationalConstant
+        static public double GravitationalConstant
         {
             get
             {
@@ -393,7 +387,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double MinSpeed
+        static public double MinSpeed
         {
             get
             {
@@ -406,7 +400,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double MaxSpeed
+        static public double MaxSpeed
         {
             get
             {
@@ -419,7 +413,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double MinAcceleration
+        static public double MinAcceleration
         {
             get
             {
@@ -432,7 +426,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double MaxAcceleration
+        static public double MaxAcceleration
         {
             get
             {
@@ -445,7 +439,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double SpeedRange
+        static public double SpeedRange
         {
             get
             {
@@ -458,7 +452,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double AccelerationRange
+        static public double AccelerationRange
         {
             get
             {
@@ -471,7 +465,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal QuadTree QuadTree
+        static internal QuadTree QuadTree
         {
             get
             {
@@ -484,7 +478,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public bool UseBarnesHut
+        static public bool UseBarnesHut
         {
             get
             {
@@ -497,7 +491,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public long CalculationSecondsPerFrame
+        static public long CalculationSecondsPerFrame
         {
             get
             {
@@ -510,7 +504,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal List<GravityObject> GravityObjects
+        static internal List<GravityObject> GravityObjects
         {
             get
             {
@@ -523,7 +517,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal Vector[] CalculationInitialSpeeds
+        static internal Vector[] CalculationInitialSpeeds
         {
             get
             {
@@ -536,7 +530,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal Vector[] CalculationCurrentSpeeds
+        static internal Vector[] CalculationCurrentSpeeds
         {
             get
             {
@@ -549,7 +543,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal Vector[] CalculationCurrentAccelerations
+        static internal Vector[] CalculationCurrentAccelerations
         {
             get
             {
@@ -562,7 +556,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public int MinimumTextureSize
+        static public int MinimumTextureSize
         {
             get
             {
@@ -575,7 +569,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public bool PrecalcAutoIncrease
+        static public bool PrecalcAutoIncrease
         {
             get
             {
@@ -588,7 +582,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double AccelerationLimit
+        static public double AccelerationLimit
         {
             get
             {
@@ -601,7 +595,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        internal Message Message
+        static internal Message Message
         {
             get
             {
@@ -614,7 +608,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public void DetermineTimeNeedForOneCalculation(GraphicsDevice dev)
+        static public void DetermineTimeNeedForOneCalculation(GraphicsDevice dev)
         {
             Random rnd = new Random();
             Texture2D textureTest = new Texture2D(dev, 1, 1);
@@ -663,7 +657,7 @@ namespace GravityOne.Gravity
             timeNeedForOneCalculation = stopwatch.ElapsedMilliseconds / 100000.0;
         }
 
-        public void DetermineCalculationsPerStepActual()
+        static public void DetermineCalculationsPerStepActual()
         {
             calculationsPerStepActual = calculationsPerStepSetting;
             if (calculationsPerStepSetting == -1)
@@ -684,7 +678,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        private void ReverseAllSpeeds()
+        static private void ReverseAllSpeeds()
         {
             foreach (GravityObject o in GravityObjects)
             {
@@ -694,7 +688,7 @@ namespace GravityOne.Gravity
         }
 
         // Make steps to move to a certain simulation time
-        public void MoveToDate(DateTime sourceDate, DateTime targetDate)
+        static public void MoveToDate(DateTime sourceDate, DateTime targetDate)
         {
             TimeSpan diff = targetDate.Subtract(sourceDate);
             if (diff.TotalDays < 0)
@@ -719,7 +713,7 @@ namespace GravityOne.Gravity
 
 
 
-        public void CalculateStep(long timeUnits, bool makeStep = true)
+        static public void CalculateStep(long timeUnits, bool makeStep = true)
         {
             Stopwatch stopwatch = Stopwatch.StartNew();     //creates and start the instance of Stopwatch
 
@@ -887,7 +881,7 @@ namespace GravityOne.Gravity
         }
 
         [ConditionalAttribute("DEBUG")]
-        private void LogValuesRealtimeBegin(int calculationsPerStepActual)
+        static private void LogValuesRealtimeBegin(int calculationsPerStepActual)
         {
             if (!isFirstFrame)
             {
@@ -912,7 +906,7 @@ namespace GravityOne.Gravity
         }
 
         [ConditionalAttribute("DEBUG")]
-        private void LogValuesRealtime(int calculationsPerStepActual)
+        static private void LogValuesRealtime(int calculationsPerStepActual)
         {
             if (isFirstFrame)
             {
@@ -940,38 +934,38 @@ namespace GravityOne.Gravity
         }
 
         // at scale 1, one pixel = 1000 km 
-        public double ScreenToRealCoordinateX(double screen_x)
+        static public double ScreenToRealCoordinateX(double screen_x)
         {
             return (screen_x + offsetX) * 1000000.0 * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
         }
 
-        public double ScreenToRealCoordinateY(double screen_y)
+        static public double ScreenToRealCoordinateY(double screen_y)
         {
             return (screen_y + offsetY) * 1000000.0 * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
         }
 
-        public int RealtoScreenCoordinateX(double realX)
+        static public int RealtoScreenCoordinateX(double realX)
         {
             return (int)((realX / (1000000.0 * scale)) - offsetX);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
-        public int RealtoScreenCoordinateY(double realY)
+        static public int RealtoScreenCoordinateY(double realY)
         {
             return (int)((realY / (1000000.0 * scale)) - offsetY);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
-        public long ScaleCoordinateX(double realX, long newScale)
+        static public long ScaleCoordinateX(double realX, long newScale)
         {
             return (long)(realX / (1000000.0 * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
-        public long ScaleCoordinateY(double realY, long newScale)
+        static public long ScaleCoordinateY(double realY, long newScale)
         {
             return (long)(realY / (1000000.0 * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         // used to keep the center the same when zooming in/out with no object centered
-        public void AdjustOffsetToNewScale(long newScale)
+        static public void AdjustOffsetToNewScale(long newScale)
         {
             double realCenterX = ScreenToRealCoordinateX((viewportWidth / 2));
             double realCenterY = ScreenToRealCoordinateY((viewportHeight / 2));
@@ -980,7 +974,7 @@ namespace GravityOne.Gravity
             offsetY = ScaleCoordinateY(realCenterY, newScale) - (viewportHeight / 2);
         }
 
-        public void CenterOnObject()
+        static public void CenterOnObject()
         {
             if (centerIndex > -1)
             {
@@ -989,27 +983,27 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double MetersToPixels(double meter)
+        static public double MetersToPixels(double meter)
         {
             return meter / (1000000.0 * scale);
         }
 
-        public double PixelsToMeters(double pixel)
+        static public double PixelsToMeters(double pixel)
         {
             return pixel * (1000000.0 * scale);
         }
 
-        public void AddObject(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, bool trace_, bool vector_, bool scaleObject_ = true)
+        static public void AddObject(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, bool trace_, bool vector_, bool scaleObject_ = true)
         {
             AddObjectRealPosition(name_, mass_, ScreenToRealCoordinateX(x_), ScreenToRealCoordinateY(y_), xSpeed_, ySpeed_, texture_, trace_, vector_, scaleObject_);
         }
-        public void AddObjectRealPosition(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, bool trace_, bool vector_, bool scaleObject_ = true)
+        static public void AddObjectRealPosition(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, bool trace_, bool vector_, bool scaleObject_ = true)
         {
             Color color_ = Color.White;
             AddObjectRealPosition(name_, mass_, x_, y_, xSpeed_, ySpeed_, texture_, color_, trace_, vector_, scaleObject_);
         }
 
-        public void AddObjectRealPosition(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, Color color_, bool trace_, bool vector_, bool scaleObject_ = true)
+        static public void AddObjectRealPosition(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, Color color_, bool trace_, bool vector_, bool scaleObject_ = true)
         {
             if (GravityObjects.Count == 0)     // center the first object
             {
@@ -1020,7 +1014,7 @@ namespace GravityOne.Gravity
         }
 
         // Find the object that had the most gravitational pull on X, Y
-        public GravityObject findBestHost(double X, double Y)
+        static public GravityObject findBestHost(double X, double Y)
         {
             double x = ScreenToRealCoordinateX(X);
             double y = ScreenToRealCoordinateY(Y);
@@ -1039,7 +1033,7 @@ namespace GravityOne.Gravity
             return hostObject;
         }
 
-        public GravityObject NextObject()
+        static public GravityObject NextObject()
         {
             objectIndex++;
             if (objectIndex >= GravityObjects.Count)
@@ -1049,7 +1043,7 @@ namespace GravityOne.Gravity
             return GravityObjects[objectIndex];
         }
 
-        public GravityObject PreviousObject()
+        static public GravityObject PreviousObject()
         {
             objectIndex--;
             if (objectIndex < 0)
@@ -1059,17 +1053,17 @@ namespace GravityOne.Gravity
             return GravityObjects[objectIndex];
         }
 
-        public GravityObject CurrentObject()
+        static public GravityObject CurrentObject()
         {
             return GravityObjects[objectIndex];
         }
 
-        public bool IsCurrentObjectedCenter()
+        static public bool IsCurrentObjectedCenter()
         {
             return objectIndex == centerIndex;
         }
 
-        public void ScaleObjects()
+        static public void ScaleObjects()
         {
             foreach (GravityObject o in GravityObjects)
             {
@@ -1094,12 +1088,12 @@ namespace GravityOne.Gravity
             }
         }
 
-        public double DistanceCurrentObjectZeroObject()
+        static public double DistanceCurrentObjectZeroObject()
         {
             return Math.Sqrt(Math.Pow(GravityObjects[0].X - GravityObjects[objectIndex].X, 2) + Math.Pow(GravityObjects[0].Y - GravityObjects[objectIndex].Y, 2)) / 1000;
         }
 
-        public void StabilizeObjectsSpeeds(int startPosition, bool rotateCounterClockWise)
+        static public void StabilizeObjectsSpeeds(int startPosition, bool rotateCounterClockWise)
         {
             double TotalMass = 0;
             double centerMassX = 0;
@@ -1180,7 +1174,7 @@ namespace GravityOne.Gravity
 
         }
 
-        public Vector calcSpeedFromHost(GravityObject hostObject, double X, double Y, double Mass)
+        static public Vector calcSpeedFromHost(GravityObject hostObject, double X, double Y, double Mass)
         {
             double x = ScreenToRealCoordinateX(X);
             double y = ScreenToRealCoordinateY(Y);
@@ -1198,7 +1192,7 @@ namespace GravityOne.Gravity
         }
 
         [ConditionalAttribute("DEBUG")]
-        private void LogValues(int calculationsPerStepNeededPower)
+        static private void LogValues(int calculationsPerStepNeededPower)
         {
             using (StreamWriter sr = new StreamWriter("logvalues" + Math.Pow(10, calculationsPerStepNeededPower) + ".txt"))
             {
@@ -1219,7 +1213,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public void PreCalculate(BackgroundWorker backgroundWorkerPreCalculate, DoWorkEventArgs e)
+        static public void PreCalculate(BackgroundWorker backgroundWorkerPreCalculate, DoWorkEventArgs e)
         {
             while (CalculationsPerStepPrecalculated == 1 || precalcAutoIncrease)
             {
@@ -1255,7 +1249,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public bool CalculateFrame(BackgroundWorker backgroundWorkerPreCalculate, DoWorkEventArgs e) 
+        static public bool CalculateFrame(BackgroundWorker backgroundWorkerPreCalculate, DoWorkEventArgs e) 
         {
             double secondsPerStep = QuadTree.SecondsPerStep = (double)CalculationSecondsPerFrame / CalculationsPerStepPrecalculated;
 
@@ -1363,7 +1357,7 @@ namespace GravityOne.Gravity
             return false;
         }
 
-        public void DisplayFrame()
+        static public void DisplayFrame()
         {
             for (int k = 0; k < Calculation[0].Length; k++)
             {
@@ -1374,7 +1368,7 @@ namespace GravityOne.Gravity
         }
 
         // Return true if last reached frame (to rewind)
-        public bool PlayOneFrame()
+        static public bool PlayOneFrame()
         {
             if( Calculation==null || Calculation[0].Length<GravityObjects.Count)
             {
@@ -1432,7 +1426,7 @@ namespace GravityOne.Gravity
             return false;
         }
 
-        public void InitCalculation()
+        static public void InitCalculation()
         {
             Calculation = new Calculation[NumPrecalculatedFrames() + 1][];
             for (int frame = 0; frame <= NumPrecalculatedFrames(); frame++)
@@ -1465,7 +1459,7 @@ namespace GravityOne.Gravity
             frameNumberPlay = 0;
         }
 
-        public void ResetCalculations(bool ForceStart=false)
+        static public void ResetCalculations(bool ForceStart=false)
         {
             if (IsCalculating || CalculationsPerStepPrecalculated > 1 || ForceStart)
             {
@@ -1475,7 +1469,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        public void StopCalculation()
+        static public void StopCalculation()
         {
             if(IsCalculating)
             {
@@ -1507,7 +1501,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        private void backgroundWorkerPreCalculate_DoWork(object sender, DoWorkEventArgs e)
+        static private void backgroundWorkerPreCalculate_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -1523,15 +1517,15 @@ namespace GravityOne.Gravity
             }
         }
 
-        public void StartCalculation()
+        static public void StartCalculation()
         {
             if (!IsCalculating)
             {
                 IsCalculating = true;
                 backgroundWorkerPreCalculate = new BackgroundWorker();
-                this.backgroundWorkerPreCalculate.WorkerReportsProgress = true;
-                this.backgroundWorkerPreCalculate.WorkerSupportsCancellation = true;
-                this.backgroundWorkerPreCalculate.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerPreCalculate_DoWork);
+                backgroundWorkerPreCalculate.WorkerReportsProgress = true;
+                backgroundWorkerPreCalculate.WorkerSupportsCancellation = true;
+                backgroundWorkerPreCalculate.DoWork += new System.ComponentModel.DoWorkEventHandler(backgroundWorkerPreCalculate_DoWork);
 
                 backgroundWorkerPreCalculate.RunWorkerAsync();
 
@@ -1551,7 +1545,7 @@ namespace GravityOne.Gravity
             }
         }
 
-        protected Calculation[][] ResizeArray<Calculation>(Calculation[][] original, int rows) where Calculation : new()
+        static public Calculation[][] ResizeArray<Calculation>(Calculation[][] original, int rows) where Calculation : new()
         {
             var newArray = new Calculation[rows][];
             for (int i = 0; i < rows; i++)
@@ -1570,7 +1564,7 @@ namespace GravityOne.Gravity
             return newArray;
         }
 
-        public void AdjustNumberOfCalculations(int newPreCalculationTime)
+        static public void AdjustNumberOfCalculations(int newPreCalculationTime)
         {
             int newNumPrecalculatedFrames = newPreCalculationTime * targetFrameRate;
 
