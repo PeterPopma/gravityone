@@ -14,55 +14,55 @@ using System.Windows.Forms;
 
 namespace GravityOne.Gravity
 {
-    class GravitySystem
+    static class GravitySystem
     {
-        int minimumTextureSize = 11;
+        static int minimumTextureSize = 11;
 
-        List<GravityObject> gravityObjects = new List<GravityObject>();
-        int objectIndex = -1;
-        int centerIndex = -1;
-        int targetFrameRate = 40;       // target FPS
-        long scale = 50;      // 1m = 1,000,000*[scale]m
-        long offsetX;        // offset in SCREEN coordinates
-        long offsetY;        // offset in SCREEN coordinates
-        int viewportWidth;
-        int viewportHeight;
-        double timeNeedForOneCalculation;
-        long calculationTime;
-        int calculationsPerStepSetting = 10000;
-        int calculationsPerStepActual = 100;
-        int frameNumberPlay = 0;
-        bool isFirstFrame = true;
-        double gravitationalConstant = 667408000000;
-        double accelerationLimit = 0.0000000001;
+        static List<GravityObject> gravityObjects = new List<GravityObject>();
+        static int objectIndex = -1;
+        static int centerIndex = -1;
+        static int targetFrameRate = 40;       // target FPS
+        static long scale = 50;      // 1m = 1,000,000*[scale]m
+        static long offsetX;        // offset in SCREEN coordinates
+        static long offsetY;        // offset in SCREEN coordinates
+        static int viewportWidth;
+        static int viewportHeight;
+        static double timeNeedForOneCalculation;
+        static long calculationTime;
+        static int calculationsPerStepSetting = 10000;
+        static int calculationsPerStepActual = 100;
+        static int frameNumberPlay = 0;
+        static bool isFirstFrame = true;
+        static double gravitationalConstant = 667408000000;
+        static double accelerationLimit = 0.0000000001;
 
         // Pre-calculation
-        Calculation[][] calculation;
-        Vector[] calculationInitialSpeeds;
-        Vector[] calculationCurrentSpeeds;
-        Vector[] calculationCurrentAccelerations;
-        int preCalculationTime = 20;        // Timespan (seconds) of precalculated period (this period is pre-calculated with increasing precision over time)
-        int calculationsPerStepPrecalculated = 1;
-        int preCalculationIncreaseFactor = 10;
-        int frameNumberCalc = 1;         // Frame 0 is the unmodified starting situation
-        long calculationSecondsPerFrame;
-        bool isCalculating = false;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerPreCalculate;
-        bool precalcAutoIncrease = false;
+        static Calculation[][] calculation;
+        static Vector[] calculationInitialSpeeds;
+        static Vector[] calculationCurrentSpeeds;
+        static Vector[] calculationCurrentAccelerations;
+        static int preCalculationTime = 20;        // Timespan (seconds) of precalculated period (this period is pre-calculated with increasing precision over time)
+        static int calculationsPerStepPrecalculated = 1;
+        static int preCalculationIncreaseFactor = 10;
+        static int frameNumberCalc = 1;         // Frame 0 is the unmodified starting situation
+        static long calculationSecondsPerFrame;
+        static bool isCalculating = false;
+        static private System.ComponentModel.BackgroundWorker backgroundWorkerPreCalculate;
+        static bool precalcAutoIncrease = false;
 
         // Barnes-Hut approximation
-        QuadTree quadTree = new QuadTree();
-        bool useBarnesHut = true;
+        static QuadTree quadTree = new QuadTree();
+        static bool useBarnesHut = true;
 
         // used for color coding galaxies
-        double minSpeed;
-        double maxSpeed;
-        double minAcceleration;
-        double maxAcceleration;
-        double speedRange = 0;
-        double accelerationRange = 0;
+        static double minSpeed;
+        static double maxSpeed;
+        static double minAcceleration;
+        static double maxAcceleration;
+        static double speedRange = 0;
+        static double accelerationRange = 0;
 
-        Message message = new Message();
+        static Message message = new Message();
 
         public GravitySystem(int viewportWidth_, int viewportHeight_)
         {

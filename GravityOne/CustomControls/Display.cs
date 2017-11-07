@@ -74,7 +74,7 @@ namespace GravityOne.CustomControls
         long timeUnitsPerStep = 1;
 
         int scrollWheelValue, lastScrollWheelValue;
-        GravitySystem gravitySystem;
+        //GravitySystem gravitySystem;
 
         // Input state.
         KeyboardState currentKeyboardState;
