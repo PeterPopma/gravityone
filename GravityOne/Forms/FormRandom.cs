@@ -33,13 +33,13 @@ namespace GravityOne.Forms
 
         public void Initialize()
         {
-            numericUpDownMass.Value = Convert.ToDecimal(MyParent.DisplayXNA.RandomObjects.Mass);
-            numericUpDownNumberOfObjects.Value = Convert.ToDecimal(MyParent.DisplayXNA.RandomObjects.NumberOfObjects);
-            comboBoxShape.SelectedIndex = comboBoxShape.FindString(MyParent.DisplayXNA.RandomObjects.Texture.Name);
-            numericUpDownArea.Value = MyParent.DisplayXNA.RandomObjects.Area;
-            comboBoxAreaUnits.SelectedIndex = comboBoxAreaUnits.FindString(MyParent.DisplayXNA.RandomObjects.AreaUnits);
-            numericUpDownSpeed.Value = Convert.ToInt32(MyParent.DisplayXNA.RandomObjects.Speed);
-            numericUpDownSpeedRandomness.Value = Convert.ToInt32(MyParent.DisplayXNA.RandomObjects.SpeedRandomness);
+            numericUpDownMass.Value = Convert.ToDecimal(MyParent.DisplayXNA.PresetObjects.RandomObjects.Mass);
+            numericUpDownNumberOfObjects.Value = Convert.ToDecimal(MyParent.DisplayXNA.PresetObjects.RandomObjects.NumberOfObjects);
+            comboBoxShape.SelectedIndex = comboBoxShape.FindString(MyParent.DisplayXNA.PresetObjects.RandomObjects.Texture.Name);
+            numericUpDownArea.Value = MyParent.DisplayXNA.PresetObjects.RandomObjects.Area;
+            comboBoxAreaUnits.SelectedIndex = comboBoxAreaUnits.FindString(MyParent.DisplayXNA.PresetObjects.RandomObjects.AreaUnits);
+            numericUpDownSpeed.Value = Convert.ToInt32(MyParent.DisplayXNA.PresetObjects.RandomObjects.Speed);
+            numericUpDownSpeedRandomness.Value = Convert.ToInt32(MyParent.DisplayXNA.PresetObjects.RandomObjects.SpeedRandomness);
         }
 
         private void gradientButtonCreate_Click(object sender, EventArgs e)
@@ -48,13 +48,13 @@ namespace GravityOne.Forms
             myParent.gradientButtonRandom.ForeColor = Color.Coral;
             myParent.labelClickMessage.Visible = true;
             this.Cursor = Cursors.Hand;
-            myParent.DisplayXNA.RandomObjects.Mass = Convert.ToInt64(numericUpDownMass.Value);
-            myParent.DisplayXNA.RandomObjects.NumberOfObjects = Convert.ToInt32(numericUpDownNumberOfObjects.Value);
-            MyParent.DisplayXNA.RandomObjects.Texture = MyParent.DisplayXNA.getTextureByName(comboBoxShape.Text);
-            MyParent.DisplayXNA.RandomObjects.AreaUnits = comboBoxAreaUnits.Text;
-            MyParent.DisplayXNA.RandomObjects.Area = Convert.ToUInt64(numericUpDownArea.Value);
-            MyParent.DisplayXNA.RandomObjects.Speed = Convert.ToInt32(numericUpDownSpeed.Value);
-            MyParent.DisplayXNA.RandomObjects.SpeedRandomness = Convert.ToInt32(numericUpDownSpeedRandomness.Value);
+            myParent.DisplayXNA.PresetObjects.RandomObjects.Mass = Convert.ToInt64(numericUpDownMass.Value);
+            myParent.DisplayXNA.PresetObjects.RandomObjects.NumberOfObjects = Convert.ToInt32(numericUpDownNumberOfObjects.Value);
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.Texture = MyParent.DisplayXNA.getTextureByName(comboBoxShape.Text);
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.AreaUnits = comboBoxAreaUnits.Text;
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.Area = Convert.ToUInt64(numericUpDownArea.Value);
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.Speed = Convert.ToInt32(numericUpDownSpeed.Value);
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.SpeedRandomness = Convert.ToInt32(numericUpDownSpeedRandomness.Value);
 
             Close();
         }

@@ -130,30 +130,30 @@ namespace GravityOne.Forms
                 displayXNA.SmallDot.RandomSize = Convert.ToBoolean(key.GetValue("CustomShapeRandomSize"));
                 displayXNA.SmallDot.RandomColor = Convert.ToBoolean(key.GetValue("CustomShapeRandomColor"));
                 displayXNA.GravitySystem.GravitationalConstant = Convert.ToInt64(key.GetValue("GravitationalConstant", 667408000000));
-                displayXNA.Galaxy.TotalMass = Convert.ToInt64(key.GetValue("GalaxyMass", 12000));
-                displayXNA.Galaxy.BlackHoleMass = Convert.ToInt64(key.GetValue("GalaxyBlackHoleMass", 4100000));
-                displayXNA.Galaxy.CrossSection = Convert.ToInt32(key.GetValue("GalaxyCrossSection", 1700));
-                displayXNA.Galaxy.HasBlackHole = Convert.ToBoolean(key.GetValue("GalaxyHasBlackHole", true));
-                displayXNA.Galaxy.HasSpiral = Convert.ToBoolean(key.GetValue("GalaxySpiral", true));
-                displayXNA.Galaxy.HasEllipse = Convert.ToBoolean(key.GetValue("GalaxyEllipse", true));
-                displayXNA.Galaxy.NumberOfObjects = Convert.ToInt32(key.GetValue("GalaxyNumberOfObjects", 6000));
-                displayXNA.Galaxy.RotateCCW = Convert.ToBoolean(key.GetValue("GalaxyRotateCCW", true));
-                displayXNA.Galaxy.RotationPeriod = Convert.ToInt32(key.GetValue("GalaxyRotationPeriod", 360));
-                displayXNA.Galaxy.VelocityIncreaseFactor = Convert.ToDouble(key.GetValue("GalaxyVelocityIncreaseFactor", 0.2));
-                displayXNA.Galaxy.NumberOfArms = Convert.ToInt32(key.GetValue("GalaxySpiralArms", 2));
-                displayXNA.Galaxy.ArmLength = Convert.ToDouble(key.GetValue("GalaxySpiralArmLength", 1.4));
-                displayXNA.Galaxy.HasBar = Convert.ToBoolean(key.GetValue("GalaxyHasBar", true));
-                displayXNA.Galaxy.EllipseRatio = Convert.ToDouble(key.GetValue("GalaxyEllipseRatio", 0.5));
-                displayXNA.Galaxy.EllipseSizePercentage = Convert.ToInt32(key.GetValue("GalaxyEllipseSizePercentage", 50));
-                displayXNA.Galaxy.EllipseObjectsPercentage = Convert.ToInt32(key.GetValue("GalaxyEllipseObjectsPercentage", 30));
-                displayXNA.Galaxy.EllipseBlurriness = Convert.ToInt32(key.GetValue("GalaxyEllipseBlurriness", 50));
-                displayXNA.Galaxy.SpiralBlurriness = Convert.ToInt32(key.GetValue("GalaxySpiralBlurriness", 50));
-                displayXNA.Galaxy.BarPercentage = Convert.ToInt32(key.GetValue("GalaxyBarPercentage", 20));
-                displayXNA.Galaxy.MassVariation = Convert.ToInt32(key.GetValue("GalaxyMassVariation", 20));
-                displayXNA.Galaxy.AddSolarSystem = Convert.ToBoolean(key.GetValue("GalaxyAddSolarSystem", false));
-                displayXNA.Galaxy.CalculateStableSpeed = Convert.ToBoolean(key.GetValue("GalaxyCalculateStableSpeed", false));
-                displayXNA.Galaxy.XSpeed = Convert.ToDouble(key.GetValue("GalaxyXSpeed", 0));
-                displayXNA.Galaxy.YSpeed = Convert.ToDouble(key.GetValue("GalaxyYSpeed", 0));
+                DisplayXNA.PresetObjects.Galaxy.TotalMass = Convert.ToInt64(key.GetValue("GalaxyMass", 12000));
+                DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = Convert.ToInt64(key.GetValue("GalaxyBlackHoleMass", 4100000));
+                DisplayXNA.PresetObjects.Galaxy.CrossSection = Convert.ToInt32(key.GetValue("GalaxyCrossSection", 1700));
+                DisplayXNA.PresetObjects.Galaxy.HasBlackHole = Convert.ToBoolean(key.GetValue("GalaxyHasBlackHole", true));
+                DisplayXNA.PresetObjects.Galaxy.HasSpiral = Convert.ToBoolean(key.GetValue("GalaxySpiral", true));
+                DisplayXNA.PresetObjects.Galaxy.HasEllipse = Convert.ToBoolean(key.GetValue("GalaxyEllipse", true));
+                DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = Convert.ToInt32(key.GetValue("GalaxyNumberOfObjects", 6000));
+                DisplayXNA.PresetObjects.Galaxy.RotateCCW = Convert.ToBoolean(key.GetValue("GalaxyRotateCCW", true));
+                DisplayXNA.PresetObjects.Galaxy.RotationPeriod = Convert.ToInt32(key.GetValue("GalaxyRotationPeriod", 360));
+                DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = Convert.ToDouble(key.GetValue("GalaxyVelocityIncreaseFactor", 0.2));
+                DisplayXNA.PresetObjects.Galaxy.NumberOfArms = Convert.ToInt32(key.GetValue("GalaxySpiralArms", 2));
+                DisplayXNA.PresetObjects.Galaxy.ArmLength = Convert.ToDouble(key.GetValue("GalaxySpiralArmLength", 1.4));
+                DisplayXNA.PresetObjects.Galaxy.HasBar = Convert.ToBoolean(key.GetValue("GalaxyHasBar", true));
+                DisplayXNA.PresetObjects.Galaxy.EllipseRatio = Convert.ToDouble(key.GetValue("GalaxyEllipseRatio", 0.5));
+                DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = Convert.ToInt32(key.GetValue("GalaxyEllipseSizePercentage", 50));
+                DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = Convert.ToInt32(key.GetValue("GalaxyEllipseObjectsPercentage", 30));
+                DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = Convert.ToInt32(key.GetValue("GalaxyEllipseBlurriness", 50));
+                DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = Convert.ToInt32(key.GetValue("GalaxySpiralBlurriness", 50));
+                DisplayXNA.PresetObjects.Galaxy.BarPercentage = Convert.ToInt32(key.GetValue("GalaxyBarPercentage", 20));
+                DisplayXNA.PresetObjects.Galaxy.MassVariation = Convert.ToInt32(key.GetValue("GalaxyMassVariation", 20));
+                DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = Convert.ToBoolean(key.GetValue("GalaxyAddSolarSystem", false));
+                DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = Convert.ToBoolean(key.GetValue("GalaxyCalculateStableSpeed", false));
+                DisplayXNA.PresetObjects.Galaxy.XSpeed = Convert.ToDouble(key.GetValue("GalaxyXSpeed", 0));
+                DisplayXNA.PresetObjects.Galaxy.YSpeed = Convert.ToDouble(key.GetValue("GalaxyYSpeed", 0));
                 displayXNA.GravitySystem.QuadTree.Treshold = Convert.ToDouble(key.GetValue("BarnesHutTreshold", 0.5));
                 displayXNA.GravitySystem.UseBarnesHut = Convert.ToBoolean(key.GetValue("UseBarnesHut", true));
                 displayXNA.GravitySystem.MinimumTextureSize = Convert.ToInt32(key.GetValue("MinimumTextureSize", 11));
@@ -164,32 +164,32 @@ namespace GravityOne.Forms
 
                 displayXNA.initSmallDot(displayXNA.SmallDot.PixelSize, Microsoft.Xna.Framework.Color.White);    // needs to be before any calls to getTextureByName()
 
-                displayXNA.Grid.Mass = Convert.ToDouble(key.GetValue("GridMass", 20000));
-                displayXNA.Grid.Rotations = Convert.ToDouble(key.GetValue("GridRotations", 0));
-                displayXNA.Grid.Spacing = Convert.ToDouble(key.GetValue("GridSpacing", 50));
-                displayXNA.Grid.SpacingUnits = key.GetValue("GridSpacingUnits", "pixels").ToString();
-                displayXNA.Grid.Texture = DisplayXNA.getTextureByName(key.GetValue("GridTexture", "<Custom Shape>").ToString());
-                displayXNA.Grid.XAmount = Convert.ToDouble(key.GetValue("GridXAmount", 20));
-                displayXNA.Grid.YAmount = Convert.ToDouble(key.GetValue("GridYAmount", 20));
-                displayXNA.Grid.XSpeed = Convert.ToDouble(key.GetValue("GridXSpeed", 0));
-                displayXNA.Grid.YSpeed = Convert.ToDouble(key.GetValue("GridYSpeed", 0));
+                displayXNA.PresetObjects.Grid.Mass = Convert.ToDouble(key.GetValue("GridMass", 20000));
+                displayXNA.PresetObjects.Grid.Rotations = Convert.ToDouble(key.GetValue("GridRotations", 0));
+                displayXNA.PresetObjects.Grid.Spacing = Convert.ToDouble(key.GetValue("GridSpacing", 50));
+                displayXNA.PresetObjects.Grid.SpacingUnits = key.GetValue("GridSpacingUnits", "pixels").ToString();
+                displayXNA.PresetObjects.Grid.Texture = DisplayXNA.getTextureByName(key.GetValue("GridTexture", "<Custom Shape>").ToString());
+                displayXNA.PresetObjects.Grid.XAmount = Convert.ToDouble(key.GetValue("GridXAmount", 20));
+                displayXNA.PresetObjects.Grid.YAmount = Convert.ToDouble(key.GetValue("GridYAmount", 20));
+                displayXNA.PresetObjects.Grid.XSpeed = Convert.ToDouble(key.GetValue("GridXSpeed", 0));
+                displayXNA.PresetObjects.Grid.YSpeed = Convert.ToDouble(key.GetValue("GridYSpeed", 0));
 
-                displayXNA.Circle.Mass = Convert.ToDouble(key.GetValue("CircleMass", 20000));
-                displayXNA.Circle.Rotations = Convert.ToDouble(key.GetValue("CircleRotations", 0));
-                displayXNA.Circle.Spacing = Convert.ToDouble(key.GetValue("CircleSpacing", 50));
-                displayXNA.Circle.SpacingUnits = key.GetValue("CircleSpacingUnits", "pixels").ToString();
-                displayXNA.Circle.Texture = DisplayXNA.getTextureByName(key.GetValue("CircleTexture", "<Custom Shape>").ToString());
-                displayXNA.Circle.NumObjectsRadius = Convert.ToDouble(key.GetValue("CircleNumberOfObjectsRadius", 20));
-                displayXNA.Circle.XSpeed = Convert.ToDouble(key.GetValue("CircleXSpeed", 0));
-                displayXNA.Circle.YSpeed = Convert.ToDouble(key.GetValue("CircleYSpeed", 0));
+                displayXNA.PresetObjects.Circle.Mass = Convert.ToDouble(key.GetValue("CircleMass", 20000));
+                displayXNA.PresetObjects.Circle.Rotations = Convert.ToDouble(key.GetValue("CircleRotations", 0));
+                displayXNA.PresetObjects.Circle.Spacing = Convert.ToDouble(key.GetValue("CircleSpacing", 50));
+                displayXNA.PresetObjects.Circle.SpacingUnits = key.GetValue("CircleSpacingUnits", "pixels").ToString();
+                displayXNA.PresetObjects.Circle.Texture = DisplayXNA.getTextureByName(key.GetValue("CircleTexture", "<Custom Shape>").ToString());
+                displayXNA.PresetObjects.Circle.NumObjectsRadius = Convert.ToDouble(key.GetValue("CircleNumberOfObjectsRadius", 20));
+                displayXNA.PresetObjects.Circle.XSpeed = Convert.ToDouble(key.GetValue("CircleXSpeed", 0));
+                displayXNA.PresetObjects.Circle.YSpeed = Convert.ToDouble(key.GetValue("CircleYSpeed", 0));
 
-                displayXNA.RandomObjects.Mass = Convert.ToInt64(key.GetValue("RandomMass", 5000000));
-                displayXNA.RandomObjects.NumberOfObjects = Convert.ToInt32(key.GetValue("RandomNumberOfObjects", 200));
-                displayXNA.RandomObjects.Texture = DisplayXNA.getTextureByName(key.GetValue("RandomTexture", "<Custom Shape>").ToString());
-                displayXNA.RandomObjects.Area = Convert.ToUInt64(key.GetValue("RandomArea", 1000));
-                displayXNA.RandomObjects.AreaUnits = key.GetValue("RandomAreaUnits", "pixels").ToString();
-                displayXNA.RandomObjects.Speed = Convert.ToInt32(key.GetValue("RandomSpeed", 0));
-                displayXNA.RandomObjects.SpeedRandomness = Convert.ToInt32(key.GetValue("RandomSpeedRandomness", 0));
+                displayXNA.PresetObjects.RandomObjects.Mass = Convert.ToInt64(key.GetValue("RandomMass", 5000000));
+                displayXNA.PresetObjects.RandomObjects.NumberOfObjects = Convert.ToInt32(key.GetValue("RandomNumberOfObjects", 200));
+                displayXNA.PresetObjects.RandomObjects.Texture = DisplayXNA.getTextureByName(key.GetValue("RandomTexture", "<Custom Shape>").ToString());
+                displayXNA.PresetObjects.RandomObjects.Area = Convert.ToUInt64(key.GetValue("RandomArea", 1000));
+                displayXNA.PresetObjects.RandomObjects.AreaUnits = key.GetValue("RandomAreaUnits", "pixels").ToString();
+                displayXNA.PresetObjects.RandomObjects.Speed = Convert.ToInt32(key.GetValue("RandomSpeed", 0));
+                displayXNA.PresetObjects.RandomObjects.SpeedRandomness = Convert.ToInt32(key.GetValue("RandomSpeedRandomness", 0));
 
                 SetControls();
             }
@@ -225,30 +225,30 @@ namespace GravityOne.Forms
             key.SetValue("CustomShapeRandomSize", DisplayXNA.SmallDot.RandomSize);
             key.SetValue("CustomShapeRandomColor", DisplayXNA.SmallDot.RandomColor);
             key.SetValue("GravitationalConstant", DisplayXNA.GravitySystem.GravitationalConstant);
-            key.SetValue("GalaxyMass", DisplayXNA.Galaxy.TotalMass);
-            key.SetValue("GalaxyBlackHoleMass", DisplayXNA.Galaxy.BlackHoleMass);
-            key.SetValue("GalaxyCrossSection", DisplayXNA.Galaxy.CrossSection);
-            key.SetValue("GalaxyHasBlackHole", DisplayXNA.Galaxy.HasBlackHole);
-            key.SetValue("GalaxySpiral", DisplayXNA.Galaxy.HasSpiral);
-            key.SetValue("GalaxyEllipse", DisplayXNA.Galaxy.HasEllipse);
-            key.SetValue("GalaxyNumberOfObjects", DisplayXNA.Galaxy.NumberOfObjects);
-            key.SetValue("GalaxyRotateCCW", DisplayXNA.Galaxy.RotateCCW);
-            key.SetValue("GalaxyRotationPeriod", DisplayXNA.Galaxy.RotationPeriod);
-            key.SetValue("GalaxyVelocityIncreaseFactor", Convert.ToDecimal(DisplayXNA.Galaxy.VelocityIncreaseFactor));
-            key.SetValue("GalaxySpiralArms", DisplayXNA.Galaxy.NumberOfArms);
-            key.SetValue("GalaxySpiralArmLength", DisplayXNA.Galaxy.ArmLength);
-            key.SetValue("GalaxyHasBar", DisplayXNA.Galaxy.HasBar);
-            key.SetValue("GalaxyEllipseRatio", DisplayXNA.Galaxy.EllipseRatio);
-            key.SetValue("GalaxyEllipseSizePercentage", DisplayXNA.Galaxy.EllipseSizePercentage);
-            key.SetValue("GalaxyEllipseObjectsPercentage", DisplayXNA.Galaxy.EllipseObjectsPercentage);
-            key.SetValue("GalaxyBarPercentage", DisplayXNA.Galaxy.BarPercentage);
-            key.SetValue("GalaxyEllipseBlurriness", DisplayXNA.Galaxy.EllipseBlurriness);
-            key.SetValue("GalaxySpiralBlurriness", DisplayXNA.Galaxy.SpiralBlurriness);
-            key.SetValue("GalaxyMassVariation", DisplayXNA.Galaxy.MassVariation);
-            key.SetValue("GalaxyAddSolarSystem", DisplayXNA.Galaxy.AddSolarSystem);
-            key.SetValue("GalaxyCalculateStableSpeed", displayXNA.Galaxy.CalculateStableSpeed);
-            key.SetValue("GalaxyXSpeed", displayXNA.Galaxy.XSpeed);
-            key.SetValue("GalaxyYSpeed", displayXNA.Galaxy.YSpeed);
+            key.SetValue("GalaxyMass", DisplayXNA.PresetObjects.Galaxy.TotalMass);
+            key.SetValue("GalaxyBlackHoleMass", DisplayXNA.PresetObjects.Galaxy.BlackHoleMass);
+            key.SetValue("GalaxyCrossSection", DisplayXNA.PresetObjects.Galaxy.CrossSection);
+            key.SetValue("GalaxyHasBlackHole", DisplayXNA.PresetObjects.Galaxy.HasBlackHole);
+            key.SetValue("GalaxySpiral", DisplayXNA.PresetObjects.Galaxy.HasSpiral);
+            key.SetValue("GalaxyEllipse", DisplayXNA.PresetObjects.Galaxy.HasEllipse);
+            key.SetValue("GalaxyNumberOfObjects", DisplayXNA.PresetObjects.Galaxy.NumberOfObjects);
+            key.SetValue("GalaxyRotateCCW", DisplayXNA.PresetObjects.Galaxy.RotateCCW);
+            key.SetValue("GalaxyRotationPeriod", DisplayXNA.PresetObjects.Galaxy.RotationPeriod);
+            key.SetValue("GalaxyVelocityIncreaseFactor", Convert.ToDecimal(DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor));
+            key.SetValue("GalaxySpiralArms", DisplayXNA.PresetObjects.Galaxy.NumberOfArms);
+            key.SetValue("GalaxySpiralArmLength", DisplayXNA.PresetObjects.Galaxy.ArmLength);
+            key.SetValue("GalaxyHasBar", DisplayXNA.PresetObjects.Galaxy.HasBar);
+            key.SetValue("GalaxyEllipseRatio", DisplayXNA.PresetObjects.Galaxy.EllipseRatio);
+            key.SetValue("GalaxyEllipseSizePercentage", DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage);
+            key.SetValue("GalaxyEllipseObjectsPercentage", DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage);
+            key.SetValue("GalaxyBarPercentage", DisplayXNA.PresetObjects.Galaxy.BarPercentage);
+            key.SetValue("GalaxyEllipseBlurriness", DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness);
+            key.SetValue("GalaxySpiralBlurriness", DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness);
+            key.SetValue("GalaxyMassVariation", DisplayXNA.PresetObjects.Galaxy.MassVariation);
+            key.SetValue("GalaxyAddSolarSystem", DisplayXNA.PresetObjects.Galaxy.AddSolarSystem);
+            key.SetValue("GalaxyCalculateStableSpeed", DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed);
+            key.SetValue("GalaxyXSpeed", DisplayXNA.PresetObjects.Galaxy.XSpeed);
+            key.SetValue("GalaxyYSpeed", DisplayXNA.PresetObjects.Galaxy.YSpeed);
             key.SetValue("BarnesHutTreshold", displayXNA.GravitySystem.QuadTree.Treshold);
             key.SetValue("UseBarnesHut", displayXNA.GravitySystem.UseBarnesHut);
             key.SetValue("MinimumTextureSize", displayXNA.GravitySystem.MinimumTextureSize);
@@ -256,34 +256,34 @@ namespace GravityOne.Forms
             key.SetValue("AccelerationLimit", displayXNA.GravitySystem.AccelerationLimit);
             key.SetValue("VideoCaptureCompression", displayXNA.VideoCaptureCompression);
             key.SetValue("VideoCaptureFPS", displayXNA.VideoCaptureFPS);
-            key.SetValue("GridMass", displayXNA.Grid.Mass);
-            key.SetValue("GridRotations", displayXNA.Grid.Rotations);
-            key.SetValue("GridSpacing", displayXNA.Grid.Spacing);
-            key.SetValue("GridSpacingUnits", displayXNA.Grid.SpacingUnits);
-            key.SetValue("GridTexture", displayXNA.Grid.Texture.Name);
-            key.SetValue("GridXAmount", displayXNA.Grid.XAmount);
-            key.SetValue("GridYAmount", displayXNA.Grid.YAmount);
-            key.SetValue("GridXSpeed", displayXNA.Grid.XSpeed);
-            key.SetValue("GridYSpeed", displayXNA.Grid.YSpeed);
-            key.SetValue("CircleMass", displayXNA.Circle.Mass);
-            key.SetValue("CircleRotations", displayXNA.Circle.Rotations);
-            key.SetValue("CircleSpacing", displayXNA.Circle.Spacing);
-            key.SetValue("CircleSpacingUnits", displayXNA.Circle.SpacingUnits);
-            key.SetValue("CircleTexture", displayXNA.Circle.Texture.Name);
-            key.SetValue("CircleNumberOfObjectsRadius", displayXNA.Circle.NumObjectsRadius);
-            key.SetValue("CircleXSpeed", displayXNA.Circle.XSpeed);
-            key.SetValue("CircleYSpeed", displayXNA.Circle.YSpeed);
-            key.SetValue("RandomMass", displayXNA.RandomObjects.Mass);
-            key.SetValue("RandomNumberOfObjects", displayXNA.RandomObjects.NumberOfObjects);
-            key.SetValue("RandomTexture", displayXNA.RandomObjects.Texture.Name);
-            key.SetValue("RandomArea", displayXNA.RandomObjects.Area);
-            key.SetValue("RandomAreaUnits", displayXNA.RandomObjects.AreaUnits);
-            key.SetValue("RandomSpeed", displayXNA.RandomObjects.Speed);
-            key.SetValue("RandomSpeedRandomness", displayXNA.RandomObjects.SpeedRandomness);
-            displayXNA.RandomObjects.Area = Convert.ToUInt64(key.GetValue("RandomArea", 1000));
-            displayXNA.RandomObjects.AreaUnits = key.GetValue("RandomAreaUnits", "pixels").ToString();
-            displayXNA.RandomObjects.Speed = Convert.ToInt32(key.GetValue("RandomSpeed", 0));
-            displayXNA.RandomObjects.SpeedRandomness = Convert.ToInt32(key.GetValue("RandomSpeedRandomness", 0));
+            key.SetValue("GridMass", DisplayXNA.PresetObjects.Grid.Mass);
+            key.SetValue("GridRotations", DisplayXNA.PresetObjects.Grid.Rotations);
+            key.SetValue("GridSpacing", DisplayXNA.PresetObjects.Grid.Spacing);
+            key.SetValue("GridSpacingUnits", DisplayXNA.PresetObjects.Grid.SpacingUnits);
+            key.SetValue("GridTexture", DisplayXNA.PresetObjects.Grid.Texture.Name);
+            key.SetValue("GridXAmount", DisplayXNA.PresetObjects.Grid.XAmount);
+            key.SetValue("GridYAmount", DisplayXNA.PresetObjects.Grid.YAmount);
+            key.SetValue("GridXSpeed", DisplayXNA.PresetObjects.Grid.XSpeed);
+            key.SetValue("GridYSpeed", DisplayXNA.PresetObjects.Grid.YSpeed);
+            key.SetValue("CircleMass", DisplayXNA.PresetObjects.Circle.Mass);
+            key.SetValue("CircleRotations", DisplayXNA.PresetObjects.Circle.Rotations);
+            key.SetValue("CircleSpacing", DisplayXNA.PresetObjects.Circle.Spacing);
+            key.SetValue("CircleSpacingUnits", DisplayXNA.PresetObjects.Circle.SpacingUnits);
+            key.SetValue("CircleTexture", DisplayXNA.PresetObjects.Circle.Texture.Name);
+            key.SetValue("CircleNumberOfObjectsRadius", DisplayXNA.PresetObjects.Circle.NumObjectsRadius);
+            key.SetValue("CircleXSpeed", DisplayXNA.PresetObjects.Circle.XSpeed);
+            key.SetValue("CircleYSpeed", DisplayXNA.PresetObjects.Circle.YSpeed);
+            key.SetValue("RandomMass", DisplayXNA.PresetObjects.RandomObjects.Mass);
+            key.SetValue("RandomNumberOfObjects", DisplayXNA.PresetObjects.RandomObjects.NumberOfObjects);
+            key.SetValue("RandomTexture", DisplayXNA.PresetObjects.RandomObjects.Texture.Name);
+            key.SetValue("RandomArea", DisplayXNA.PresetObjects.RandomObjects.Area);
+            key.SetValue("RandomAreaUnits", DisplayXNA.PresetObjects.RandomObjects.AreaUnits);
+            key.SetValue("RandomSpeed", DisplayXNA.PresetObjects.RandomObjects.Speed);
+            key.SetValue("RandomSpeedRandomness", DisplayXNA.PresetObjects.RandomObjects.SpeedRandomness);
+            DisplayXNA.PresetObjects.RandomObjects.Area = Convert.ToUInt64(key.GetValue("RandomArea", 1000));
+            DisplayXNA.PresetObjects.RandomObjects.AreaUnits = key.GetValue("RandomAreaUnits", "pixels").ToString();
+            DisplayXNA.PresetObjects.RandomObjects.Speed = Convert.ToInt32(key.GetValue("RandomSpeed", 0));
+            DisplayXNA.PresetObjects.RandomObjects.SpeedRandomness = Convert.ToInt32(key.GetValue("RandomSpeedRandomness", 0));
 
         }
 
@@ -298,173 +298,173 @@ namespace GravityOne.Forms
         public void PresetToLargeStableGalaxy()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("100.000 years");
-            displayXNA.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.CrossSection = 1700000000;
-            displayXNA.Galaxy.HasBlackHole = true;
-            displayXNA.Galaxy.HasSpiral = true;
-            displayXNA.Galaxy.HasEllipse = true;
-            displayXNA.Galaxy.NumberOfObjects = 10000;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.RotationPeriod = 10000000;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0.1;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.1;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 50;
-            displayXNA.Galaxy.SpiralBlurriness = 50;
-            displayXNA.Galaxy.MassVariation = 40;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 1700000000;
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = true;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = true;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = true;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 10000000;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0.1;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.1;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 40;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
 
         public void PresetToMilkyWay()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("100.000 years");
-            displayXNA.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.CrossSection = 1700000000;
-            displayXNA.Galaxy.HasBlackHole = true;
-            displayXNA.Galaxy.HasSpiral = true;
-            displayXNA.Galaxy.HasEllipse = true;
-            displayXNA.Galaxy.NumberOfObjects = 10000;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.RotationPeriod = 360000000;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0.2;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.1;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 50;
-            displayXNA.Galaxy.SpiralBlurriness = 50;
-            displayXNA.Galaxy.MassVariation = 40;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 1700000000;
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = true;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = true;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = true;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 360000000;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0.2;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.1;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 40;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
 
         public void PresetToSmallGalaxy()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Decades");
-            displayXNA.Galaxy.NumberOfObjects = 5000;        // 1 star actually represents 40000000 stars
-            displayXNA.Galaxy.TotalMass = 30;                // 1200000000/40000000
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.CrossSection = 42;             // 1700000000/40000000
-            displayXNA.Galaxy.HasBlackHole = false;
-            displayXNA.Galaxy.HasSpiral = true;
-            displayXNA.Galaxy.HasEllipse = false;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.RotationPeriod = 3600;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.1;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 50;
-            displayXNA.Galaxy.SpiralBlurriness = 30;
-            displayXNA.Galaxy.MassVariation = 20;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 5000;        // 1 star actually represents 40000000 stars
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 30;                // 1200000000/40000000
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 42;             // 1700000000/40000000
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = false;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = true;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = false;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 3600;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.1;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 30;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 20;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
 
         public void PresetToEllipse()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
-            displayXNA.Galaxy.CrossSection = 42000;
-            displayXNA.Galaxy.NumberOfObjects = 10000;       
-            displayXNA.Galaxy.TotalMass = 6000000;             
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.RotationPeriod = 100000;
-            displayXNA.Galaxy.HasBlackHole = false;
-            displayXNA.Galaxy.HasSpiral = false;
-            displayXNA.Galaxy.HasEllipse = true;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0.2;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.1;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 50;
-            displayXNA.Galaxy.SpiralBlurriness = 30;
-            displayXNA.Galaxy.MassVariation = 20;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 42000;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;       
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 6000000;             
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 100000;
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = false;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = false;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = true;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0.2;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.1;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 30;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 20;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
         public void PresetToSpiral()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
-            displayXNA.Galaxy.CrossSection = 3000000;
-            displayXNA.Galaxy.NumberOfObjects = 10000;
-            displayXNA.Galaxy.TotalMass = 1500000000;
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.RotationPeriod = 400000;
-            displayXNA.Galaxy.HasBlackHole = true;
-            displayXNA.Galaxy.HasSpiral = true;
-            displayXNA.Galaxy.HasEllipse = true;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0.0;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.4;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 50;
-            displayXNA.Galaxy.SpiralBlurriness = 30;
-            displayXNA.Galaxy.MassVariation = 20;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 3000000;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 1500000000;
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 400000;
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = true;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = true;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = true;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0.0;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.4;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 50;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 30;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 20;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
         public void PresetToSmallEllipse()
         {
             comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
-            displayXNA.Galaxy.CrossSection = 500000;
-            displayXNA.Galaxy.NumberOfObjects = 1500;
-            displayXNA.Galaxy.TotalMass = 80000000;
-            displayXNA.Galaxy.BlackHoleMass = 4100000;
-            displayXNA.Galaxy.RotationPeriod = 200000;
-            displayXNA.Galaxy.HasBlackHole = false;
-            displayXNA.Galaxy.HasSpiral = false;
-            displayXNA.Galaxy.HasEllipse = true;
-            displayXNA.Galaxy.RotateCCW = true;
-            displayXNA.Galaxy.VelocityIncreaseFactor = 0.0;
-            displayXNA.Galaxy.EllipseRatio = 0.5;
-            displayXNA.Galaxy.EllipseSizePercentage = 50;
-            displayXNA.Galaxy.EllipseObjectsPercentage = 30;
-            displayXNA.Galaxy.NumberOfArms = 2;
-            displayXNA.Galaxy.ArmLength = 1.1;
-            displayXNA.Galaxy.HasBar = true;
-            displayXNA.Galaxy.BarPercentage = 20;
-            displayXNA.Galaxy.EllipseBlurriness = 30;
-            displayXNA.Galaxy.SpiralBlurriness = 30;
-            displayXNA.Galaxy.MassVariation = 20;
-            displayXNA.Galaxy.AddSolarSystem = false;
-            displayXNA.Galaxy.CalculateStableSpeed = false;
-            displayXNA.Galaxy.XSpeed = 0;
-            displayXNA.Galaxy.YSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.CrossSection = 500000;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 1500;
+            DisplayXNA.PresetObjects.Galaxy.TotalMass = 80000000;
+            DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
+            DisplayXNA.PresetObjects.Galaxy.RotationPeriod = 200000;
+            DisplayXNA.PresetObjects.Galaxy.HasBlackHole = false;
+            DisplayXNA.PresetObjects.Galaxy.HasSpiral = false;
+            DisplayXNA.PresetObjects.Galaxy.HasEllipse = true;
+            DisplayXNA.PresetObjects.Galaxy.RotateCCW = true;
+            DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = 0.0;
+            DisplayXNA.PresetObjects.Galaxy.EllipseRatio = 0.5;
+            DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = 50;
+            DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = 30;
+            DisplayXNA.PresetObjects.Galaxy.NumberOfArms = 2;
+            DisplayXNA.PresetObjects.Galaxy.ArmLength = 1.1;
+            DisplayXNA.PresetObjects.Galaxy.HasBar = true;
+            DisplayXNA.PresetObjects.Galaxy.BarPercentage = 20;
+            DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = 30;
+            DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = 30;
+            DisplayXNA.PresetObjects.Galaxy.MassVariation = 20;
+            DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = false;
+            DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = false;
+            DisplayXNA.PresetObjects.Galaxy.XSpeed = 0;
+            DisplayXNA.PresetObjects.Galaxy.YSpeed = 0;
         }
 
         public void ResetToDefaults()
@@ -504,30 +504,30 @@ namespace GravityOne.Forms
             displayXNA.GravitySystem.AccelerationLimit = 0.0000000001;
             displayXNA.VideoCaptureCompression = "(none)";
             displayXNA.VideoCaptureFPS= 60;
-            displayXNA.Grid.Mass = 20000;
-            displayXNA.Grid.Rotations = 0;
-            displayXNA.Grid.Spacing = 50;
-            displayXNA.Grid.SpacingUnits = "pixels";
-            displayXNA.Grid.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
-            displayXNA.Grid.XAmount = 20;
-            displayXNA.Grid.YAmount = 20;
-            displayXNA.Grid.XSpeed = 0;
-            displayXNA.Grid.YSpeed = 0;
-            displayXNA.Circle.Mass = 20000;
-            displayXNA.Circle.Rotations = 0;
-            displayXNA.Circle.Spacing = 50;
-            displayXNA.Circle.SpacingUnits = "pixels";
-            displayXNA.Circle.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
-            displayXNA.Circle.NumObjectsRadius = 20;
-            displayXNA.Circle.XSpeed = 0;
-            displayXNA.Circle.YSpeed = 0;
-            displayXNA.RandomObjects.Mass = 5000000;
-            displayXNA.RandomObjects.NumberOfObjects = 200;
-            displayXNA.RandomObjects.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
-            displayXNA.RandomObjects.Area = 1000;
-            displayXNA.RandomObjects.AreaUnits = "pixels";
-            displayXNA.RandomObjects.Speed = 0;
-            displayXNA.RandomObjects.SpeedRandomness = 0;
+            DisplayXNA.PresetObjects.Grid.Mass = 20000;
+            DisplayXNA.PresetObjects.Grid.Rotations = 0;
+            DisplayXNA.PresetObjects.Grid.Spacing = 50;
+            DisplayXNA.PresetObjects.Grid.SpacingUnits = "pixels";
+            DisplayXNA.PresetObjects.Grid.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
+            DisplayXNA.PresetObjects.Grid.XAmount = 20;
+            DisplayXNA.PresetObjects.Grid.YAmount = 20;
+            DisplayXNA.PresetObjects.Grid.XSpeed = 0;
+            DisplayXNA.PresetObjects.Grid.YSpeed = 0;
+            DisplayXNA.PresetObjects.Circle.Mass = 20000;
+            DisplayXNA.PresetObjects.Circle.Rotations = 0;
+            DisplayXNA.PresetObjects.Circle.Spacing = 50;
+            DisplayXNA.PresetObjects.Circle.SpacingUnits = "pixels";
+            DisplayXNA.PresetObjects.Circle.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
+            DisplayXNA.PresetObjects.Circle.NumObjectsRadius = 20;
+            DisplayXNA.PresetObjects.Circle.XSpeed = 0;
+            DisplayXNA.PresetObjects.Circle.YSpeed = 0;
+            DisplayXNA.PresetObjects.RandomObjects.Mass = 5000000;
+            DisplayXNA.PresetObjects.RandomObjects.NumberOfObjects = 200;
+            DisplayXNA.PresetObjects.RandomObjects.Texture = DisplayXNA.getTextureByName("<Custom Shape>");
+            DisplayXNA.PresetObjects.RandomObjects.Area = 1000;
+            DisplayXNA.PresetObjects.RandomObjects.AreaUnits = "pixels";
+            DisplayXNA.PresetObjects.RandomObjects.Speed = 0;
+            DisplayXNA.PresetObjects.RandomObjects.SpeedRandomness = 0;
 
             PresetToMilkyWay();
         }
@@ -604,7 +604,7 @@ namespace GravityOne.Forms
 
         private void PlaceSolarSystem(double x, double y, bool addJWST=false)
         {
-            displayXNA.CreateSolarSystem(x, y, addJWST);
+            displayXNA.PresetObjects.CreateSolarSystem(x, y, addJWST);
 
             if (gradientPanelObjectProperties.Visible == false)    // display properties panel
             {
@@ -615,7 +615,7 @@ namespace GravityOne.Forms
 
         private void PlaceSolarSystemMoons(double x, double y, bool addJWST = false)
         {
-            displayXNA.CreateSolarSystemMoons(x, y);
+            displayXNA.PresetObjects.CreateSolarSystemMoons(x, y);
 
             if (gradientPanelObjectProperties.Visible == false)    // display properties panel
             {
@@ -652,7 +652,7 @@ namespace GravityOne.Forms
                 if (PlacingObject == 1)
                 {
                     gradientButtonPlanetSystems.ForeColor = Color.Black;
-                    displayXNA.CreatePlanetMoon(e.X, e.Y);
+                    displayXNA.PresetObjects.CreatePlanetMoon(e.X, e.Y);
                 }
                 else if (PlacingObject == 2)
                 {
@@ -662,52 +662,52 @@ namespace GravityOne.Forms
                 else if (PlacingObject == 3)
                 {
                     gradientButtonPlanetSystems.ForeColor = Color.Black;
-                    displayXNA.CreateSunPlanetMoon(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateSunPlanetMoon(e.X, e.Y);
                 }
                 else if (PlacingObject == 4)
                 {
                     gradientButtonPlanetSystems.ForeColor = Color.Black;
-                    displayXNA.CreateSunPlanet(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateSunPlanet(e.X, e.Y);
                 }
                 else if (PlacingObject == 5)
                 {
                     gradientButtonSlingshot.ForeColor = Color.Black;
-                    displayXNA.CreateSlingShot(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateSlingShot(e.X, e.Y);
                 }
                 else if (PlacingObject == 6)
                 {
                     gradientButtonPlanetSystems.ForeColor = Color.Black;
-                    displayXNA.CreateMoonMoon(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateMoonMoon(e.X, e.Y);
                 }
                 else if (PlacingObject == 7)
                 {
                     gradientButtonBinary.ForeColor = Color.Black;
-                    displayXNA.CreateDualStar(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateDualStar(e.X, e.Y);
                 }
                 else if (PlacingObject == 8)
                 {
                     gradientButtonBinary.ForeColor = Color.Black;
-                    displayXNA.CreateDualStar2(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateDualStar2(e.X, e.Y);
                 }
                 else if (PlacingObject == 9)
                 {
                     gradientButtonRandom.ForeColor = Color.Black;
-                    displayXNA.CreateRandom(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateRandom(e.X, e.Y);
                 }
                 else if (PlacingObject == 10)
                 {
                     gradientButtonGrid.ForeColor = Color.Black;
-                    displayXNA.CreateGrid(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateGrid(e.X, e.Y);
                 }
                 else if (PlacingObject == 11)
                 {
                     gradientButtonBinary.ForeColor = Color.Black;
-                    displayXNA.CreateDualStar3(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateDualStar3(e.X, e.Y);
                 }
                 else if (PlacingObject == 12)
                 {
                     gradientButtonBinary.ForeColor = Color.Black;
-                    displayXNA.CreateTripleStar(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateTripleStar(e.X, e.Y);
                 }
                 else if (PlacingObject == 13)
                 {
@@ -717,9 +717,9 @@ namespace GravityOne.Forms
                 else if (PlacingObject == 14)
                 {
                     gradientButtonGalaxy.ForeColor = Color.Black;
-                    displayXNA.CreateGalaxy(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateGalaxy(e.X, e.Y);
                     gradientButtonToggleObject.Active = false;
-                    if (!displayXNA.Galaxy.AddSolarSystem)
+                    if (!displayXNA.PresetObjects.Galaxy.AddSolarSystem)
                     {
                         gradientPanelObjectProperties.Visible = false;
                     }
@@ -727,7 +727,7 @@ namespace GravityOne.Forms
                 else if (PlacingObject == 15)
                 {
                     gradientButtonCircle.ForeColor = Color.Black;
-                    displayXNA.CreateCircle(e.X, e.Y);
+                    displayXNA.PresetObjects.CreateCircle(e.X, e.Y);
                 }
 
                 PlacingObject = 0;

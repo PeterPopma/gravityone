@@ -91,6 +91,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
     <Optimize>false</Optimize>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
@@ -190,6 +191,7 @@
     <Compile Include="Gravity\Calculation.cs" />
     <Compile Include="Gravity\GravityObject.cs" />
     <Compile Include="Gravity\GravitySystem.cs" />
+    <Compile Include="Gravity\GravityUtils.cs" />
     <Compile Include="Gravity\Message.cs" />
     <Compile Include="Gravity\Recording.cs" />
     <Compile Include="Gravity\Trace.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="SpaceObjects\PositionSpeed.cs" />
     <Compile Include="SpaceObjects\RandomObjects.cs" />
     <Compile Include="SpaceObjects\SmallDot.cs" />
+    <Compile Include="SpaceObjects\PresetObjects.cs" />
     <Compile Include="SpaceObjects\Vector.cs" />
     <Compile Include="WinformsGraphicsDevice\GraphicsDeviceControl.cs">
       <SubType>Component</SubType>

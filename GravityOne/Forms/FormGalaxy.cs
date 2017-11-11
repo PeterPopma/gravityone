@@ -45,30 +45,30 @@ namespace GravityOne.Forms
 
         public void Initialize()
         {
-            numericUpDownMass.Value = myParent.DisplayXNA.Galaxy.TotalMass;
-            numericUpDownBlackHoleMass.Value = myParent.DisplayXNA.Galaxy.BlackHoleMass;
-            numericUpDownCrossSection.Value = myParent.DisplayXNA.Galaxy.CrossSection;
-            checkBoxBlackHole.Checked = myParent.DisplayXNA.Galaxy.HasBlackHole;
-            checkBoxSpiral.Checked = myParent.DisplayXNA.Galaxy.HasSpiral;
-            checkBoxElliptical.Checked = myParent.DisplayXNA.Galaxy.HasEllipse;
-            numericUpDownNumberOfObjects.Value = myParent.DisplayXNA.Galaxy.NumberOfObjects;
-            checkBoxCounterClockwise.Checked = myParent.DisplayXNA.Galaxy.RotateCCW;
-            numericUpDownRotationPeriod.Value = myParent.DisplayXNA.Galaxy.RotationPeriod;
-            numericUpDownVelocityIncreaseFactor.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.VelocityIncreaseFactor);
-            numericUpDownNumberOfArms.Value = myParent.DisplayXNA.Galaxy.NumberOfArms;
-            numericUpDownArmLength.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.ArmLength);
-            checkBoxBar.Checked = myParent.DisplayXNA.Galaxy.HasBar;
-            numericUpDownEllipseRatio.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.EllipseRatio);
-            numericUpDownEllipseSizePercentage.Value = myParent.DisplayXNA.Galaxy.EllipseSizePercentage;
-            numericUpDownEllipseObjectsPercentage.Value = myParent.DisplayXNA.Galaxy.EllipseObjectsPercentage;
-            numericUpDownBarPercentage.Value = myParent.DisplayXNA.Galaxy.BarPercentage;
-            numericUpDownEllipseBlurriness.Value = myParent.DisplayXNA.Galaxy.EllipseBlurriness;
-            numericUpDownSpiralBlurriness.Value = myParent.DisplayXNA.Galaxy.SpiralBlurriness;
-            numericUpDownMassVariation.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.MassVariation);
-            checkBoxAddSolarSystem.Checked = myParent.DisplayXNA.Galaxy.AddSolarSystem;
-            checkBoxCalculateStableSpeed.Checked = myParent.DisplayXNA.Galaxy.CalculateStableSpeed;
-            numericUpDownXSpeed.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.XSpeed);
-            numericUpDownYSpeed.Value = Convert.ToDecimal(myParent.DisplayXNA.Galaxy.YSpeed);
+            numericUpDownMass.Value = myParent.DisplayXNA.PresetObjects.Galaxy.TotalMass;
+            numericUpDownBlackHoleMass.Value = myParent.DisplayXNA.PresetObjects.Galaxy.BlackHoleMass;
+            numericUpDownCrossSection.Value = myParent.DisplayXNA.PresetObjects.Galaxy.CrossSection;
+            checkBoxBlackHole.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.HasBlackHole;
+            checkBoxSpiral.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.HasSpiral;
+            checkBoxElliptical.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.HasEllipse;
+            numericUpDownNumberOfObjects.Value = myParent.DisplayXNA.PresetObjects.Galaxy.NumberOfObjects;
+            checkBoxCounterClockwise.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.RotateCCW;
+            numericUpDownRotationPeriod.Value = myParent.DisplayXNA.PresetObjects.Galaxy.RotationPeriod;
+            numericUpDownVelocityIncreaseFactor.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor);
+            numericUpDownNumberOfArms.Value = myParent.DisplayXNA.PresetObjects.Galaxy.NumberOfArms;
+            numericUpDownArmLength.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.ArmLength);
+            checkBoxBar.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.HasBar;
+            numericUpDownEllipseRatio.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.EllipseRatio);
+            numericUpDownEllipseSizePercentage.Value = myParent.DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage;
+            numericUpDownEllipseObjectsPercentage.Value = myParent.DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage;
+            numericUpDownBarPercentage.Value = myParent.DisplayXNA.PresetObjects.Galaxy.BarPercentage;
+            numericUpDownEllipseBlurriness.Value = myParent.DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness;
+            numericUpDownSpiralBlurriness.Value = myParent.DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness;
+            numericUpDownMassVariation.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.MassVariation);
+            checkBoxAddSolarSystem.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.AddSolarSystem;
+            checkBoxCalculateStableSpeed.Checked = myParent.DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed;
+            numericUpDownXSpeed.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.XSpeed);
+            numericUpDownYSpeed.Value = Convert.ToDecimal(myParent.DisplayXNA.PresetObjects.Galaxy.YSpeed);
             numericUpDownRotationPeriod.Enabled = numericUpDownVelocityIncreaseFactor.Enabled = !checkBoxCalculateStableSpeed.Checked;
             comboBoxColor.SelectedIndex = 0;
 
@@ -93,50 +93,50 @@ namespace GravityOne.Forms
                 myParent.comboBoxCalcsUnit.SelectedItem = "Pre-Calculate";
             }
             //        myParent.DisplayXNA.BackgroundIndex = 0;
-            myParent.DisplayXNA.Galaxy.TotalMass = (long)numericUpDownMass.Value;
-            myParent.DisplayXNA.Galaxy.BlackHoleMass = (long)numericUpDownBlackHoleMass.Value;
-            myParent.DisplayXNA.Galaxy.CrossSection = (int)numericUpDownCrossSection.Value;
-            myParent.DisplayXNA.Galaxy.HasBlackHole = checkBoxBlackHole.Checked;
-            myParent.DisplayXNA.Galaxy.HasSpiral = checkBoxSpiral.Checked;
-            myParent.DisplayXNA.Galaxy.HasEllipse = checkBoxElliptical.Checked;
-            myParent.DisplayXNA.Galaxy.NumberOfObjects = (int)numericUpDownNumberOfObjects.Value;
-            myParent.DisplayXNA.Galaxy.RotateCCW = checkBoxCounterClockwise.Checked;
-            myParent.DisplayXNA.Galaxy.RotationPeriod = (int)numericUpDownRotationPeriod.Value;
-            myParent.DisplayXNA.Galaxy.VelocityIncreaseFactor = (double)numericUpDownVelocityIncreaseFactor.Value;
-            myParent.DisplayXNA.Galaxy.NumberOfArms = (int)numericUpDownNumberOfArms.Value;
-            myParent.DisplayXNA.Galaxy.ArmLength = (double)numericUpDownArmLength.Value;
-            myParent.DisplayXNA.Galaxy.BarPercentage = (int)numericUpDownBarPercentage.Value;
-            myParent.DisplayXNA.Galaxy.HasBar = checkBoxBar.Checked;
-            myParent.DisplayXNA.Galaxy.EllipseRatio = (double)numericUpDownEllipseRatio.Value;
-            myParent.DisplayXNA.Galaxy.EllipseSizePercentage = (int)numericUpDownEllipseSizePercentage.Value;
-            myParent.DisplayXNA.Galaxy.EllipseObjectsPercentage = (int)numericUpDownEllipseObjectsPercentage.Value;
-            myParent.DisplayXNA.Galaxy.EllipseBlurriness = (int)numericUpDownEllipseBlurriness.Value;
-            myParent.DisplayXNA.Galaxy.SpiralBlurriness = (int)numericUpDownSpiralBlurriness.Value;
-            myParent.DisplayXNA.Galaxy.MassVariation = (double)numericUpDownMassVariation.Value;
-            myParent.DisplayXNA.Galaxy.AddSolarSystem = checkBoxAddSolarSystem.Checked;
-            myParent.DisplayXNA.Galaxy.CalculateStableSpeed = checkBoxCalculateStableSpeed.Checked;
-            myParent.DisplayXNA.Galaxy.XSpeed = (double)numericUpDownXSpeed.Value;
-            myParent.DisplayXNA.Galaxy.YSpeed = (double)numericUpDownYSpeed.Value;
-            myParent.DisplayXNA.Galaxy.Color = Microsoft.Xna.Framework.Color.White;
+            myParent.DisplayXNA.PresetObjects.Galaxy.TotalMass = (long)numericUpDownMass.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = (long)numericUpDownBlackHoleMass.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.CrossSection = (int)numericUpDownCrossSection.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.HasBlackHole = checkBoxBlackHole.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.HasSpiral = checkBoxSpiral.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.HasEllipse = checkBoxElliptical.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = (int)numericUpDownNumberOfObjects.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.RotateCCW = checkBoxCounterClockwise.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.RotationPeriod = (int)numericUpDownRotationPeriod.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.VelocityIncreaseFactor = (double)numericUpDownVelocityIncreaseFactor.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.NumberOfArms = (int)numericUpDownNumberOfArms.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.ArmLength = (double)numericUpDownArmLength.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.BarPercentage = (int)numericUpDownBarPercentage.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.HasBar = checkBoxBar.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.EllipseRatio = (double)numericUpDownEllipseRatio.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.EllipseSizePercentage = (int)numericUpDownEllipseSizePercentage.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.EllipseObjectsPercentage = (int)numericUpDownEllipseObjectsPercentage.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.EllipseBlurriness = (int)numericUpDownEllipseBlurriness.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.SpiralBlurriness = (int)numericUpDownSpiralBlurriness.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.MassVariation = (double)numericUpDownMassVariation.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.AddSolarSystem = checkBoxAddSolarSystem.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.CalculateStableSpeed = checkBoxCalculateStableSpeed.Checked;
+            myParent.DisplayXNA.PresetObjects.Galaxy.XSpeed = (double)numericUpDownXSpeed.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.YSpeed = (double)numericUpDownYSpeed.Value;
+            myParent.DisplayXNA.PresetObjects.Galaxy.Color = Microsoft.Xna.Framework.Color.White;
             if (comboBoxColor.SelectedIndex==1)
             {
-                myParent.DisplayXNA.Galaxy.Color = Microsoft.Xna.Framework.Color.Red;
+                myParent.DisplayXNA.PresetObjects.Galaxy.Color = Microsoft.Xna.Framework.Color.Red;
             }
             if (comboBoxColor.SelectedIndex == 2)
             {
-                myParent.DisplayXNA.Galaxy.Color = Microsoft.Xna.Framework.Color.Green;
+                myParent.DisplayXNA.PresetObjects.Galaxy.Color = Microsoft.Xna.Framework.Color.Green;
             }
             if (comboBoxColor.SelectedIndex == 3)
             {
-                myParent.DisplayXNA.Galaxy.Color = Microsoft.Xna.Framework.Color.Blue;
+                myParent.DisplayXNA.PresetObjects.Galaxy.Color = Microsoft.Xna.Framework.Color.Blue;
             }
             if (comboBoxColor.SelectedIndex == 4)
             {
-                myParent.DisplayXNA.Galaxy.Color = Microsoft.Xna.Framework.Color.Yellow;
+                myParent.DisplayXNA.PresetObjects.Galaxy.Color = Microsoft.Xna.Framework.Color.Yellow;
             }
 
             // Set the Scale so that the new galaxy fits in 2 times
-            myParent.macTrackBarScale.Value = myParent.CalcScaleBarValueFromMlnMetersPerPixel((myParent.DisplayXNA.Galaxy.CrossSection*2000000.0)/myParent.DisplayXNA.Height);
+            myParent.macTrackBarScale.Value = myParent.CalcScaleBarValueFromMlnMetersPerPixel((myParent.DisplayXNA.PresetObjects.Galaxy.CrossSection*2000000.0)/myParent.DisplayXNA.Height);
             //            myParent.macTrackBarScale.Value = 22;//13;
 
             myParent.DisplayXNA.BlendState = BlendState.Additive;       // looks better on galaxies
