@@ -144,7 +144,7 @@
             // 
             // labelBusy
             // 
-            this.labelBusy.AutoSize = true;
+            this.labelBusy.AutoSize = false;
             this.labelBusy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelBusy.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBusy.Location = new System.Drawing.Point(72, 20);
@@ -155,7 +155,7 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.AutoSize = false;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(18, 88);
             this.label1.Name = "label1";
@@ -165,7 +165,7 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.AutoSize = false;
             this.label3.Location = new System.Drawing.Point(18, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -174,7 +174,7 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.AutoSize = false;
             this.label2.Location = new System.Drawing.Point(249, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
@@ -183,7 +183,7 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.AutoSize = false;
             this.label6.Location = new System.Drawing.Point(402, 32);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
@@ -214,7 +214,7 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.AutoSize = false;
             this.label4.Location = new System.Drawing.Point(558, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 13);

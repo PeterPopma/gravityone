@@ -89,7 +89,7 @@
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
+            this.label25.AutoSize = false;
             this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label25.Location = new System.Drawing.Point(249, 231);
             this.label25.Name = "label25";
@@ -99,7 +99,7 @@
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
+            this.label24.AutoSize = false;
             this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label24.Location = new System.Drawing.Point(249, 200);
             this.label24.Name = "label24";
@@ -109,7 +109,7 @@
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
+            this.label23.AutoSize = false;
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label23.Location = new System.Drawing.Point(66, 231);
             this.label23.Name = "label23";
@@ -119,7 +119,7 @@
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
+            this.label22.AutoSize = false;
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label22.Location = new System.Drawing.Point(55, 201);
             this.label22.Name = "label22";
@@ -179,7 +179,7 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
+            this.label5.AutoSize = false;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(89, 167);
             this.label5.Name = "label5";
@@ -231,7 +231,7 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.AutoSize = false;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(39, 135);
             this.label4.Name = "label4";
@@ -285,7 +285,7 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.AutoSize = false;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(86, 104);
             this.label3.Name = "label3";
@@ -295,7 +295,7 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.AutoSize = false;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(30, 75);
             this.label2.Name = "label2";
@@ -341,7 +341,7 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
+            this.label7.AutoSize = false;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(34, 44);
             this.label7.Name = "label7";
@@ -373,7 +373,7 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.AutoSize = false;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(51, 17);
             this.label1.Name = "label1";

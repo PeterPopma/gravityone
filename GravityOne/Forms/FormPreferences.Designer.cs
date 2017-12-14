@@ -135,7 +135,7 @@
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
+            this.label23.AutoSize = false;
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label23.Location = new System.Drawing.Point(126, 136);
             this.label23.Name = "label23";
@@ -161,7 +161,7 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.AutoSize = false;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(65, 34);
             this.label4.Name = "label4";
@@ -171,7 +171,7 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.AutoSize = false;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(59, 108);
             this.label3.Name = "label3";
@@ -188,7 +188,7 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.AutoSize = false;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(18, 82);
             this.label2.Name = "label2";
@@ -198,7 +198,7 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.AutoSize = false;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(42, 59);
             this.label1.Name = "label1";
@@ -291,7 +291,7 @@
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
+            this.label20.AutoSize = false;
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label20.Location = new System.Drawing.Point(506, 473);
             this.label20.Name = "label20";
@@ -301,7 +301,7 @@
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
+            this.label19.AutoSize = false;
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label19.Location = new System.Drawing.Point(196, 472);
             this.label19.Name = "label19";
@@ -327,7 +327,7 @@
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
+            this.label18.AutoSize = false;
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label18.Location = new System.Drawing.Point(103, 472);
             this.label18.Name = "label18";
@@ -337,7 +337,7 @@
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
+            this.label14.AutoSize = false;
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label14.Location = new System.Drawing.Point(323, 269);
             this.label14.Name = "label14";
@@ -347,7 +347,7 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.AutoSize = false;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label6.Location = new System.Drawing.Point(90, 266);
             this.label6.Name = "label6";
@@ -385,7 +385,7 @@
             // 
             // checkBoxPrecalcAutoIncrease
             // 
-            this.checkBoxPrecalcAutoIncrease.AutoSize = true;
+            this.checkBoxPrecalcAutoIncrease.AutoSize = false;
             this.checkBoxPrecalcAutoIncrease.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxPrecalcAutoIncrease.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxPrecalcAutoIncrease.Checked = true;
@@ -402,7 +402,7 @@
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
+            this.label13.AutoSize = false;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label13.Location = new System.Drawing.Point(229, 212);
             this.label13.Name = "label13";
@@ -412,7 +412,7 @@
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
+            this.label12.AutoSize = false;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label12.Location = new System.Drawing.Point(71, 182);
             this.label12.Name = "label12";
@@ -444,7 +444,7 @@
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
+            this.label17.AutoSize = false;
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label17.Location = new System.Drawing.Point(224, 318);
             this.label17.Name = "label17";
@@ -477,7 +477,7 @@
             // 
             // checkBoxUseBarnesHut
             // 
-            this.checkBoxUseBarnesHut.AutoSize = true;
+            this.checkBoxUseBarnesHut.AutoSize = false;
             this.checkBoxUseBarnesHut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxUseBarnesHut.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxUseBarnesHut.Checked = true;
@@ -494,7 +494,7 @@
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
+            this.label9.AutoSize = false;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(102, 395);
             this.label9.Name = "label9";
@@ -532,7 +532,7 @@
             // 
             // checkBoxCompressRecordings
             // 
-            this.checkBoxCompressRecordings.AutoSize = true;
+            this.checkBoxCompressRecordings.AutoSize = false;
             this.checkBoxCompressRecordings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxCompressRecordings.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxCompressRecordings.Checked = true;
@@ -597,7 +597,7 @@
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
+            this.label8.AutoSize = false;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label8.Location = new System.Drawing.Point(320, 242);
             this.label8.Name = "label8";
@@ -607,7 +607,7 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
+            this.label7.AutoSize = false;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(68, 241);
             this.label7.Name = "label7";
@@ -648,7 +648,7 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
+            this.label5.AutoSize = false;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(77, 151);
             this.label5.Name = "label5";
@@ -691,7 +691,7 @@
             // 
             // checkBoxRandomColor
             // 
-            this.checkBoxRandomColor.AutoSize = true;
+            this.checkBoxRandomColor.AutoSize = false;
             this.checkBoxRandomColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxRandomColor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxRandomColor.Checked = true;
@@ -707,7 +707,7 @@
             // 
             // radioButtonCross
             // 
-            this.radioButtonCross.AutoSize = true;
+            this.radioButtonCross.AutoSize = false;
             this.radioButtonCross.Location = new System.Drawing.Point(60, 44);
             this.radioButtonCross.Name = "radioButtonCross";
             this.radioButtonCross.Size = new System.Drawing.Size(50, 17);
@@ -718,7 +718,7 @@
             // 
             // checkBoxRandomSize
             // 
-            this.checkBoxRandomSize.AutoSize = true;
+            this.checkBoxRandomSize.AutoSize = false;
             this.checkBoxRandomSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxRandomSize.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxRandomSize.Checked = true;
@@ -753,7 +753,7 @@
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
+            this.label16.AutoSize = false;
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label16.Location = new System.Drawing.Point(272, 44);
             this.label16.Name = "label16";
@@ -763,7 +763,7 @@
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
+            this.label15.AutoSize = false;
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label15.Location = new System.Drawing.Point(369, 8);
             this.label15.Name = "label15";
@@ -790,7 +790,7 @@
             // 
             // radioButtonRound
             // 
-            this.radioButtonRound.AutoSize = true;
+            this.radioButtonRound.AutoSize = false;
             this.radioButtonRound.Location = new System.Drawing.Point(60, 2);
             this.radioButtonRound.Name = "radioButtonRound";
             this.radioButtonRound.Size = new System.Drawing.Size(52, 17);
@@ -801,7 +801,7 @@
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
+            this.label10.AutoSize = false;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label10.Location = new System.Drawing.Point(248, 8);
             this.label10.Name = "label10";
@@ -833,7 +833,7 @@
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
+            this.label11.AutoSize = false;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label11.Location = new System.Drawing.Point(12, 3);
             this.label11.Name = "label11";
@@ -843,7 +843,7 @@
             // 
             // radioButtonSquare
             // 
-            this.radioButtonSquare.AutoSize = true;
+            this.radioButtonSquare.AutoSize = false;
             this.radioButtonSquare.Location = new System.Drawing.Point(60, 23);
             this.radioButtonSquare.Name = "radioButtonSquare";
             this.radioButtonSquare.Size = new System.Drawing.Size(57, 17);
@@ -854,7 +854,7 @@
             // 
             // checkBoxAllDots
             // 
-            this.checkBoxAllDots.AutoSize = true;
+            this.checkBoxAllDots.AutoSize = false;
             this.checkBoxAllDots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxAllDots.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxAllDots.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -869,7 +869,7 @@
             // 
             // checkBoxShowScale
             // 
-            this.checkBoxShowScale.AutoSize = true;
+            this.checkBoxShowScale.AutoSize = false;
             this.checkBoxShowScale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxShowScale.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxShowScale.Checked = true;

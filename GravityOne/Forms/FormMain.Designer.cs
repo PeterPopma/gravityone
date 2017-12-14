@@ -243,7 +243,7 @@ namespace GravityOne.Forms
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
+            this.label34.AutoSize = false;
             this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.Location = new System.Drawing.Point(13, 55);
@@ -254,7 +254,7 @@ namespace GravityOne.Forms
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
+            this.label35.AutoSize = false;
             this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(36, 31);
@@ -265,7 +265,7 @@ namespace GravityOne.Forms
             // 
             // label36
             // 
-            this.label36.AutoSize = true;
+            this.label36.AutoSize = false;
             this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.Location = new System.Drawing.Point(5, 8);
@@ -276,7 +276,7 @@ namespace GravityOne.Forms
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
+            this.label5.AutoSize = false;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
@@ -288,7 +288,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxLimit
             // 
-            this.checkBoxLimit.AutoSize = true;
+            this.checkBoxLimit.AutoSize = false;
             this.checkBoxLimit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxLimit.ForeColor = System.Drawing.Color.Black;
@@ -301,7 +301,7 @@ namespace GravityOne.Forms
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
+            this.label15.AutoSize = false;
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
@@ -313,7 +313,7 @@ namespace GravityOne.Forms
             // 
             // labelNumObjects
             // 
-            this.labelNumObjects.AutoSize = true;
+            this.labelNumObjects.AutoSize = false;
             this.labelNumObjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelNumObjects.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumObjects.ForeColor = System.Drawing.Color.Black;
@@ -384,7 +384,7 @@ namespace GravityOne.Forms
             // 
             // labelNumberObjects
             // 
-            this.labelNumberObjects.AutoSize = true;
+            this.labelNumberObjects.AutoSize = false;
             this.labelNumberObjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelNumberObjects.Location = new System.Drawing.Point(173, 10);
             this.labelNumberObjects.Name = "labelNumberObjects";
@@ -394,7 +394,7 @@ namespace GravityOne.Forms
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
+            this.label19.AutoSize = false;
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label19.Location = new System.Drawing.Point(106, 9);
             this.label19.Name = "label19";
@@ -432,7 +432,7 @@ namespace GravityOne.Forms
             // 
             // labelObjectNumber
             // 
-            this.labelObjectNumber.AutoSize = true;
+            this.labelObjectNumber.AutoSize = false;
             this.labelObjectNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelObjectNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelObjectNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -491,7 +491,7 @@ namespace GravityOne.Forms
             // 
             // labelMass
             // 
-            this.labelMass.AutoSize = true;
+            this.labelMass.AutoSize = false;
             this.labelMass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelMass.Location = new System.Drawing.Point(85, 151);
             this.labelMass.Name = "labelMass";
@@ -501,7 +501,7 @@ namespace GravityOne.Forms
             // 
             // labelYAcceleration
             // 
-            this.labelYAcceleration.AutoSize = true;
+            this.labelYAcceleration.AutoSize = false;
             this.labelYAcceleration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelYAcceleration.Location = new System.Drawing.Point(85, 131);
             this.labelYAcceleration.Name = "labelYAcceleration";
@@ -511,7 +511,7 @@ namespace GravityOne.Forms
             // 
             // labelXAcceleration
             // 
-            this.labelXAcceleration.AutoSize = true;
+            this.labelXAcceleration.AutoSize = false;
             this.labelXAcceleration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelXAcceleration.Location = new System.Drawing.Point(85, 111);
             this.labelXAcceleration.Name = "labelXAcceleration";
@@ -521,7 +521,7 @@ namespace GravityOne.Forms
             // 
             // labelAcceleration
             // 
-            this.labelAcceleration.AutoSize = true;
+            this.labelAcceleration.AutoSize = false;
             this.labelAcceleration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelAcceleration.Location = new System.Drawing.Point(85, 90);
             this.labelAcceleration.Name = "labelAcceleration";
@@ -531,7 +531,7 @@ namespace GravityOne.Forms
             // 
             // label30
             // 
-            this.label30.AutoSize = true;
+            this.label30.AutoSize = false;
             this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label30.Location = new System.Drawing.Point(1, 151);
             this.label30.Name = "label30";
@@ -541,7 +541,7 @@ namespace GravityOne.Forms
             // 
             // label31
             // 
-            this.label31.AutoSize = true;
+            this.label31.AutoSize = false;
             this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label31.Location = new System.Drawing.Point(1, 131);
             this.label31.Name = "label31";
@@ -551,7 +551,7 @@ namespace GravityOne.Forms
             // 
             // label32
             // 
-            this.label32.AutoSize = true;
+            this.label32.AutoSize = false;
             this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label32.Location = new System.Drawing.Point(1, 111);
             this.label32.Name = "label32";
@@ -561,7 +561,7 @@ namespace GravityOne.Forms
             // 
             // label33
             // 
-            this.label33.AutoSize = true;
+            this.label33.AutoSize = false;
             this.label33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label33.Location = new System.Drawing.Point(1, 90);
             this.label33.Name = "label33";
@@ -571,7 +571,7 @@ namespace GravityOne.Forms
             // 
             // labelDistanceToZero
             // 
-            this.labelDistanceToZero.AutoSize = true;
+            this.labelDistanceToZero.AutoSize = false;
             this.labelDistanceToZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelDistanceToZero.Location = new System.Drawing.Point(85, 69);
             this.labelDistanceToZero.Name = "labelDistanceToZero";
@@ -581,7 +581,7 @@ namespace GravityOne.Forms
             // 
             // labelYSpeed
             // 
-            this.labelYSpeed.AutoSize = true;
+            this.labelYSpeed.AutoSize = false;
             this.labelYSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelYSpeed.Location = new System.Drawing.Point(85, 49);
             this.labelYSpeed.Name = "labelYSpeed";
@@ -591,7 +591,7 @@ namespace GravityOne.Forms
             // 
             // labelXSpeed
             // 
-            this.labelXSpeed.AutoSize = true;
+            this.labelXSpeed.AutoSize = false;
             this.labelXSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelXSpeed.Location = new System.Drawing.Point(85, 30);
             this.labelXSpeed.Name = "labelXSpeed";
@@ -601,7 +601,7 @@ namespace GravityOne.Forms
             // 
             // labelSpeed
             // 
-            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.AutoSize = false;
             this.labelSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelSpeed.Location = new System.Drawing.Point(85, 11);
             this.labelSpeed.Name = "labelSpeed";
@@ -611,7 +611,7 @@ namespace GravityOne.Forms
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
+            this.label21.AutoSize = false;
             this.label21.Location = new System.Drawing.Point(1, 69);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(68, 13);
@@ -620,7 +620,7 @@ namespace GravityOne.Forms
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
+            this.label17.AutoSize = false;
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label17.Location = new System.Drawing.Point(1, 49);
             this.label17.Name = "label17";
@@ -630,7 +630,7 @@ namespace GravityOne.Forms
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
+            this.label16.AutoSize = false;
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label16.Location = new System.Drawing.Point(1, 30);
             this.label16.Name = "label16";
@@ -640,7 +640,7 @@ namespace GravityOne.Forms
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
+            this.label13.AutoSize = false;
             this.label13.Location = new System.Drawing.Point(1, 11);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(68, 13);
@@ -677,7 +677,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxCenter
             // 
-            this.checkBoxCenter.AutoSize = true;
+            this.checkBoxCenter.AutoSize = false;
             this.checkBoxCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxCenter.Location = new System.Drawing.Point(24, 225);
             this.checkBoxCenter.Name = "checkBoxCenter";
@@ -689,7 +689,7 @@ namespace GravityOne.Forms
             // 
             // labelObjectName
             // 
-            this.labelObjectName.AutoSize = true;
+            this.labelObjectName.AutoSize = false;
             this.labelObjectName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.labelObjectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelObjectName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -739,7 +739,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxAdjustTrace
             // 
-            this.checkBoxAdjustTrace.AutoSize = true;
+            this.checkBoxAdjustTrace.AutoSize = false;
             this.checkBoxAdjustTrace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxAdjustTrace.Checked = true;
             this.checkBoxAdjustTrace.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -754,7 +754,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxAdjustVector
             // 
-            this.checkBoxAdjustVector.AutoSize = true;
+            this.checkBoxAdjustVector.AutoSize = false;
             this.checkBoxAdjustVector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxAdjustVector.Checked = true;
             this.checkBoxAdjustVector.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -769,7 +769,7 @@ namespace GravityOne.Forms
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
+            this.label22.AutoSize = false;
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(8, 7);
@@ -787,7 +787,7 @@ namespace GravityOne.Forms
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
+            this.label11.AutoSize = false;
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label11.Location = new System.Drawing.Point(20, 34);
             this.label11.Name = "label11";
@@ -832,7 +832,7 @@ namespace GravityOne.Forms
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
+            this.label18.AutoSize = false;
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label18.Location = new System.Drawing.Point(21, 110);
             this.label18.Name = "label18";
@@ -842,7 +842,7 @@ namespace GravityOne.Forms
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
+            this.label14.AutoSize = false;
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label14.Location = new System.Drawing.Point(21, 86);
             this.label14.Name = "label14";
@@ -852,7 +852,7 @@ namespace GravityOne.Forms
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
+            this.label10.AutoSize = false;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label10.Location = new System.Drawing.Point(21, 61);
             this.label10.Name = "label10";
@@ -1066,7 +1066,7 @@ namespace GravityOne.Forms
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
+            this.label3.AutoSize = false;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(6, 6);
             this.label3.Name = "label3";
@@ -1179,7 +1179,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxCircleCCW
             // 
-            this.checkBoxCircleCCW.AutoSize = true;
+            this.checkBoxCircleCCW.AutoSize = false;
             this.checkBoxCircleCCW.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxCircleCCW.Checked = true;
             this.checkBoxCircleCCW.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1194,7 +1194,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxCircleHost
             // 
-            this.checkBoxCircleHost.AutoSize = true;
+            this.checkBoxCircleHost.AutoSize = false;
             this.checkBoxCircleHost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxCircleHost.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxCircleHost.Location = new System.Drawing.Point(5, 149);
@@ -1207,7 +1207,7 @@ namespace GravityOne.Forms
             // 
             // label41
             // 
-            this.label41.AutoSize = true;
+            this.label41.AutoSize = false;
             this.label41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label41.Location = new System.Drawing.Point(11, 29);
             this.label41.Name = "label41";
@@ -1225,7 +1225,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxTrace
             // 
-            this.checkBoxTrace.AutoSize = true;
+            this.checkBoxTrace.AutoSize = false;
             this.checkBoxTrace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxTrace.Checked = true;
             this.checkBoxTrace.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1239,7 +1239,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxVector
             // 
-            this.checkBoxVector.AutoSize = true;
+            this.checkBoxVector.AutoSize = false;
             this.checkBoxVector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxVector.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxVector.Location = new System.Drawing.Point(159, 149);
@@ -1251,7 +1251,7 @@ namespace GravityOne.Forms
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
+            this.label9.AutoSize = false;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label9.Location = new System.Drawing.Point(11, 102);
             this.label9.Name = "label9";
@@ -1261,7 +1261,7 @@ namespace GravityOne.Forms
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
+            this.label8.AutoSize = false;
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label8.Location = new System.Drawing.Point(11, 79);
             this.label8.Name = "label8";
@@ -1271,7 +1271,7 @@ namespace GravityOne.Forms
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
+            this.label7.AutoSize = false;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(11, 52);
             this.label7.Name = "label7";
@@ -1307,7 +1307,7 @@ namespace GravityOne.Forms
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
+            this.label6.AutoSize = false;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -1348,7 +1348,7 @@ namespace GravityOne.Forms
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
+            this.label4.AutoSize = false;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label4.Location = new System.Drawing.Point(11, 126);
             this.label4.Name = "label4";
@@ -1358,7 +1358,7 @@ namespace GravityOne.Forms
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
+            this.label1.AutoSize = false;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 6);
@@ -1469,7 +1469,7 @@ namespace GravityOne.Forms
             // 
             // labelClickMessage
             // 
-            this.labelClickMessage.AutoSize = true;
+            this.labelClickMessage.AutoSize = false;
             this.labelClickMessage.BackColor = System.Drawing.Color.Black;
             this.labelClickMessage.ForeColor = System.Drawing.Color.Coral;
             this.labelClickMessage.Location = new System.Drawing.Point(96, 6);
@@ -1523,7 +1523,7 @@ namespace GravityOne.Forms
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.AutoSize = false;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label2.Location = new System.Drawing.Point(6, 6);
             this.label2.Name = "label2";
@@ -1638,7 +1638,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxReverse
             // 
-            this.checkBoxReverse.AutoSize = true;
+            this.checkBoxReverse.AutoSize = false;
             this.checkBoxReverse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxReverse.Checked = true;
             this.checkBoxReverse.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1653,7 +1653,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxShowNames
             // 
-            this.checkBoxShowNames.AutoSize = true;
+            this.checkBoxShowNames.AutoSize = false;
             this.checkBoxShowNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxShowNames.Checked = true;
             this.checkBoxShowNames.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1668,7 +1668,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxVectorsAll
             // 
-            this.checkBoxVectorsAll.AutoSize = true;
+            this.checkBoxVectorsAll.AutoSize = false;
             this.checkBoxVectorsAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxVectorsAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxVectorsAll.Location = new System.Drawing.Point(5, 23);
@@ -1681,7 +1681,7 @@ namespace GravityOne.Forms
             // 
             // checkBoxTraceAll
             // 
-            this.checkBoxTraceAll.AutoSize = true;
+            this.checkBoxTraceAll.AutoSize = false;
             this.checkBoxTraceAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.checkBoxTraceAll.Checked = true;
             this.checkBoxTraceAll.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -1852,7 +1852,7 @@ namespace GravityOne.Forms
             // 
             // label40
             // 
-            this.label40.AutoSize = true;
+            this.label40.AutoSize = false;
             this.label40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label40.Location = new System.Drawing.Point(286, 32);
             this.label40.Name = "label40";
@@ -1862,7 +1862,7 @@ namespace GravityOne.Forms
             // 
             // label39
             // 
-            this.label39.AutoSize = true;
+            this.label39.AutoSize = false;
             this.label39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label39.Location = new System.Drawing.Point(306, 11);
             this.label39.Name = "label39";
@@ -1872,7 +1872,7 @@ namespace GravityOne.Forms
             // 
             // label38
             // 
-            this.label38.AutoSize = true;
+            this.label38.AutoSize = false;
             this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label38.Location = new System.Drawing.Point(4, 55);
             this.label38.Name = "label38";
@@ -1905,7 +1905,7 @@ namespace GravityOne.Forms
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
+            this.label20.AutoSize = false;
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label20.Location = new System.Drawing.Point(233, 6);
             this.label20.Name = "label20";

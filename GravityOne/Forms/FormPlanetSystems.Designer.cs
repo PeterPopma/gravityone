@@ -79,7 +79,7 @@
             // 
             // radioButtonMoonMoon
             // 
-            this.radioButtonMoonMoon.AutoSize = true;
+            this.radioButtonMoonMoon.AutoSize = false;
             this.radioButtonMoonMoon.Location = new System.Drawing.Point(24, 118);
             this.radioButtonMoonMoon.Name = "radioButtonMoonMoon";
             this.radioButtonMoonMoon.Size = new System.Drawing.Size(136, 17);
@@ -89,7 +89,7 @@
             // 
             // radioButtonSunPlanetMoon
             // 
-            this.radioButtonSunPlanetMoon.AutoSize = true;
+            this.radioButtonSunPlanetMoon.AutoSize = false;
             this.radioButtonSunPlanetMoon.Location = new System.Drawing.Point(24, 91);
             this.radioButtonSunPlanetMoon.Name = "radioButtonSunPlanetMoon";
             this.radioButtonSunPlanetMoon.Size = new System.Drawing.Size(137, 17);
@@ -99,7 +99,7 @@
             // 
             // radioButtonSunPlanet
             // 
-            this.radioButtonSunPlanet.AutoSize = true;
+            this.radioButtonSunPlanet.AutoSize = false;
             this.radioButtonSunPlanet.Location = new System.Drawing.Point(24, 64);
             this.radioButtonSunPlanet.Name = "radioButtonSunPlanet";
             this.radioButtonSunPlanet.Size = new System.Drawing.Size(121, 17);
@@ -109,7 +109,7 @@
             // 
             // radioButtonPlanetMoon
             // 
-            this.radioButtonPlanetMoon.AutoSize = true;
+            this.radioButtonPlanetMoon.AutoSize = false;
             this.radioButtonPlanetMoon.Location = new System.Drawing.Point(24, 39);
             this.radioButtonPlanetMoon.Name = "radioButtonPlanetMoon";
             this.radioButtonPlanetMoon.Size = new System.Drawing.Size(130, 17);
@@ -119,7 +119,7 @@
             // 
             // radioButtonSolarMoons
             // 
-            this.radioButtonSolarMoons.AutoSize = true;
+            this.radioButtonSolarMoons.AutoSize = false;
             this.radioButtonSolarMoons.Checked = true;
             this.radioButtonSolarMoons.Location = new System.Drawing.Point(24, 13);
             this.radioButtonSolarMoons.Name = "radioButtonSolarMoons";

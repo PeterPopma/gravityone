@@ -53,7 +53,7 @@
             // 
             // radioButtonTriple
             // 
-            this.radioButtonTriple.AutoSize = true;
+            this.radioButtonTriple.AutoSize = false;
             this.radioButtonTriple.Location = new System.Drawing.Point(24, 91);
             this.radioButtonTriple.Name = "radioButtonTriple";
             this.radioButtonTriple.Size = new System.Drawing.Size(192, 17);
@@ -63,7 +63,7 @@
             // 
             // radioButtonBinary3
             // 
-            this.radioButtonBinary3.AutoSize = true;
+            this.radioButtonBinary3.AutoSize = false;
             this.radioButtonBinary3.Location = new System.Drawing.Point(24, 64);
             this.radioButtonBinary3.Name = "radioButtonBinary3";
             this.radioButtonBinary3.Size = new System.Drawing.Size(184, 17);
@@ -73,7 +73,7 @@
             // 
             // radioButtonBinary2
             // 
-            this.radioButtonBinary2.AutoSize = true;
+            this.radioButtonBinary2.AutoSize = false;
             this.radioButtonBinary2.Location = new System.Drawing.Point(24, 39);
             this.radioButtonBinary2.Name = "radioButtonBinary2";
             this.radioButtonBinary2.Size = new System.Drawing.Size(149, 17);
@@ -83,7 +83,7 @@
             // 
             // radioButtonBinary1
             // 
-            this.radioButtonBinary1.AutoSize = true;
+            this.radioButtonBinary1.AutoSize = false;
             this.radioButtonBinary1.Checked = true;
             this.radioButtonBinary1.Location = new System.Drawing.Point(24, 13);
             this.radioButtonBinary1.Name = "radioButtonBinary1";
