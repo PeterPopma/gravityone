@@ -22,7 +22,7 @@ namespace GravityOne.Gravity
         int objectIndex = -1;
         int centerIndex = -1;
         int targetFrameRate = 40;       // target FPS
-        long scale = 50;      // 1m = 1,000,000*[scale]m
+        long scale = 100;      // 1m = METERS_PER_PIXEL*[scale]m
         long offsetX;        // offset in SCREEN coordinates
         long offsetY;        // offset in SCREEN coordinates
         int viewportWidth;
@@ -35,6 +35,7 @@ namespace GravityOne.Gravity
         bool isFirstFrame = true;
         double gravitationalConstant = 667408000000;
         double accelerationLimit = 0.0000000001;
+        public const float METERS_PER_PIXEL = 500000.0f;
 
         // Pre-calculation
         Calculation[][] calculation;
@@ -926,32 +927,32 @@ namespace GravityOne.Gravity
         // at scale 1, one pixel = 1000 km 
         public double ScreenToRealCoordinateX(double screen_x)
         {
-            return (screen_x + offsetX) * 1000000.0 * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
+            return (screen_x + offsetX) * METERS_PER_PIXEL * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
         }
 
         public double ScreenToRealCoordinateY(double screen_y)
         {
-            return (screen_y + offsetY) * 1000000.0 * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
+            return (screen_y + offsetY) * METERS_PER_PIXEL * scale;       // screen coords -> adjust offset (is not to scale yet) -> scale 
         }
 
         public int RealtoScreenCoordinateX(double realX)
         {
-            return (int)((realX / (1000000.0 * scale)) - offsetX);              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)((realX / (METERS_PER_PIXEL * scale)) - offsetX);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         public int RealtoScreenCoordinateY(double realY)
         {
-            return (int)((realY / (1000000.0 * scale)) - offsetY);              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)((realY / (METERS_PER_PIXEL * scale)) - offsetY);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         public long ScaleCoordinateX(double realX, long newScale)
         {
-            return (long)(realX / (1000000.0 * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
+            return (long)(realX / (METERS_PER_PIXEL * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         public long ScaleCoordinateY(double realY, long newScale)
         {
-            return (long)(realY / (1000000.0 * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
+            return (long)(realY / (METERS_PER_PIXEL * newScale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         // used to keep the center the same when zooming in/out with no object centered
@@ -968,19 +969,19 @@ namespace GravityOne.Gravity
         {
             if (centerIndex > -1)
             {
-                offsetX = (long)((GravityObjects[centerIndex].X) / (1000000.0 * scale)) - (viewportWidth / 2);
-                offsetY = (long)((GravityObjects[centerIndex].Y) / (1000000.0 * scale)) - (viewportHeight / 2);
+                offsetX = (long)((GravityObjects[centerIndex].X) / (METERS_PER_PIXEL * scale)) - (viewportWidth / 2);
+                offsetY = (long)((GravityObjects[centerIndex].Y) / (METERS_PER_PIXEL * scale)) - (viewportHeight / 2);
             }
         }
 
         public double MetersToPixels(double meter)
         {
-            return meter / (1000000.0 * scale);
+            return meter / (METERS_PER_PIXEL * scale);
         }
 
         public double PixelsToMeters(double pixel)
         {
-            return pixel * (1000000.0 * scale);
+            return pixel * (METERS_PER_PIXEL * scale);
         }
 
         public void AddObject(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, bool trace_, bool vector_, bool scaleObject_ = true)

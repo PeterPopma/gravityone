@@ -1027,15 +1027,15 @@ namespace GravityOne.Forms
         {
             if (value.Equals(0))
             {
-                Interval = 200;
+                Interval = 1;
             }
             else if (value.Equals(1))
             {
-                Interval = 100;
+                Interval = 5;
             }
             else if (value.Equals(2))
             {
-                Interval = 50;
+                Interval = 10;
             }
             else if (value.Equals(3))
             {
@@ -1043,15 +1043,15 @@ namespace GravityOne.Forms
             }
             else if (value.Equals(4))
             {
-                Interval = 10;
+                Interval = 50;
             }
             else if (value.Equals(5))
             {
-                Interval = 5;
+                Interval = 100;
             }
             else if (value.Equals(6))
             {
-                Interval = 1;
+                Interval = 200;
             }
         }
 
@@ -1201,7 +1201,7 @@ namespace GravityOne.Forms
             comboBoxUnits.SelectedItem = "Days";        // days
             PlaceSolarSystem(0, 0, true);
             UpdateObjectProperties();
-            macTrackBarScale.Value = 295;        // scale for solar system view
+            macTrackBarScale.Value = 286;        // scale for solar system view
         }
 
         private void gradientButtonNextObject_Click(object sender, EventArgs e)
@@ -1430,8 +1430,36 @@ namespace GravityOne.Forms
                     break;
             }
 
+            labelTimePerStep.Text = TimeUnitsToStep() + " per step";
+
             displayXNA.GravitySystem.CalculationSecondsPerFrame = displayXNA.TimeUnitsPerStep;
             displayXNA.GravitySystem.ResetCalculations();
+        }
+
+        string TimeUnitsToStep()
+        {
+            if (displayXNA.TimeUnitsPerStep >= 31558150000000)
+            {
+                return string.Format("{0} million years", displayXNA.TimeUnitsPerStep / 31558150000000);
+            }
+            if (displayXNA.TimeUnitsPerStep >= 31558150)
+            {
+                return string.Format("{0} years", displayXNA.TimeUnitsPerStep / 31558150);
+            }
+            if (displayXNA.TimeUnitsPerStep >= 86400)
+            {
+                return string.Format("{0} days", displayXNA.TimeUnitsPerStep / 86400);
+            }
+            if (displayXNA.TimeUnitsPerStep >= 3600)
+            {
+                return string.Format("{0} hours", displayXNA.TimeUnitsPerStep / 3600);
+            }
+            if (displayXNA.TimeUnitsPerStep >= 60)
+            {
+                return string.Format("{0} minutes", displayXNA.TimeUnitsPerStep / 60);
+            }
+
+            return string.Format("{0} seconds", displayXNA.TimeUnitsPerStep);
         }
 
         private void gradientButtonGalaxy_Click(object sender, EventArgs e)
@@ -1573,5 +1601,17 @@ namespace GravityOne.Forms
             }
         }
 
+        private void macTrackBarSpeed_ValueChanged_1(object sender, decimal value)
+        {
+            // 1-1000  ->  1-63116300000000
+            displayXNA.TimeUnitsPerStep = (long)Math.Pow(Convert.ToDouble(value), 4.6000471772540582708882448733788);
+            labelTimePerStep.Text = TimeUnitsToStep() + " per step";
+        }
+
+        private void macTrackBarScale_ValueChanged_1(object sender, decimal value)
+        {
+
+        }
     }
 }
+

@@ -851,7 +851,7 @@ namespace GravityOne.CustomControls
                 // Scale display
                 if (showScale)
                 {
-                    // at scale 1, one pixel = 1000 km
+                    // at scale 1, one pixel = 500 km
                     // we want maximum 1000 pixels and minimum 100 pixels
                     Double beamLength = (1000.0 / gravitySystem.Scale);
                     long factor = 1;
@@ -865,7 +865,11 @@ namespace GravityOne.CustomControls
                     DrawLine(spriteBatch, new Vector2(900, GraphicsDevice.Viewport.Height - 80), new Vector2(900, GraphicsDevice.Viewport.Height - 90), 2);
                     DrawLine(spriteBatch, new Vector2(898 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), new Vector2(898 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 90), 2);
                     spriteBatch.DrawString(fontLindsey, "0", new Vector2(900, GraphicsDevice.Viewport.Height - 80), Color.White);
-                    string maxScaleText = factor.ToString() + " mln. km";
+                    string maxScaleText = "100000 km";
+                    if (factor >= 10)
+                    {
+                        maxScaleText = (factor / 10).ToString() + " mln. km";
+                    }
                     if (factor >= 1000)
                     {
                         maxScaleText = (factor / 1000).ToString() + " bln. km";
@@ -878,7 +882,7 @@ namespace GravityOne.CustomControls
                     {
                         maxScaleText = (factor / 1000000000).ToString() + " qdn. km";
                     }
-                    spriteBatch.DrawString(fontLindsey, maxScaleText, new Vector2(GraphicsDevice.Viewport.Width - 1040 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), Color.White);
+                    spriteBatch.DrawString(fontLindsey, maxScaleText, new Vector2(GraphicsDevice.Viewport.Width - 1070 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), Color.White);
                 }
 
                 // Simulation time

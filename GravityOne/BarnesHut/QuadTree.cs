@@ -119,22 +119,22 @@ namespace GravityOne.BarnesHut
 
         private int toScreenX(double realX)
         {
-            return (int)(realX / (1000000.0 * scale) - offsetX);              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)(realX / (GravitySystem.METERS_PER_PIXEL * scale) - offsetX);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         private int toScreenY(double realY)
         {
-            return (int)(realY / (1000000.0 * scale) - offsetY);              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)(realY / (GravitySystem.METERS_PER_PIXEL * scale) - offsetY);              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         private int toScreenWidth(double realWidth)
         {
-            return (int)(realWidth / (1000000.0 * scale));              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)(realWidth / (GravitySystem.METERS_PER_PIXEL * scale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         private int toScreenHeight(double realHeight)
         {
-            return (int)(realHeight / (1000000.0 * scale));              // scale -> adjust offset (is not to scale) -> screen coords
+            return (int)(realHeight / (GravitySystem.METERS_PER_PIXEL * scale));              // scale -> adjust offset (is not to scale) -> screen coords
         }
 
         // show used internal nodes (for debugging)
