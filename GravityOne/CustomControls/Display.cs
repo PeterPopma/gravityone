@@ -65,7 +65,7 @@ namespace GravityOne.CustomControls
         Random rnd = new Random();
 
         ContentManager contentManager;
-        long timeUnitsPerStep = 1;
+        long secondsPerStep = 1;
 
         int scrollWheelValue, lastScrollWheelValue;
 
@@ -108,16 +108,16 @@ namespace GravityOne.CustomControls
             }
         }
 
-        public long TimeUnitsPerStep
+        public long SecondsPerStep
         {
             get
             {
-                return timeUnitsPerStep;
+                return secondsPerStep;
             }
 
             set
             {
-                timeUnitsPerStep = value;
+                secondsPerStep = value;
             }
         }
 
@@ -886,7 +886,7 @@ namespace GravityOne.CustomControls
                 }
 
                 // Simulation time
-                if (timeUnitsPerStep <= 31558150)
+                if (secondsPerStep <= 31558150)
                 {
                     spriteBatch.DrawString(fontNormal, SimulationTime1.ToString("MM/dd/yyyy HH:mm"), new Vector2(20, GraphicsDevice.Viewport.Height - 140), Color.White);
                 }
@@ -978,13 +978,13 @@ namespace GravityOne.CustomControls
 
         public void Rewind()
         {
-            if (timeUnitsPerStep < 31558151)
+            if (secondsPerStep < 31558151)
             {
-                SimulationTime1 = SimulationTime1.AddSeconds(-timeUnitsPerStep * GravitySystem.FrameNumberPlay);
+                SimulationTime1 = SimulationTime1.AddSeconds(-secondsPerStep * GravitySystem.FrameNumberPlay);
             }
             else
             {
-                simulationTimeLarge -= (timeUnitsPerStep * GravitySystem.FrameNumberPlay / 31558150);
+                simulationTimeLarge -= (secondsPerStep * GravitySystem.FrameNumberPlay / 31558150);
             }
             GravitySystem.FrameNumberPlay = 0;
             foreach (GravityObject o in gravitySystem.GravityObjects) 
@@ -1001,7 +1001,7 @@ namespace GravityOne.CustomControls
                 SimulationStepping = false;
                 if (gravitySystem.CalculationsPerStepSetting != -2)
                 {
-                    gravitySystem.CalculateStep(timeUnitsPerStep);
+                    gravitySystem.CalculateStep(secondsPerStep);
                 } else
                 {
                     if (gravitySystem.PlayOneFrame() || (gravitySystem.CalculationsPerStepPrecalculated==1 && gravitySystem.FrameNumberCalc<=gravitySystem.FrameNumberPlay))
@@ -1011,16 +1011,16 @@ namespace GravityOne.CustomControls
                     }
                 }
 
-                if (timeUnitsPerStep<31558151) {
+                if (secondsPerStep<31558151) {
                     try
                     {
                         if (reverse)
                         {
-                            SimulationTime1 = SimulationTime1.AddSeconds(-timeUnitsPerStep);
+                            SimulationTime1 = SimulationTime1.AddSeconds(-secondsPerStep);
                         }
                         else
                         {
-                            SimulationTime1 = SimulationTime1.AddSeconds(timeUnitsPerStep);
+                            SimulationTime1 = SimulationTime1.AddSeconds(secondsPerStep);
                         }
                     }
                     catch (System.ArgumentOutOfRangeException)
@@ -1032,11 +1032,11 @@ namespace GravityOne.CustomControls
                 {
                     if (reverse)
                     {
-                        simulationTimeLarge -= (timeUnitsPerStep / 31558150);
+                        simulationTimeLarge -= (secondsPerStep / 31558150);
                     }
                     else
                     {
-                        simulationTimeLarge += (timeUnitsPerStep / 31558150);
+                        simulationTimeLarge += (secondsPerStep / 31558150);
                     }
                 }
 

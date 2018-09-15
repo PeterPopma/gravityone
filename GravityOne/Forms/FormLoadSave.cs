@@ -222,7 +222,7 @@ namespace GravityOne.Forms
                 int frameNumberCalc = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.FrameNumberPlay = 0;
                 int calcs_per_unit_index = Convert.ToInt32(srFile.ReadLine());      // triggers the pre-calculation, so postpone until previous calcs are loaded
-                myParent.comboBoxUnits.SelectedIndex = Convert.ToInt32(srFile.ReadLine());
+                myParent.macTrackBarSpeed.Value = Convert.ToInt32(srFile.ReadLine());
                 myParent.macTrackBarScale.Value = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.ObjectIndex = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.CenterIndex = Convert.ToInt32(srFile.ReadLine());
@@ -233,7 +233,7 @@ namespace GravityOne.Forms
                 myParent.DisplayXNA.GravitySystem.OffsetY = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.Scale = Convert.ToInt64(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.CalculationsPerStepSetting = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.TimeUnitsPerStep = Convert.ToInt64(srFile.ReadLine());
+                myParent.DisplayXNA.SecondsPerStep = Convert.ToInt64(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.UseBarnesHut = Convert.ToBoolean(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.QuadTree.Treshold = Convert.ToDouble(srFile.ReadLine(), providerDecimalPoint);
                 myParent.DisplayXNA.BlendState = myParent.ConvertToBlendState(srFile.ReadLine());
@@ -357,7 +357,7 @@ namespace GravityOne.Forms
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.PreCalculationTime);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.FrameNumberCalc);
                 srFile.WriteLine(myParent.comboBoxCalcsUnit.SelectedIndex.ToString());
-                srFile.WriteLine(myParent.comboBoxUnits.SelectedIndex.ToString());
+                srFile.WriteLine(myParent.macTrackBarSpeed.Value.ToString());
                 srFile.WriteLine(myParent.macTrackBarScale.Value.ToString());
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.ObjectIndex);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CenterIndex);
@@ -367,7 +367,7 @@ namespace GravityOne.Forms
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.OffsetY);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.Scale);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CalculationsPerStepSetting);
-                srFile.WriteLine(myParent.DisplayXNA.TimeUnitsPerStep);
+                srFile.WriteLine(myParent.DisplayXNA.SecondsPerStep);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.UseBarnesHut);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.QuadTree.Treshold.ToString(providerDecimalPoint));
                 srFile.WriteLine(myParent.DisplayXNA.BlendState);

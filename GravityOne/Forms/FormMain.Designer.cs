@@ -32,7 +32,7 @@ namespace GravityOne.Forms
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            Microsoft.Xna.Framework.Graphics.BlendState blendState2 = new Microsoft.Xna.Framework.Graphics.BlendState();
+            Microsoft.Xna.Framework.Graphics.BlendState blendState1 = new Microsoft.Xna.Framework.Graphics.BlendState();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -143,6 +143,17 @@ namespace GravityOne.Forms
             this.gradientButtonSolarSystem = new GravityOne.CustomControls.GradientButton();
             this.label2 = new System.Windows.Forms.Label();
             this.gradientPanel1 = new GravityOne.CustomControls.GradientPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.gradientPanel21 = new GravityOne.CustomControls.GradientPanel2();
+            this.labelTimePerStep = new System.Windows.Forms.Label();
+            this.comboBoxCalcsUnit = new System.Windows.Forms.ComboBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.macTrackBarSpeed = new XComponent.SliderBar.MACTrackBar();
+            this.macTrackBarDelay = new XComponent.SliderBar.MACTrackBar();
+            this.macTrackBarScale = new XComponent.SliderBar.MACTrackBar();
             this.panelPan = new System.Windows.Forms.Panel();
             this.gradientPanel210 = new GravityOne.CustomControls.GradientPanel2();
             this.buttonLeft = new System.Windows.Forms.Button();
@@ -163,24 +174,13 @@ namespace GravityOne.Forms
             this.panel3 = new System.Windows.Forms.Panel();
             this.gradientPanel24 = new GravityOne.CustomControls.GradientPanel2();
             this.gradientButtonRewind = new GravityOne.CustomControls.GradientButton();
-            this.comboBoxCalcsUnit = new System.Windows.Forms.ComboBox();
-            this.comboBoxUnits = new System.Windows.Forms.ComboBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.gradientButtonStep = new GravityOne.CustomControls.GradientButton();
             this.gradientButtonStart = new GravityOne.CustomControls.GradientButton();
-            this.macTrackBarDelay = new XComponent.SliderBar.MACTrackBar();
             this.displayXNA = new GravityOne.CustomControls.Display();
             this.macTrackBar1 = new XComponent.SliderBar.MACTrackBar();
             this.macTrackBar2 = new XComponent.SliderBar.MACTrackBar();
             this.gradientButton3 = new GravityOne.CustomControls.GradientButton();
             this.gradientButton1 = new GravityOne.CustomControls.GradientButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.gradientPanel21 = new GravityOne.CustomControls.GradientPanel2();
-            this.macTrackBarScale = new XComponent.SliderBar.MACTrackBar();
-            this.labelTimePerStep = new System.Windows.Forms.Label();
-            this.macTrackBarSpeed = new XComponent.SliderBar.MACTrackBar();
-            this.label38 = new System.Windows.Forms.Label();
             this.gradientPanelObjectProperties.SuspendLayout();
             this.gradientPanel25.SuspendLayout();
             this.panelObjectProperties.SuspendLayout();
@@ -199,6 +199,8 @@ namespace GravityOne.Forms
             this.panelPresetSetups.SuspendLayout();
             this.gradientPanel29.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.gradientPanel21.SuspendLayout();
             this.panelPan.SuspendLayout();
             this.gradientPanel210.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -207,8 +209,6 @@ namespace GravityOne.Forms
             this.gradientPanel23.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gradientPanel24.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.gradientPanel21.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox3
@@ -334,7 +334,7 @@ namespace GravityOne.Forms
             this.gradientButtonCaptureVideo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gradientButtonCaptureVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gradientButtonCaptureVideo.Image = global::GravityOne.Resources.icon_camera_32;
-            this.gradientButtonCaptureVideo.Location = new System.Drawing.Point(83, 5);
+            this.gradientButtonCaptureVideo.Location = new System.Drawing.Point(84, 50);
             this.gradientButtonCaptureVideo.Name = "gradientButtonCaptureVideo";
             this.gradientButtonCaptureVideo.Size = new System.Drawing.Size(38, 37);
             this.gradientButtonCaptureVideo.TabIndex = 86;
@@ -1497,254 +1497,47 @@ namespace GravityOne.Forms
             this.gradientPanel1.Controls.Add(this.panel5);
             this.gradientPanel1.Controls.Add(this.panel7);
             this.gradientPanel1.Controls.Add(this.panel3);
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 672);
+            this.gradientPanel1.Location = new System.Drawing.Point(0, 622);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1024, 99);
+            this.gradientPanel1.Size = new System.Drawing.Size(1024, 106);
             this.gradientPanel1.TabIndex = 8;
             // 
-            // panelPan
+            // panel4
             // 
-            this.panelPan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelPan.Controls.Add(this.gradientPanel210);
-            this.panelPan.Location = new System.Drawing.Point(916, 3);
-            this.panelPan.Name = "panelPan";
-            this.panelPan.Size = new System.Drawing.Size(103, 84);
-            this.panelPan.TabIndex = 10;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.gradientPanel21);
+            this.panel4.Location = new System.Drawing.Point(139, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(546, 96);
+            this.panel4.TabIndex = 11;
             // 
-            // gradientPanel210
+            // gradientPanel21
             // 
-            this.gradientPanel210.Controls.Add(this.buttonLeft);
-            this.gradientPanel210.Controls.Add(this.buttonRight);
-            this.gradientPanel210.Controls.Add(this.buttonDown);
-            this.gradientPanel210.Controls.Add(this.buttonUp);
-            this.gradientPanel210.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel210.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel210.Name = "gradientPanel210";
-            this.gradientPanel210.Size = new System.Drawing.Size(99, 80);
-            this.gradientPanel210.TabIndex = 4;
+            this.gradientPanel21.Controls.Add(this.labelTimePerStep);
+            this.gradientPanel21.Controls.Add(this.comboBoxCalcsUnit);
+            this.gradientPanel21.Controls.Add(this.label40);
+            this.gradientPanel21.Controls.Add(this.label12);
+            this.gradientPanel21.Controls.Add(this.label20);
+            this.gradientPanel21.Controls.Add(this.label38);
+            this.gradientPanel21.Controls.Add(this.macTrackBarSpeed);
+            this.gradientPanel21.Controls.Add(this.macTrackBarDelay);
+            this.gradientPanel21.Controls.Add(this.macTrackBarScale);
+            this.gradientPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanel21.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanel21.Name = "gradientPanel21";
+            this.gradientPanel21.Size = new System.Drawing.Size(542, 92);
+            this.gradientPanel21.TabIndex = 0;
             // 
-            // buttonLeft
+            // labelTimePerStep
             // 
-            this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonLeft.Image = global::GravityOne.Resources.arrowleft;
-            this.buttonLeft.Location = new System.Drawing.Point(1, 24);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(34, 34);
-            this.buttonLeft.TabIndex = 3;
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonLeft_MouseDown);
-            this.buttonLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonLeft_MouseUp);
-            // 
-            // buttonRight
-            // 
-            this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonRight.Image = global::GravityOne.Resources.arrowright;
-            this.buttonRight.Location = new System.Drawing.Point(67, 24);
-            this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(34, 34);
-            this.buttonRight.TabIndex = 2;
-            this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonRight_MouseDown);
-            this.buttonRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonRight_MouseUp);
-            // 
-            // buttonDown
-            // 
-            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonDown.Image = global::GravityOne.Resources.arrowdown;
-            this.buttonDown.Location = new System.Drawing.Point(33, 46);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(34, 34);
-            this.buttonDown.TabIndex = 1;
-            this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseDown);
-            this.buttonDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseUp);
-            // 
-            // buttonUp
-            // 
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonUp.Image = global::GravityOne.Resources.arrowup;
-            this.buttonUp.Location = new System.Drawing.Point(33, 1);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(34, 34);
-            this.buttonUp.TabIndex = 0;
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseDown);
-            this.buttonUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseUp);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.DarkGray;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.gradientPanel22);
-            this.panel5.Location = new System.Drawing.Point(813, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(97, 84);
-            this.panel5.TabIndex = 7;
-            // 
-            // gradientPanel22
-            // 
-            this.gradientPanel22.Controls.Add(this.checkBoxReverse);
-            this.gradientPanel22.Controls.Add(this.checkBoxShowNames);
-            this.gradientPanel22.Controls.Add(this.checkBoxVectorsAll);
-            this.gradientPanel22.Controls.Add(this.checkBoxTraceAll);
-            this.gradientPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel22.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel22.Name = "gradientPanel22";
-            this.gradientPanel22.Size = new System.Drawing.Size(93, 80);
-            this.gradientPanel22.TabIndex = 10;
-            // 
-            // checkBoxReverse
-            // 
-            this.checkBoxReverse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBoxReverse.Checked = true;
-            this.checkBoxReverse.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxReverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxReverse.Location = new System.Drawing.Point(5, 41);
-            this.checkBoxReverse.Name = "checkBoxReverse";
-            this.checkBoxReverse.Size = new System.Drawing.Size(66, 17);
-            this.checkBoxReverse.TabIndex = 30;
-            this.checkBoxReverse.Text = "Reverse";
-            this.checkBoxReverse.UseVisualStyleBackColor = false;
-            this.checkBoxReverse.CheckedChanged += new System.EventHandler(this.checkBoxReverse_CheckedChanged);
-            // 
-            // checkBoxShowNames
-            // 
-            this.checkBoxShowNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBoxShowNames.Checked = true;
-            this.checkBoxShowNames.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxShowNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxShowNames.Location = new System.Drawing.Point(5, 59);
-            this.checkBoxShowNames.Name = "checkBoxShowNames";
-            this.checkBoxShowNames.Size = new System.Drawing.Size(87, 17);
-            this.checkBoxShowNames.TabIndex = 29;
-            this.checkBoxShowNames.Text = "Show names";
-            this.checkBoxShowNames.UseVisualStyleBackColor = false;
-            this.checkBoxShowNames.CheckedChanged += new System.EventHandler(this.checkBoxShowNames_CheckedChanged);
-            // 
-            // checkBoxVectorsAll
-            // 
-            this.checkBoxVectorsAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBoxVectorsAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxVectorsAll.Location = new System.Drawing.Point(5, 23);
-            this.checkBoxVectorsAll.Name = "checkBoxVectorsAll";
-            this.checkBoxVectorsAll.Size = new System.Drawing.Size(75, 17);
-            this.checkBoxVectorsAll.TabIndex = 25;
-            this.checkBoxVectorsAll.Text = "Vectors all";
-            this.checkBoxVectorsAll.UseVisualStyleBackColor = false;
-            this.checkBoxVectorsAll.CheckedChanged += new System.EventHandler(this.checkBoxVectorsAll_CheckedChanged);
-            // 
-            // checkBoxTraceAll
-            // 
-            this.checkBoxTraceAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.checkBoxTraceAll.Checked = true;
-            this.checkBoxTraceAll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxTraceAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxTraceAll.Location = new System.Drawing.Point(5, 4);
-            this.checkBoxTraceAll.Name = "checkBoxTraceAll";
-            this.checkBoxTraceAll.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxTraceAll.TabIndex = 24;
-            this.checkBoxTraceAll.Text = "Trails all";
-            this.checkBoxTraceAll.UseVisualStyleBackColor = false;
-            this.checkBoxTraceAll.CheckedChanged += new System.EventHandler(this.checkBoxTraceAll_CheckedChanged);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.DarkGray;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel7.Controls.Add(this.gradientPanel23);
-            this.panel7.Location = new System.Drawing.Point(689, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(120, 84);
-            this.panel7.TabIndex = 6;
-            // 
-            // gradientPanel23
-            // 
-            this.gradientPanel23.Controls.Add(this.gradientButtonPreferences);
-            this.gradientPanel23.Controls.Add(this.gradientButtonToggleObject);
-            this.gradientPanel23.Controls.Add(this.gradientButtonToggleToolbox);
-            this.gradientPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel23.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel23.Name = "gradientPanel23";
-            this.gradientPanel23.Size = new System.Drawing.Size(116, 80);
-            this.gradientPanel23.TabIndex = 12;
-            // 
-            // gradientButtonPreferences
-            // 
-            this.gradientButtonPreferences.Active = false;
-            this.gradientButtonPreferences.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gradientButtonPreferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradientButtonPreferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradientButtonPreferences.Location = new System.Drawing.Point(8, 55);
-            this.gradientButtonPreferences.Name = "gradientButtonPreferences";
-            this.gradientButtonPreferences.Size = new System.Drawing.Size(102, 19);
-            this.gradientButtonPreferences.TabIndex = 44;
-            this.gradientButtonPreferences.Text = "preferences";
-            this.gradientButtonPreferences.UseVisualStyleBackColor = false;
-            this.gradientButtonPreferences.Click += new System.EventHandler(this.gradientButtonPreferences_Click);
-            // 
-            // gradientButtonToggleObject
-            // 
-            this.gradientButtonToggleObject.Active = true;
-            this.gradientButtonToggleObject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gradientButtonToggleObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradientButtonToggleObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradientButtonToggleObject.Location = new System.Drawing.Point(8, 30);
-            this.gradientButtonToggleObject.Name = "gradientButtonToggleObject";
-            this.gradientButtonToggleObject.Size = new System.Drawing.Size(102, 19);
-            this.gradientButtonToggleObject.TabIndex = 43;
-            this.gradientButtonToggleObject.Text = "object properties";
-            this.gradientButtonToggleObject.UseVisualStyleBackColor = false;
-            this.gradientButtonToggleObject.Click += new System.EventHandler(this.gradientButtonToggleObject_Click);
-            // 
-            // gradientButtonToggleToolbox
-            // 
-            this.gradientButtonToggleToolbox.Active = true;
-            this.gradientButtonToggleToolbox.BackColor = System.Drawing.Color.Black;
-            this.gradientButtonToggleToolbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradientButtonToggleToolbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradientButtonToggleToolbox.Location = new System.Drawing.Point(8, 5);
-            this.gradientButtonToggleToolbox.Name = "gradientButtonToggleToolbox";
-            this.gradientButtonToggleToolbox.Size = new System.Drawing.Size(102, 19);
-            this.gradientButtonToggleToolbox.TabIndex = 41;
-            this.gradientButtonToggleToolbox.Text = "editor";
-            this.gradientButtonToggleToolbox.UseVisualStyleBackColor = false;
-            this.gradientButtonToggleToolbox.Click += new System.EventHandler(this.gradientButtonToggleToolbox_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkGray;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.gradientPanel24);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(130, 84);
-            this.panel3.TabIndex = 5;
-            // 
-            // gradientPanel24
-            // 
-            this.gradientPanel24.Controls.Add(this.gradientButtonCaptureVideo);
-            this.gradientPanel24.Controls.Add(this.gradientButtonRewind);
-            this.gradientPanel24.Controls.Add(this.gradientButtonStep);
-            this.gradientPanel24.Controls.Add(this.gradientButtonStart);
-            this.gradientPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel24.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel24.Name = "gradientPanel24";
-            this.gradientPanel24.Size = new System.Drawing.Size(126, 80);
-            this.gradientPanel24.TabIndex = 27;
-            // 
-            // gradientButtonRewind
-            // 
-            this.gradientButtonRewind.Active = false;
-            this.gradientButtonRewind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gradientButtonRewind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradientButtonRewind.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradientButtonRewind.Image = global::GravityOne.Resources.icon_rewind_32;
-            this.gradientButtonRewind.Location = new System.Drawing.Point(13, 38);
-            this.gradientButtonRewind.Name = "gradientButtonRewind";
-            this.gradientButtonRewind.Size = new System.Drawing.Size(40, 28);
-            this.gradientButtonRewind.TabIndex = 85;
-            this.gradientButtonRewind.UseVisualStyleBackColor = false;
-            this.gradientButtonRewind.Click += new System.EventHandler(this.gradientButtonRewind_Click);
+            this.labelTimePerStep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelTimePerStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimePerStep.ForeColor = System.Drawing.Color.Navy;
+            this.labelTimePerStep.Location = new System.Drawing.Point(14, 8);
+            this.labelTimePerStep.Name = "labelTimePerStep";
+            this.labelTimePerStep.Size = new System.Drawing.Size(148, 22);
+            this.labelTimePerStep.TabIndex = 88;
+            this.labelTimePerStep.Text = "XXXX";
             // 
             // comboBoxCalcsUnit
             // 
@@ -1760,58 +1553,360 @@ namespace GravityOne.Forms
             "500",
             "1000",
             "5000"});
-            this.comboBoxCalcsUnit.Location = new System.Drawing.Point(467, 552);
+            this.comboBoxCalcsUnit.Location = new System.Drawing.Point(278, 8);
             this.comboBoxCalcsUnit.Name = "comboBoxCalcsUnit";
             this.comboBoxCalcsUnit.Size = new System.Drawing.Size(94, 21);
             this.comboBoxCalcsUnit.TabIndex = 84;
             this.comboBoxCalcsUnit.SelectedIndexChanged += new System.EventHandler(this.comboBoxCalcsUnit_SelectedIndexChanged);
             // 
-            // comboBoxUnits
-            // 
-            this.comboBoxUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxUnits.FormattingEnabled = true;
-            this.comboBoxUnits.Items.AddRange(new object[] {
-            "Seconds",
-            "Minutes",
-            "2 Minutes",
-            "Hours",
-            "2 Hours",
-            "8 Hours",
-            "Days",
-            "Weeks",
-            "Months",
-            "Years",
-            "Decades",
-            "Centuries",
-            "Millennia",
-            "10 Millennia",
-            "100.000 Years",
-            "1/2 Million Years",
-            "Million Years",
-            "2 Million Years"});
-            this.comboBoxUnits.Location = new System.Drawing.Point(1171, 608);
-            this.comboBoxUnits.Name = "comboBoxUnits";
-            this.comboBoxUnits.Size = new System.Drawing.Size(94, 21);
-            this.comboBoxUnits.TabIndex = 83;
-            this.comboBoxUnits.SelectedIndexChanged += new System.EventHandler(this.comboBoxUnits_SelectedIndexChanged_1);
-            // 
             // label40
             // 
             this.label40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label40.Location = new System.Drawing.Point(448, 514);
+            this.label40.Location = new System.Drawing.Point(217, 11);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(55, 13);
             this.label40.TabIndex = 82;
             this.label40.Text = "Calc/Unit:";
             // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label12.Location = new System.Drawing.Point(12, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 13);
+            this.label12.TabIndex = 91;
+            this.label12.Text = "Speed:";
+            // 
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label20.Location = new System.Drawing.Point(351, 555);
+            this.label20.Location = new System.Drawing.Point(387, 11);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(41, 13);
             this.label20.TabIndex = 72;
             this.label20.Text = "Delay:";
+            // 
+            // label38
+            // 
+            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label38.Location = new System.Drawing.Point(12, 60);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(37, 13);
+            this.label38.TabIndex = 90;
+            this.label38.Text = "Scale:";
+            // 
+            // macTrackBarSpeed
+            // 
+            this.macTrackBarSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarSpeed.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarSpeed.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macTrackBarSpeed.ForeColor = System.Drawing.Color.Black;
+            this.macTrackBarSpeed.IndentHeight = 6;
+            this.macTrackBarSpeed.Location = new System.Drawing.Point(55, 25);
+            this.macTrackBarSpeed.Maximum = 1000;
+            this.macTrackBarSpeed.Minimum = 1;
+            this.macTrackBarSpeed.Name = "macTrackBarSpeed";
+            this.macTrackBarSpeed.Size = new System.Drawing.Size(470, 30);
+            this.macTrackBarSpeed.TabIndex = 89;
+            this.macTrackBarSpeed.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackBarSpeed.TickColor = System.Drawing.Color.Transparent;
+            this.macTrackBarSpeed.TickHeight = 1;
+            this.macTrackBarSpeed.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.macTrackBarSpeed.TrackerSize = new System.Drawing.Size(16, 16);
+            this.macTrackBarSpeed.TrackLineColor = System.Drawing.Color.Black;
+            this.macTrackBarSpeed.TrackLineHeight = 3;
+            this.macTrackBarSpeed.Value = 50;
+            this.macTrackBarSpeed.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackBarSpeed_ValueChanged);
+            // 
+            // macTrackBarDelay
+            // 
+            this.macTrackBarDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarDelay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarDelay.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macTrackBarDelay.ForeColor = System.Drawing.Color.Black;
+            this.macTrackBarDelay.IndentHeight = 6;
+            this.macTrackBarDelay.Location = new System.Drawing.Point(422, 1);
+            this.macTrackBarDelay.Maximum = 6;
+            this.macTrackBarDelay.Minimum = 0;
+            this.macTrackBarDelay.Name = "macTrackBarDelay";
+            this.macTrackBarDelay.Size = new System.Drawing.Size(103, 33);
+            this.macTrackBarDelay.TabIndex = 74;
+            this.macTrackBarDelay.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackBarDelay.TickColor = System.Drawing.Color.Black;
+            this.macTrackBarDelay.TickHeight = 4;
+            this.macTrackBarDelay.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.macTrackBarDelay.TrackerSize = new System.Drawing.Size(16, 16);
+            this.macTrackBarDelay.TrackLineColor = System.Drawing.Color.Black;
+            this.macTrackBarDelay.TrackLineHeight = 3;
+            this.macTrackBarDelay.Value = 0;
+            this.macTrackBarDelay.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackBarDelay_ValueChanged);
+            // 
+            // macTrackBarScale
+            // 
+            this.macTrackBarScale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarScale.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.macTrackBarScale.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.macTrackBarScale.ForeColor = System.Drawing.Color.Black;
+            this.macTrackBarScale.IndentHeight = 6;
+            this.macTrackBarScale.Location = new System.Drawing.Point(55, 55);
+            this.macTrackBarScale.Maximum = 400;
+            this.macTrackBarScale.Minimum = 1;
+            this.macTrackBarScale.Name = "macTrackBarScale";
+            this.macTrackBarScale.Size = new System.Drawing.Size(470, 30);
+            this.macTrackBarScale.TabIndex = 77;
+            this.macTrackBarScale.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.macTrackBarScale.TickColor = System.Drawing.Color.Transparent;
+            this.macTrackBarScale.TickHeight = 1;
+            this.macTrackBarScale.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.macTrackBarScale.TrackerSize = new System.Drawing.Size(16, 16);
+            this.macTrackBarScale.TrackLineColor = System.Drawing.Color.Black;
+            this.macTrackBarScale.TrackLineHeight = 3;
+            this.macTrackBarScale.Value = 50;
+            this.macTrackBarScale.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackBarScale_ValueChanged);
+            // 
+            // panelPan
+            // 
+            this.panelPan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelPan.Controls.Add(this.gradientPanel210);
+            this.panelPan.Location = new System.Drawing.Point(916, 3);
+            this.panelPan.Name = "panelPan";
+            this.panelPan.Size = new System.Drawing.Size(103, 96);
+            this.panelPan.TabIndex = 10;
+            // 
+            // gradientPanel210
+            // 
+            this.gradientPanel210.Controls.Add(this.buttonLeft);
+            this.gradientPanel210.Controls.Add(this.buttonRight);
+            this.gradientPanel210.Controls.Add(this.buttonDown);
+            this.gradientPanel210.Controls.Add(this.buttonUp);
+            this.gradientPanel210.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanel210.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanel210.Name = "gradientPanel210";
+            this.gradientPanel210.Size = new System.Drawing.Size(99, 92);
+            this.gradientPanel210.TabIndex = 4;
+            // 
+            // buttonLeft
+            // 
+            this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonLeft.Image = global::GravityOne.Resources.arrowleft;
+            this.buttonLeft.Location = new System.Drawing.Point(0, 31);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(34, 34);
+            this.buttonLeft.TabIndex = 3;
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonLeft_MouseDown);
+            this.buttonLeft.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonLeft_MouseUp);
+            // 
+            // buttonRight
+            // 
+            this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonRight.Image = global::GravityOne.Resources.arrowright;
+            this.buttonRight.Location = new System.Drawing.Point(66, 31);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(34, 34);
+            this.buttonRight.TabIndex = 2;
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonRight_MouseDown);
+            this.buttonRight.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonRight_MouseUp);
+            // 
+            // buttonDown
+            // 
+            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonDown.Image = global::GravityOne.Resources.arrowdown;
+            this.buttonDown.Location = new System.Drawing.Point(32, 53);
+            this.buttonDown.Name = "buttonDown";
+            this.buttonDown.Size = new System.Drawing.Size(34, 34);
+            this.buttonDown.TabIndex = 1;
+            this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseDown);
+            this.buttonDown.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonDown_MouseUp);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonUp.Image = global::GravityOne.Resources.arrowup;
+            this.buttonUp.Location = new System.Drawing.Point(32, 8);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(34, 34);
+            this.buttonUp.TabIndex = 0;
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseDown);
+            this.buttonUp.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonUp_MouseUp);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.DarkGray;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.gradientPanel22);
+            this.panel5.Location = new System.Drawing.Point(813, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(97, 96);
+            this.panel5.TabIndex = 7;
+            // 
+            // gradientPanel22
+            // 
+            this.gradientPanel22.Controls.Add(this.checkBoxReverse);
+            this.gradientPanel22.Controls.Add(this.checkBoxShowNames);
+            this.gradientPanel22.Controls.Add(this.checkBoxVectorsAll);
+            this.gradientPanel22.Controls.Add(this.checkBoxTraceAll);
+            this.gradientPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanel22.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanel22.Name = "gradientPanel22";
+            this.gradientPanel22.Size = new System.Drawing.Size(93, 92);
+            this.gradientPanel22.TabIndex = 10;
+            // 
+            // checkBoxReverse
+            // 
+            this.checkBoxReverse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxReverse.Checked = true;
+            this.checkBoxReverse.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxReverse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxReverse.Location = new System.Drawing.Point(5, 50);
+            this.checkBoxReverse.Name = "checkBoxReverse";
+            this.checkBoxReverse.Size = new System.Drawing.Size(66, 17);
+            this.checkBoxReverse.TabIndex = 30;
+            this.checkBoxReverse.Text = "Reverse";
+            this.checkBoxReverse.UseVisualStyleBackColor = false;
+            this.checkBoxReverse.CheckedChanged += new System.EventHandler(this.checkBoxReverse_CheckedChanged);
+            // 
+            // checkBoxShowNames
+            // 
+            this.checkBoxShowNames.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxShowNames.Checked = true;
+            this.checkBoxShowNames.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxShowNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxShowNames.Location = new System.Drawing.Point(5, 70);
+            this.checkBoxShowNames.Name = "checkBoxShowNames";
+            this.checkBoxShowNames.Size = new System.Drawing.Size(87, 17);
+            this.checkBoxShowNames.TabIndex = 29;
+            this.checkBoxShowNames.Text = "Show names";
+            this.checkBoxShowNames.UseVisualStyleBackColor = false;
+            this.checkBoxShowNames.CheckedChanged += new System.EventHandler(this.checkBoxShowNames_CheckedChanged);
+            // 
+            // checkBoxVectorsAll
+            // 
+            this.checkBoxVectorsAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxVectorsAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxVectorsAll.Location = new System.Drawing.Point(5, 28);
+            this.checkBoxVectorsAll.Name = "checkBoxVectorsAll";
+            this.checkBoxVectorsAll.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxVectorsAll.TabIndex = 25;
+            this.checkBoxVectorsAll.Text = "Vectors all";
+            this.checkBoxVectorsAll.UseVisualStyleBackColor = false;
+            this.checkBoxVectorsAll.CheckedChanged += new System.EventHandler(this.checkBoxVectorsAll_CheckedChanged);
+            // 
+            // checkBoxTraceAll
+            // 
+            this.checkBoxTraceAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxTraceAll.Checked = true;
+            this.checkBoxTraceAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTraceAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTraceAll.Location = new System.Drawing.Point(5, 7);
+            this.checkBoxTraceAll.Name = "checkBoxTraceAll";
+            this.checkBoxTraceAll.Size = new System.Drawing.Size(64, 17);
+            this.checkBoxTraceAll.TabIndex = 24;
+            this.checkBoxTraceAll.Text = "Trails all";
+            this.checkBoxTraceAll.UseVisualStyleBackColor = false;
+            this.checkBoxTraceAll.CheckedChanged += new System.EventHandler(this.checkBoxTraceAll_CheckedChanged);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.DarkGray;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.gradientPanel23);
+            this.panel7.Location = new System.Drawing.Point(689, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(120, 97);
+            this.panel7.TabIndex = 6;
+            // 
+            // gradientPanel23
+            // 
+            this.gradientPanel23.Controls.Add(this.gradientButtonPreferences);
+            this.gradientPanel23.Controls.Add(this.gradientButtonToggleObject);
+            this.gradientPanel23.Controls.Add(this.gradientButtonToggleToolbox);
+            this.gradientPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanel23.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanel23.Name = "gradientPanel23";
+            this.gradientPanel23.Size = new System.Drawing.Size(116, 93);
+            this.gradientPanel23.TabIndex = 12;
+            // 
+            // gradientButtonPreferences
+            // 
+            this.gradientButtonPreferences.Active = false;
+            this.gradientButtonPreferences.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gradientButtonPreferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gradientButtonPreferences.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradientButtonPreferences.Location = new System.Drawing.Point(8, 63);
+            this.gradientButtonPreferences.Name = "gradientButtonPreferences";
+            this.gradientButtonPreferences.Size = new System.Drawing.Size(102, 25);
+            this.gradientButtonPreferences.TabIndex = 44;
+            this.gradientButtonPreferences.Text = "preferences";
+            this.gradientButtonPreferences.UseVisualStyleBackColor = false;
+            this.gradientButtonPreferences.Click += new System.EventHandler(this.gradientButtonPreferences_Click);
+            // 
+            // gradientButtonToggleObject
+            // 
+            this.gradientButtonToggleObject.Active = true;
+            this.gradientButtonToggleObject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gradientButtonToggleObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gradientButtonToggleObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradientButtonToggleObject.Location = new System.Drawing.Point(8, 34);
+            this.gradientButtonToggleObject.Name = "gradientButtonToggleObject";
+            this.gradientButtonToggleObject.Size = new System.Drawing.Size(102, 25);
+            this.gradientButtonToggleObject.TabIndex = 43;
+            this.gradientButtonToggleObject.Text = "object properties";
+            this.gradientButtonToggleObject.UseVisualStyleBackColor = false;
+            this.gradientButtonToggleObject.Click += new System.EventHandler(this.gradientButtonToggleObject_Click);
+            // 
+            // gradientButtonToggleToolbox
+            // 
+            this.gradientButtonToggleToolbox.Active = true;
+            this.gradientButtonToggleToolbox.BackColor = System.Drawing.Color.Black;
+            this.gradientButtonToggleToolbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gradientButtonToggleToolbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradientButtonToggleToolbox.Location = new System.Drawing.Point(8, 5);
+            this.gradientButtonToggleToolbox.Name = "gradientButtonToggleToolbox";
+            this.gradientButtonToggleToolbox.Size = new System.Drawing.Size(102, 25);
+            this.gradientButtonToggleToolbox.TabIndex = 41;
+            this.gradientButtonToggleToolbox.Text = "editor";
+            this.gradientButtonToggleToolbox.UseVisualStyleBackColor = false;
+            this.gradientButtonToggleToolbox.Click += new System.EventHandler(this.gradientButtonToggleToolbox_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.gradientPanel24);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(130, 97);
+            this.panel3.TabIndex = 5;
+            // 
+            // gradientPanel24
+            // 
+            this.gradientPanel24.Controls.Add(this.gradientButtonCaptureVideo);
+            this.gradientPanel24.Controls.Add(this.gradientButtonRewind);
+            this.gradientPanel24.Controls.Add(this.gradientButtonStep);
+            this.gradientPanel24.Controls.Add(this.gradientButtonStart);
+            this.gradientPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gradientPanel24.Location = new System.Drawing.Point(0, 0);
+            this.gradientPanel24.Name = "gradientPanel24";
+            this.gradientPanel24.Size = new System.Drawing.Size(126, 93);
+            this.gradientPanel24.TabIndex = 27;
+            // 
+            // gradientButtonRewind
+            // 
+            this.gradientButtonRewind.Active = false;
+            this.gradientButtonRewind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gradientButtonRewind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gradientButtonRewind.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradientButtonRewind.Image = global::GravityOne.Resources.icon_rewind_32;
+            this.gradientButtonRewind.Location = new System.Drawing.Point(8, 50);
+            this.gradientButtonRewind.Name = "gradientButtonRewind";
+            this.gradientButtonRewind.Size = new System.Drawing.Size(70, 37);
+            this.gradientButtonRewind.TabIndex = 85;
+            this.gradientButtonRewind.UseVisualStyleBackColor = false;
+            this.gradientButtonRewind.Click += new System.EventHandler(this.gradientButtonRewind_Click);
             // 
             // gradientButtonStep
             // 
@@ -1820,7 +1915,7 @@ namespace GravityOne.Forms
             this.gradientButtonStep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gradientButtonStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gradientButtonStep.Image = ((System.Drawing.Image)(resources.GetObject("gradientButtonStep.Image")));
-            this.gradientButtonStep.Location = new System.Drawing.Point(66, 39);
+            this.gradientButtonStep.Location = new System.Drawing.Point(84, 7);
             this.gradientButtonStep.Name = "gradientButtonStep";
             this.gradientButtonStep.Size = new System.Drawing.Size(38, 37);
             this.gradientButtonStep.TabIndex = 43;
@@ -1834,68 +1929,46 @@ namespace GravityOne.Forms
             this.gradientButtonStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gradientButtonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gradientButtonStart.Image = ((System.Drawing.Image)(resources.GetObject("gradientButtonStart.Image")));
-            this.gradientButtonStart.Location = new System.Drawing.Point(5, 4);
+            this.gradientButtonStart.Location = new System.Drawing.Point(8, 7);
             this.gradientButtonStart.Name = "gradientButtonStart";
             this.gradientButtonStart.Size = new System.Drawing.Size(70, 37);
             this.gradientButtonStart.TabIndex = 42;
             this.gradientButtonStart.UseVisualStyleBackColor = false;
             this.gradientButtonStart.Click += new System.EventHandler(this.gradientButtonStart_Click);
             // 
-            // macTrackBarDelay
-            // 
-            this.macTrackBarDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarDelay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarDelay.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macTrackBarDelay.ForeColor = System.Drawing.Color.Black;
-            this.macTrackBarDelay.IndentHeight = 6;
-            this.macTrackBarDelay.Location = new System.Drawing.Point(340, 569);
-            this.macTrackBarDelay.Maximum = 6;
-            this.macTrackBarDelay.Minimum = 0;
-            this.macTrackBarDelay.Name = "macTrackBarDelay";
-            this.macTrackBarDelay.Size = new System.Drawing.Size(66, 33);
-            this.macTrackBarDelay.TabIndex = 74;
-            this.macTrackBarDelay.TextTickStyle = System.Windows.Forms.TickStyle.None;
-            this.macTrackBarDelay.TickColor = System.Drawing.Color.Black;
-            this.macTrackBarDelay.TickHeight = 4;
-            this.macTrackBarDelay.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.macTrackBarDelay.TrackerSize = new System.Drawing.Size(16, 16);
-            this.macTrackBarDelay.TrackLineColor = System.Drawing.Color.Black;
-            this.macTrackBarDelay.TrackLineHeight = 3;
-            this.macTrackBarDelay.Value = 0;
-            this.macTrackBarDelay.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackBarSpeed_ValueChanged);
-            // 
             // displayXNA
             // 
             this.displayXNA.BackgroundIndex = 0;
-            blendState2.AlphaBlendFunction = Microsoft.Xna.Framework.Graphics.BlendFunction.Add;
-            blendState2.AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha;
-            blendState2.AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.One;
-            blendState2.ColorBlendFunction = Microsoft.Xna.Framework.Graphics.BlendFunction.Add;
-            blendState2.ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha;
-            blendState2.ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.One;
-            blendState2.ColorWriteChannels = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
+            blendState1.AlphaBlendFunction = Microsoft.Xna.Framework.Graphics.BlendFunction.Add;
+            blendState1.AlphaDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha;
+            blendState1.AlphaSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.One;
+            blendState1.ColorBlendFunction = Microsoft.Xna.Framework.Graphics.BlendFunction.Add;
+            blendState1.ColorDestinationBlend = Microsoft.Xna.Framework.Graphics.Blend.InverseSourceAlpha;
+            blendState1.ColorSourceBlend = Microsoft.Xna.Framework.Graphics.Blend.One;
+            blendState1.ColorWriteChannels = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha)));
-            blendState2.ColorWriteChannels1 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
+            blendState1.ColorWriteChannels1 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha)));
-            blendState2.ColorWriteChannels2 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
+            blendState1.ColorWriteChannels2 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha)));
-            blendState2.ColorWriteChannels3 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
+            blendState1.ColorWriteChannels3 = ((Microsoft.Xna.Framework.Graphics.ColorWriteChannels)((((Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Red | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Green) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Blue) 
             | Microsoft.Xna.Framework.Graphics.ColorWriteChannels.Alpha)));
-            blendState2.IndependentBlendEnable = false;
-            blendState2.MultiSampleMask = -1;
-            blendState2.Name = "BlendState.AlphaBlend";
-            blendState2.Tag = null;
-            this.displayXNA.BlendState = blendState2;
+            blendState1.IndependentBlendEnable = false;
+            blendState1.MultiSampleMask = -1;
+            blendState1.Name = "BlendState.AlphaBlend";
+            blendState1.Tag = null;
+            this.displayXNA.BlendState = blendState1;
             this.displayXNA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.displayXNA.Location = new System.Drawing.Point(0, 0);
             this.displayXNA.Name = "displayXNA";
             this.displayXNA.ParentForm = null;
             this.displayXNA.RecordingVideo = false;
             this.displayXNA.Reverse = false;
+            this.displayXNA.SecondsPerStep = ((long)(1));
             this.displayXNA.ShowAsDots = false;
             this.displayXNA.ShowNames = true;
             this.displayXNA.ShowScale = true;
@@ -1906,7 +1979,7 @@ namespace GravityOne.Forms
             this.displayXNA.SimulationTime = new System.DateTime(((long)(0)));
             this.displayXNA.SimulationTime1 = new System.DateTime(((long)(0)));
             this.displayXNA.SimulationTimeLarge = ((long)(0));
-            this.displayXNA.Size = new System.Drawing.Size(1277, 771);
+            this.displayXNA.Size = new System.Drawing.Size(1277, 728);
             this.displayXNA.TabIndex = 0;
             this.displayXNA.Text = "display1";
             this.displayXNA.TextureArrow = null;
@@ -1931,7 +2004,6 @@ namespace GravityOne.Forms
             this.displayXNA.TextureUranus = null;
             this.displayXNA.TextureVector = null;
             this.displayXNA.TextureVenus = null;
-            this.displayXNA.TimeUnitsPerStep = ((long)(1));
             this.displayXNA.VideoCaptureCompression = null;
             this.displayXNA.VideoCaptureFPS = 60;
             this.displayXNA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.displayXNA_Click);
@@ -1997,104 +2069,14 @@ namespace GravityOne.Forms
             this.gradientButton1.Size = new System.Drawing.Size(75, 23);
             this.gradientButton1.TabIndex = 0;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.gradientPanel21);
-            this.panel4.Location = new System.Drawing.Point(139, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(546, 93);
-            this.panel4.TabIndex = 11;
-            // 
-            // gradientPanel21
-            // 
-            this.gradientPanel21.Controls.Add(this.label38);
-            this.gradientPanel21.Controls.Add(this.macTrackBarSpeed);
-            this.gradientPanel21.Controls.Add(this.labelTimePerStep);
-            this.gradientPanel21.Controls.Add(this.macTrackBarScale);
-            this.gradientPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gradientPanel21.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel21.Name = "gradientPanel21";
-            this.gradientPanel21.Size = new System.Drawing.Size(542, 89);
-            this.gradientPanel21.TabIndex = 0;
-            // 
-            // macTrackBarScale
-            // 
-            this.macTrackBarScale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarScale.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarScale.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macTrackBarScale.ForeColor = System.Drawing.Color.Black;
-            this.macTrackBarScale.IndentHeight = 6;
-            this.macTrackBarScale.Location = new System.Drawing.Point(55, 46);
-            this.macTrackBarScale.Maximum = 400;
-            this.macTrackBarScale.Minimum = 1;
-            this.macTrackBarScale.Name = "macTrackBarScale";
-            this.macTrackBarScale.Size = new System.Drawing.Size(470, 30);
-            this.macTrackBarScale.TabIndex = 77;
-            this.macTrackBarScale.TextTickStyle = System.Windows.Forms.TickStyle.None;
-            this.macTrackBarScale.TickColor = System.Drawing.Color.Transparent;
-            this.macTrackBarScale.TickHeight = 1;
-            this.macTrackBarScale.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.macTrackBarScale.TrackerSize = new System.Drawing.Size(16, 16);
-            this.macTrackBarScale.TrackLineColor = System.Drawing.Color.Black;
-            this.macTrackBarScale.TrackLineHeight = 3;
-            this.macTrackBarScale.Value = 50;
-            this.macTrackBarScale.ValueChanged += new XComponent.SliderBar.ValueChangedHandler(this.macTrackBarScale_ValueChanged_1);
-            // 
-            // labelTimePerStep
-            // 
-            this.labelTimePerStep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelTimePerStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimePerStep.Location = new System.Drawing.Point(123, 33);
-            this.labelTimePerStep.Name = "labelTimePerStep";
-            this.labelTimePerStep.Size = new System.Drawing.Size(195, 10);
-            this.labelTimePerStep.TabIndex = 88;
-            this.labelTimePerStep.Text = "XXXX";
-            // 
-            // macTrackBarSpeed
-            // 
-            this.macTrackBarSpeed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarSpeed.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.macTrackBarSpeed.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.macTrackBarSpeed.ForeColor = System.Drawing.Color.Black;
-            this.macTrackBarSpeed.IndentHeight = 6;
-            this.macTrackBarSpeed.Location = new System.Drawing.Point(102, 22);
-            this.macTrackBarSpeed.Maximum = 1000;
-            this.macTrackBarSpeed.Minimum = 1;
-            this.macTrackBarSpeed.Name = "macTrackBarSpeed";
-            this.macTrackBarSpeed.Size = new System.Drawing.Size(400, 30);
-            this.macTrackBarSpeed.TabIndex = 89;
-            this.macTrackBarSpeed.TextTickStyle = System.Windows.Forms.TickStyle.None;
-            this.macTrackBarSpeed.TickColor = System.Drawing.Color.Transparent;
-            this.macTrackBarSpeed.TickHeight = 1;
-            this.macTrackBarSpeed.TrackerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.macTrackBarSpeed.TrackerSize = new System.Drawing.Size(16, 16);
-            this.macTrackBarSpeed.TrackLineColor = System.Drawing.Color.Black;
-            this.macTrackBarSpeed.TrackLineHeight = 3;
-            this.macTrackBarSpeed.Value = 50;
-            // 
-            // label38
-            // 
-            this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label38.Location = new System.Drawing.Point(12, 51);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(37, 13);
-            this.label38.TabIndex = 90;
-            this.label38.Text = "Scale:";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 771);
+            this.ClientSize = new System.Drawing.Size(1277, 728);
             this.Controls.Add(this.gradientPanelObjectProperties);
             this.Controls.Add(this.gradientPanelAdjustValues);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.comboBoxCalcsUnit);
-            this.Controls.Add(this.macTrackBarDelay);
             this.Controls.Add(this.gradientPanelToolbox);
-            this.Controls.Add(this.label40);
-            this.Controls.Add(this.comboBoxUnits);
             this.Controls.Add(this.gradientPanel1);
             this.Controls.Add(this.displayXNA);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2122,6 +2104,9 @@ namespace GravityOne.Forms
             this.panelPresetSetups.ResumeLayout(false);
             this.gradientPanel29.ResumeLayout(false);
             this.gradientPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.gradientPanel21.ResumeLayout(false);
+            this.gradientPanel21.PerformLayout();
             this.panelPan.ResumeLayout(false);
             this.gradientPanel210.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -2130,11 +2115,7 @@ namespace GravityOne.Forms
             this.gradientPanel23.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.gradientPanel24.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.gradientPanel21.ResumeLayout(false);
-            this.gradientPanel21.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -2263,7 +2244,6 @@ namespace GravityOne.Forms
         internal System.Windows.Forms.CheckBox checkBoxCircleHost;
         private System.ComponentModel.BackgroundWorker backgroundWorkerPreCalculate;
         internal System.Windows.Forms.ComboBox comboBoxCalcsUnit;
-        internal System.Windows.Forms.ComboBox comboBoxUnits;
         internal System.Windows.Forms.CheckBox checkBoxCircleCCW;
         internal System.Windows.Forms.CheckBox checkBoxShowNames;
         internal GradientButton gradientButtonGalaxy;
@@ -2287,6 +2267,7 @@ namespace GravityOne.Forms
         internal XComponent.SliderBar.MACTrackBar macTrackBarSpeed;
         private System.Windows.Forms.Label labelTimePerStep;
         internal XComponent.SliderBar.MACTrackBar macTrackBarScale;
+        private System.Windows.Forms.Label label12;
 
         public Display DisplayXNA
         {

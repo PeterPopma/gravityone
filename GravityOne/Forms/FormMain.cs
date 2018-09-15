@@ -26,6 +26,11 @@ namespace GravityOne.Forms
         private string originalYSpeed;
         private string saveDir = Application.StartupPath + System.IO.Path.DirectorySeparatorChar + "Recordings";
         private bool compressRecordings;
+        const long SECONDS_PER_DAY = 86400;
+        const long SECONDS_PER_YEAR = SECONDS_PER_DAY * 365;
+        const long SECONDS_PER_DECADE = SECONDS_PER_YEAR * 10;
+        const long SECONDS_PER_MILLENIUM = SECONDS_PER_YEAR * 1000;
+        const long SECONDS_PER_100000_YEARS = SECONDS_PER_MILLENIUM * 100;
 
         public string SaveDir
         {
@@ -297,7 +302,7 @@ namespace GravityOne.Forms
 
         public void PresetToLargeStableGalaxy()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("100.000 years");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
             DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
             DisplayXNA.PresetObjects.Galaxy.CrossSection = 1700000000;
@@ -326,7 +331,7 @@ namespace GravityOne.Forms
 
         public void PresetToMilkyWay()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("100.000 years");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 1200000000;       // 0.8–1.5×10^12 for Milky Way
             DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
             DisplayXNA.PresetObjects.Galaxy.CrossSection = 1700000000;
@@ -355,7 +360,7 @@ namespace GravityOne.Forms
 
         public void PresetToSmallGalaxy()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Decades");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 5000;        // 1 star actually represents 40000000 stars
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 30;                // 1200000000/40000000
             DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = 4100000;
@@ -384,7 +389,7 @@ namespace GravityOne.Forms
 
         public void PresetToEllipse()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.CrossSection = 42000;
             DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;       
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 6000000;             
@@ -412,7 +417,7 @@ namespace GravityOne.Forms
         }
         public void PresetToSpiral()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.CrossSection = 3000000;
             DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 10000;
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 1500000000;
@@ -440,7 +445,7 @@ namespace GravityOne.Forms
         }
         public void PresetToSmallEllipse()
         {
-            comboBoxUnits.SelectedIndex = comboBoxUnits.FindStringExact("Millennia");
+            // TODO : set scale?
             DisplayXNA.PresetObjects.Galaxy.CrossSection = 500000;
             DisplayXNA.PresetObjects.Galaxy.NumberOfObjects = 1500;
             DisplayXNA.PresetObjects.Galaxy.TotalMass = 80000000;
@@ -1023,7 +1028,7 @@ namespace GravityOne.Forms
             displayXNA.GravitySystem.DetermineCalculationsPerStepActual();
         }
 
-        private void macTrackBarSpeed_ValueChanged(object sender, decimal value)
+        private void macTrackBarDelay_ValueChanged(object sender, decimal value)
         {
             if (value.Equals(0))
             {
@@ -1074,9 +1079,6 @@ namespace GravityOne.Forms
             if (comboBoxCalcsUnit.SelectedItem.ToString().Equals("Pre-Calculate"))
             {
                 gradientButtonRewind.Visible = true;
-                gradientButtonStep.Left = 134;
-                gradientButtonCaptureVideo.Left = 179;
-                gradientButtonStart.Left = 5;
                 displayXNA.GravitySystem.CalculationsPerStepSetting = -2;
                 if (!displayXNA.GravitySystem.IsCalculating && (displayXNA.GravitySystem.CalculationsPerStepPrecalculated == 1 || displayXNA.GravitySystem.PrecalcAutoIncrease))        // start up calculations
                 {
@@ -1092,9 +1094,6 @@ namespace GravityOne.Forms
             {
                 displayXNA.GravitySystem.StopCalculation();    // Pause calculation if running
                 gradientButtonRewind.Visible = false;
-                gradientButtonStep.Left = 100;
-                gradientButtonCaptureVideo.Left = 153;
-                gradientButtonStart.Left = 17;
                 if (comboBoxCalcsUnit.SelectedItem.ToString().Equals("Automatic"))
                 {
                     displayXNA.GravitySystem.CalculationsPerStepSetting = -1;
@@ -1176,7 +1175,6 @@ namespace GravityOne.Forms
                 labelClickMessage.Visible = true;
                 gradientButtonSolarSystem.ForeColor = Color.Coral;
                 this.Cursor = Cursors.Hand;
-                comboBoxUnits.SelectedItem = "Days";
             }
         }
 
@@ -1192,16 +1190,16 @@ namespace GravityOne.Forms
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            FormSplashScreen sp = new FormSplashScreen();
-            sp.ShowDialog();
             LoadSettings();
             displayXNA.GravitySystem.DetermineTimeNeedForOneCalculation(displayXNA.GraphicsDevice);     // needed for DetermineCalculationsPerStepActual() 
             displayXNA.GravitySystem.BackgroundWorkerPreCalculate = backgroundWorkerPreCalculate;
             comboBoxCalcsUnit.SelectedIndex = 0;        // 2000
-            comboBoxUnits.SelectedItem = "Days";        // days
             PlaceSolarSystem(0, 0, true);
             UpdateObjectProperties();
             macTrackBarScale.Value = 286;        // scale for solar system view
+            SetSpeed(Convert.ToInt32(macTrackBarSpeed.Value));
+            FormSplashScreen sp = new FormSplashScreen();
+            sp.ShowDialog();
         }
 
         private void gradientButtonNextObject_Click(object sender, EventArgs e)
@@ -1237,7 +1235,7 @@ namespace GravityOne.Forms
                 labelClickMessage.Visible = true;
                 this.Cursor = Cursors.Hand;
                 macTrackBarScale.Value = 294;
-                comboBoxUnits.SelectedItem = "Days";
+                // TODO : set scale?
             }
         }
 
@@ -1315,12 +1313,7 @@ namespace GravityOne.Forms
             displayXNA.GravitySystem.ResetCalculations(wasCalculating);
         }
 
-        private void macTrackBarScale_ValueChanged(object sender, decimal value)
-        {
-            int scale = 401 - macTrackBarScale.Value;
-            Scale(scale);
-        }
-
+        
         private void Scale(long scale)
         {
             // diameter milky way = 1.7 x 10^18 km = 1700 qdn. km -> 1 pixel = 1700 tln. km
@@ -1338,6 +1331,7 @@ namespace GravityOne.Forms
             }
             displayXNA.GravitySystem.Scale = scale;
             displayXNA.GravitySystem.ScaleObjects();
+            SetSpeed();
         }
 
         private double FindInverseXToPower0_0128X(double x)
@@ -1370,96 +1364,30 @@ namespace GravityOne.Forms
             return 401 - (int)inverse_scale;
         }
 
-        private void comboBoxUnits_SelectedIndexChanged_1(object sender, EventArgs e)
+        string TimeUnitsPerStep()
         {
-            switch (comboBoxUnits.SelectedItem.ToString())
+            if (displayXNA.SecondsPerStep >= 31558150000000)
             {
-                case "Seconds":
-                    displayXNA.TimeUnitsPerStep = 1;
-                    break;
-                case "Minutes":
-                    displayXNA.TimeUnitsPerStep = 60;
-                    break;
-                case "2 Minutes":
-                    displayXNA.TimeUnitsPerStep = 120;
-                    break;
-                case "Hours":
-                    displayXNA.TimeUnitsPerStep = 3600;
-                    break;
-                case "2 Hours":
-                    displayXNA.TimeUnitsPerStep = 7200;
-                    break;
-                case "8 Hours":
-                    displayXNA.TimeUnitsPerStep = 28800;
-                    break;
-                case "Days":
-                    displayXNA.TimeUnitsPerStep = 86400;
-                    break;
-                case "Weeks":
-                    displayXNA.TimeUnitsPerStep = 604800;
-                    break;
-                case "Months":
-                    displayXNA.TimeUnitsPerStep = 2629846;
-                    break;
-                case "Years":
-                    displayXNA.TimeUnitsPerStep = 31558150;
-                    break;
-                case "Decades":
-                    displayXNA.TimeUnitsPerStep = 315581500;
-                    break;
-                case "Centuries":
-                    displayXNA.TimeUnitsPerStep = 3155815000;
-                    break;
-                case "Millennia":
-                    displayXNA.TimeUnitsPerStep = 31558150000;
-                    break;
-                case "10 Millennia":
-                    displayXNA.TimeUnitsPerStep = 315581500000;
-                    break;
-                case "100.000 Years":
-                    displayXNA.TimeUnitsPerStep = 3155815000000;
-                    break;
-                case "1/2 Million Years":
-                    displayXNA.TimeUnitsPerStep = 15779075000000;
-                    break;
-                case "Million Years":
-                    displayXNA.TimeUnitsPerStep = 31558150000000;
-                    break;
-                case "2 Million Years":
-                    displayXNA.TimeUnitsPerStep = 63116300000000;
-                    break;
+                return string.Format("{0} million years", displayXNA.SecondsPerStep / 31558150000000);
+            }
+            if (displayXNA.SecondsPerStep >= SECONDS_PER_YEAR)
+            {
+                return string.Format("{0} years", displayXNA.SecondsPerStep / SECONDS_PER_YEAR);
+            }
+            if (displayXNA.SecondsPerStep >= SECONDS_PER_DAY)
+            {
+                return string.Format("{0} days", displayXNA.SecondsPerStep / SECONDS_PER_DAY);
+            }
+            if (displayXNA.SecondsPerStep >= 3600)
+            {
+                return string.Format("{0} hours", displayXNA.SecondsPerStep / 3600);
+            }
+            if (displayXNA.SecondsPerStep >= 60)
+            {
+                return string.Format("{0} minutes", displayXNA.SecondsPerStep / 60);
             }
 
-            labelTimePerStep.Text = TimeUnitsToStep() + " per step";
-
-            displayXNA.GravitySystem.CalculationSecondsPerFrame = displayXNA.TimeUnitsPerStep;
-            displayXNA.GravitySystem.ResetCalculations();
-        }
-
-        string TimeUnitsToStep()
-        {
-            if (displayXNA.TimeUnitsPerStep >= 31558150000000)
-            {
-                return string.Format("{0} million years", displayXNA.TimeUnitsPerStep / 31558150000000);
-            }
-            if (displayXNA.TimeUnitsPerStep >= 31558150)
-            {
-                return string.Format("{0} years", displayXNA.TimeUnitsPerStep / 31558150);
-            }
-            if (displayXNA.TimeUnitsPerStep >= 86400)
-            {
-                return string.Format("{0} days", displayXNA.TimeUnitsPerStep / 86400);
-            }
-            if (displayXNA.TimeUnitsPerStep >= 3600)
-            {
-                return string.Format("{0} hours", displayXNA.TimeUnitsPerStep / 3600);
-            }
-            if (displayXNA.TimeUnitsPerStep >= 60)
-            {
-                return string.Format("{0} minutes", displayXNA.TimeUnitsPerStep / 60);
-            }
-
-            return string.Format("{0} seconds", displayXNA.TimeUnitsPerStep);
+            return string.Format("{0} seconds", displayXNA.SecondsPerStep);
         }
 
         private void gradientButtonGalaxy_Click(object sender, EventArgs e)
@@ -1601,16 +1529,36 @@ namespace GravityOne.Forms
             }
         }
 
-        private void macTrackBarSpeed_ValueChanged_1(object sender, decimal value)
+        private void macTrackBarScale_ValueChanged(object sender, decimal value)
         {
-            // 1-1000  ->  1-63116300000000
-            displayXNA.TimeUnitsPerStep = (long)Math.Pow(Convert.ToDouble(value), 4.6000471772540582708882448733788);
-            labelTimePerStep.Text = TimeUnitsToStep() + " per step";
+            int scale = 401 - macTrackBarScale.Value;
+            Scale(scale);
         }
 
-        private void macTrackBarScale_ValueChanged_1(object sender, decimal value)
+        private void SetSpeed()
         {
+            SetSpeed(macTrackBarSpeed.Value);
+        }
 
+        public void SetSpeed(int value)
+        {
+            macTrackBarSpeed.Value = value;
+
+            // 1-1000  ->  1-63116300000000
+            // Calculate seconds depending on scale and slider value
+            // scale: 1 - 400 -> 1 - 21015859463978.685636319482389216
+            // speed: 1 - 1000
+            long secs = (long)((value / 4.0) * (displayXNA.GravitySystem.Scale));
+            displayXNA.SecondsPerStep = secs;
+            labelTimePerStep.Text = TimeUnitsPerStep() + " per step";
+
+            displayXNA.GravitySystem.CalculationSecondsPerFrame = displayXNA.SecondsPerStep;
+            displayXNA.GravitySystem.ResetCalculations();
+        }
+
+        private void macTrackBarSpeed_ValueChanged(object sender, decimal value)
+        {
+            SetSpeed(Convert.ToInt32(macTrackBarSpeed.Value));
         }
     }
 }

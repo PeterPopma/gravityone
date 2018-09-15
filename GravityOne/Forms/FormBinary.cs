@@ -40,25 +40,25 @@ namespace GravityOne.Forms
             {
                 FormMain.PlacingObject = 7;
                 myParent.macTrackBarScale.Value = 292;
-                myParent.comboBoxUnits.SelectedItem = "2 Hours";
+                myParent.SetSpeed(60 * 60 * 2);
             }
             if (radioButtonBinary2.Checked)
             {
                 FormMain.PlacingObject = 8;
                 myParent.macTrackBarScale.Value = 297;
-                myParent.comboBoxUnits.SelectedItem = "Days";
+                myParent.SetSpeed(60 * 60 * 24);
             }
             if (radioButtonBinary2.Checked)
             {
                 FormMain.PlacingObject = 11;
                 myParent.macTrackBarScale.Value = 294;
-                myParent.comboBoxUnits.SelectedItem = "8 Hours";
+                myParent.SetSpeed(60 * 60 * 8);
             }
             if (radioButtonTriple.Checked)
             {
                 FormMain.PlacingObject = 12;
                 myParent.macTrackBarScale.Value = 294;
-                myParent.comboBoxUnits.SelectedItem = "8 Hours";
+                myParent.SetSpeed(60 * 60 * 8);
             }
 
             Close();
