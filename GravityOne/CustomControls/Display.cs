@@ -18,54 +18,57 @@ namespace GravityOne.CustomControls
 {
     public class Display : WinFormsGraphicsDevice.GraphicsDeviceControl
     {
+        const float SCALE_POSITION_X = 240;
+        const float SCALE_WIDTH = 1000;
+        const float SCALE_POSITION_Y = 40;
+        const int ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
+
         int backgroundIndex = 0;
         Boolean showNames = true;
         Boolean showScale = true;
-        Boolean showAsDots = false;
+        Boolean showForce = false;
+        Boolean showSpeed = false;
         Boolean showTrailsAll = true;
         Boolean showVectorsAll = false;
         Texture2D textureBackground;
-        Texture2D textureMercury;
-        Texture2D textureSun;
-        Texture2D textureVenus;
-        Texture2D textureEarth;
-        Texture2D textureMoon;
-        Texture2D textureMars;
-        Texture2D textureJupiter;
-        Texture2D textureSaturn;
-        Texture2D textureNeptune;
-        Texture2D textureUranus;
-        Texture2D texturePluto;
-        Texture2D texturePlanet;
-        Texture2D textureRedBall;
-        Texture2D textureMetalBall;
-        Texture2D textureGoldenBall;
-        Texture2D textureArrow;
+        Texture2D textureCustomShape;
+        Texture2D textureGasGiant;
+        Texture2D textureGreyDot;
+        Texture2D textureRedDot;
         Texture2D textureVector;
+        Texture2D textureArrow;
         Texture2D textureTrace;
-        Texture2D textureSmallDot;
-        Texture2D textureLargeDot;
-        Texture2D textureAsteroid;
+        List<Texture2D> objectTextures;
+        Texture2D textureSmallCircle;
         SpriteFont fontNormal;
         SpriteFont fontSmall;
         SpriteFont fontLindsey;
         Texture2D textureLine;     //base for the line texture
         Rectangle rectVector;
-        bool simulationRunning = false;
         bool simulationStepping = false;
         bool recordingVideo = false;
-        DateTime simulationTime;
-        long simulationTimeLarge;
+        long simulationTime;                // time in seconds, since 1 january 0001
         bool reverse = false;
         BlendState blendState = BlendState.AlphaBlend;
         ScreenRecorder screenRecorder;
         private string videoCaptureCompression;
         int videoCaptureFPS = 60;
-        SmallDot smallDot = new SmallDot();
+        CustomShape customShape = new CustomShape();
         Random rnd = new Random();
+        bool showGrid = false;
+        bool useGalaxyTiming;       // Indicates whether galaxy time should be displayed instead of solarsystem time
+        int colorScheme;
+        bool showClickMessage;
 
         ContentManager contentManager;
-        long secondsPerStep = 1;
+        long secondsPerStepSolarSystem = 1;
+
+        Double scaleBeamLength;
+        long scaleFactor;
+        int scaleNumber;
+        string scaleTextMax;
+        int arrowColorStrength;
+        bool arrowStrengthUp;
 
         int scrollWheelValue, lastScrollWheelValue;
 
@@ -108,29 +111,16 @@ namespace GravityOne.CustomControls
             }
         }
 
-        public long SecondsPerStep
+        public long SecondsPerStepSolarSystem
         {
             get
             {
-                return secondsPerStep;
+                return secondsPerStepSolarSystem;
             }
 
             set
             {
-                secondsPerStep = value;
-            }
-        }
-
-        public bool SimulationRunning
-        {
-            get
-            {
-                return simulationRunning;
-            }
-
-            set
-            {
-                simulationRunning = value;
+                secondsPerStepSolarSystem = value;
             }
         }
 
@@ -147,42 +137,16 @@ namespace GravityOne.CustomControls
             }
         }
 
-        public bool ShowAsDots
+        public bool ShowForce
         {
             get
             {
-                return showAsDots;
+                return showForce;
             }
 
             set
             {
-               showAsDots = value;
-            }
-        }
-
-        public DateTime SimulationTime
-        {
-            get
-            {
-                return SimulationTime1;
-            }
-
-            set
-            {
-                SimulationTime1 = value;
-            }
-        }
-
-        public long SimulationTimeLarge
-        {
-            get
-            {
-                return simulationTimeLarge;
-            }
-
-            set
-            {
-                simulationTimeLarge = value;
+                showForce = value;
             }
         }
 
@@ -303,40 +267,32 @@ namespace GravityOne.CustomControls
             }
         }
 
-        public DateTime SimulationTime1 { get => simulationTime; set => simulationTime = value; }
         public Texture2D TextureBackground { get => textureBackground; set => textureBackground = value; }
-        public Texture2D TextureMercury { get => textureMercury; set => textureMercury = value; }
-        public Texture2D TextureSun { get => textureSun; set => textureSun = value; }
-        public Texture2D TextureVenus { get => textureVenus; set => textureVenus = value; }
-        public Texture2D TextureEarth { get => textureEarth; set => textureEarth = value; }
-        public Texture2D TextureMoon { get => textureMoon; set => textureMoon = value; }
-        public Texture2D TextureMars { get => textureMars; set => textureMars = value; }
-        public Texture2D TextureJupiter { get => textureJupiter; set => textureJupiter = value; }
-        public Texture2D TextureSaturn { get => textureSaturn; set => textureSaturn = value; }
-        public Texture2D TextureNeptune { get => textureNeptune; set => textureNeptune = value; }
-        public Texture2D TextureUranus { get => textureUranus; set => textureUranus = value; }
-        public Texture2D TexturePluto { get => texturePluto; set => texturePluto = value; }
-        public Texture2D TexturePlanet { get => texturePlanet; set => texturePlanet = value; }
-        public Texture2D TextureRedBall { get => textureRedBall; set => textureRedBall = value; }
-        public Texture2D TextureMetalBall { get => textureMetalBall; set => textureMetalBall = value; }
-        public Texture2D TextureGoldenBall { get => textureGoldenBall; set => textureGoldenBall = value; }
-        public Texture2D TextureArrow { get => textureArrow; set => textureArrow = value; }
-        public Texture2D TextureVector { get => textureVector; set => textureVector = value; }
-        public Texture2D TextureTrace { get => textureTrace; set => textureTrace = value; }
-        public Texture2D TextureSmallDot { get => textureSmallDot; set => textureSmallDot = value; }
-        public Texture2D TextureLargeDot { get => textureLargeDot; set => textureLargeDot = value; }
-        public Texture2D TextureAsteroid { get => textureAsteroid; set => textureAsteroid = value; }
+        public Texture2D TextureCustomShape { get => textureCustomShape; set => textureCustomShape = value; }
         internal PresetObjects PresetObjects { get => presetObjects; set => presetObjects = value; }
-        internal SmallDot SmallDot { get => smallDot; set => smallDot = value; }
+        internal CustomShape CustomShape { get => customShape; set => customShape = value; }
         public FormMain ParentForm { get => parentForm; set => parentForm = value; }
+        public bool ShowGrid { get => showGrid; set => showGrid = value; }
+        public Texture2D TextureGasGiant { get => textureGasGiant; set => textureGasGiant = value; }
+        public Texture2D TextureGreyDot { get => textureGreyDot; set => textureGreyDot = value; }
+        public Texture2D TextureRedDot { get => textureRedDot; set => textureRedDot = value; }
+        public long SimulationTime { get => simulationTime; set => simulationTime = value; }
+        public bool UseGalaxyTiming { get => useGalaxyTiming; set => useGalaxyTiming = value; }
+        public bool ShowSpeed { get => showSpeed; set => showSpeed = value; }
+        public int ColorScheme { get => colorScheme; set => colorScheme = value; }
+        public List<Texture2D> ObjectTextures { get => objectTextures; set => objectTextures = value; }
+        public Texture2D TextureVector { get => TextureVector1; set => TextureVector1 = value; }
+        public Texture2D TextureVector1 { get => textureVector; set => textureVector = value; }
+        public Texture2D TextureArrow { get => textureArrow; set => textureArrow = value; }
+        public bool ShowClickMessage { get => showClickMessage; set => showClickMessage = value; }
 
-        public void initSmallDot(int dotSize, Color myColor)
+        public void initCustomShape(int dotSize, Color myColor)
         {
-            myColor.A = (byte)SmallDot.Alpha;
-            if (dotSize < 3 || SmallDot.Type == 0)
+            myColor.A = (byte)CustomShape.Alpha;
+            if (dotSize < 3 || CustomShape.Type == 0)
             {
-                TextureSmallDot = new Texture2D(GraphicsDevice, dotSize, dotSize);
-                if(SmallDot.RandomColor)
+                TextureCustomShape = new Texture2D(GraphicsDevice, dotSize, dotSize);
+                if (CustomShape.RandomColor)
                 {
                     int color = rnd.Next(0, 6);
                     myColor.R = (color < 2 || color == 4) ? (byte)0 : (byte)255;
@@ -344,19 +300,19 @@ namespace GravityOne.CustomControls
                     myColor.B = (color > 2) ? (byte)0 : (byte)255;
                 }
                 Color[] az = Enumerable.Range(0, dotSize * dotSize).Select(i => myColor).ToArray();
-                TextureSmallDot.SetData(az);
+                TextureCustomShape.SetData(az);
             }
-            else if(SmallDot.Type == 1)
+            else if (CustomShape.Type == 1)
             {
-                TextureSmallDot = contentManager.Load<Texture2D>("smalldot"+ dotSize);
-                TextureSmallDot = createTextureFromResource(TextureSmallDot, myColor);
+                TextureCustomShape = contentManager.Load<Texture2D>("smalldot" + dotSize);
+                TextureCustomShape = createTextureFromResource(TextureCustomShape, myColor);
             }
             else
             {
-                TextureSmallDot = contentManager.Load<Texture2D>("cross" + dotSize);
-                TextureSmallDot = createTextureFromResource(TextureSmallDot, myColor);
+                TextureCustomShape = contentManager.Load<Texture2D>("cross" + dotSize);
+                TextureCustomShape = createTextureFromResource(TextureCustomShape, myColor);
             }
-            TextureSmallDot.Name = "<Custom Shape>";
+            TextureCustomShape.Name = "<Custom Shape>";
         }
 
         private void setColor(Texture2D texture, Color myColor)
@@ -365,7 +321,7 @@ namespace GravityOne.CustomControls
             int height = texture.Height;
             Color[] data = new Color[width * height];
             texture.GetData<Color>(data, 0, data.Length);
-            for (int k=0; k<width*height; k++)
+            for (int k = 0; k < width * height; k++)
             {
                 if (data[k].R > 10 || data[k].G > 10 || data[k].B > 10)     // pixel is part of the shape
                 {
@@ -390,10 +346,10 @@ namespace GravityOne.CustomControls
             {
                 if (data[k].R > 10 || data[k].G > 10 || data[k].B > 10)     // pixel is part of the shape
                 {
-                    if (SmallDot.RandomColor)
+                    if (CustomShape.RandomColor)
                     {
                         newData[k] = new Color();
-                        newData[k].A = (byte)SmallDot.Alpha;
+                        newData[k].A = (byte)CustomShape.Alpha;
                         newData[k].R = (color < 2 || color == 4) ? (byte)0 : (byte)data[k].R;
                         newData[k].G = (color > 0 && color < 4) ? (byte)0 : (byte)data[k].G;
                         newData[k].B = (color > 2) ? (byte)0 : (byte)data[k].B;
@@ -410,23 +366,23 @@ namespace GravityOne.CustomControls
             return newTexture;
         }
 
-        public void updateSmallDots(int startPosition=0)
+        public void updateCustomShapes(int startPosition = 0)
         {
-            for (int k=startPosition; k < gravitySystem.GravityObjects.Count; k++)
+            for (int k = startPosition; k < gravitySystem.GravityObjects.Count; k++)
             {
                 GravityObject o = gravitySystem.GravityObjects[k];
-                if (o.Texture.Name.Equals("<Custom Shape>"))
+                if (o.NumObjects == 0 && o.Texture != null /* solar system object */ && o.Texture.Name.Equals("<Custom Shape>"))
                 {
-                    int dotSize = SmallDot.PixelSize;
-                    if (SmallDot.RandomSize)
+                    int dotSize = CustomShape.PixelSize;
+                    if (CustomShape.RandomSize)
                     {
                         dotSize = rnd.Next(3, 11);
                     }
-                    initSmallDot(dotSize, o.Color);
+                    initCustomShape(dotSize, o.Color);
 
-                    o.Texture = TextureSmallDot;
-                    o.ScaledTextureHeight = TextureSmallDot.Height;
-                    o.ScaledTextureWidth = TextureSmallDot.Width;
+                    o.Texture = TextureCustomShape;
+                    o.ScaledTextureHeight = TextureCustomShape.Height;
+                    o.ScaledTextureWidth = TextureCustomShape.Width;
                 }
             }
         }
@@ -450,7 +406,7 @@ namespace GravityOne.CustomControls
         }
 
         // Returns a unique (numbered) name of a given text
-        public string FindFreeName(string name)
+        public string FindUniqueObjectName(string name)
         {
             string result = name;
             int count = 1;
@@ -463,70 +419,83 @@ namespace GravityOne.CustomControls
             return result;
         }
 
+        private void LoadTexture(string name, string fileName)
+        {
+            Texture2D texture = contentManager.Load<Texture2D>(fileName);
+            texture.Name = name;
+            objectTextures.Add(texture);
+        }
+
+        public Object[] GetAllTextureNames()
+        {
+            List<Object> objects = new List<Object>();
+            foreach (Texture2D texture in objectTextures) {
+                objects.Add(texture.Name);
+            }
+            return objects.ToArray();
+        }
+
         protected override void Initialize()
         {
             gravitySystem = new GravitySystem(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
             PresetObjects = new PresetObjects(this);
 
-            SimulationTime1 = DateTime.Now;
-            simulationTimeLarge = SimulationTime1.Year;
+            SimulationTime = DateTime.Now.Ticks / 10000000;
 
             ParentForm = (this.Parent as FormMain);
-//                        contentManager = new ContentManager(Services);
-//                        contentManager.RootDirectory = "Content";
+            //                        contentManager = new ContentManager(Services);
+            //                        contentManager.RootDirectory = "Content";
             contentManager = new ResourceContentManager(Services, Resources.ResourceManager);
             // LET OP! Content dir wordt niet meer gebruikt. Als je resources wilt toevoegen moet je dit in de resourcemanager doen.
             // Je moet daar dan de .XNB files toevoegen
-            // Deze kun je genereren door de uitgecommentarieerde contentmanager terug te zetten, of de XNAContentCompiler te gebruiken.
+            // Deze kun je genereren door de uitgecommentarieerde contentmanager terug te zetten, of de XNAContentCompiler of de monogame pipeline te gebruiken.
 
             // Load the background content. 
-            TextureMercury = contentManager.Load<Texture2D>("mercury");
-            TextureMercury.Name = "Mercury";
-            TextureSun = contentManager.Load<Texture2D>("sun");
-            TextureSun.Name = "Sun";
-            TextureVenus = contentManager.Load<Texture2D>("venus");
-            TextureVenus.Name = "Venus";
-            TextureEarth = contentManager.Load<Texture2D>("earth");
-            TextureEarth.Name = "Earth";
-            TextureMoon = contentManager.Load<Texture2D>("moon");
-            TextureMoon.Name = "Moon";
-            TextureMars = contentManager.Load<Texture2D>("mars");
-            TextureMars.Name = "Mars";
-            TextureJupiter = contentManager.Load<Texture2D>("jupiter");
-            TextureJupiter.Name = "Jupiter";
-            TextureSaturn = contentManager.Load<Texture2D>("saturn");
-            TextureSaturn.Name = "Saturn";
-            TextureNeptune = contentManager.Load<Texture2D>("neptune");
-            TextureNeptune.Name = "Neptune";
-            TextureUranus = contentManager.Load<Texture2D>("uranus");
-            TextureUranus.Name = "Uranus";
-            TexturePluto = contentManager.Load<Texture2D>("pluto");
-            TexturePluto.Name = "Pluto";
-            TextureRedBall = contentManager.Load<Texture2D>("ball");
-            TextureRedBall.Name = "Red Ball";
-            TextureMetalBall = contentManager.Load<Texture2D>("metalball");
-            TextureMetalBall.Name = "Metal Ball";
-            TextureGoldenBall = contentManager.Load<Texture2D>("goldenball");
-            TextureGoldenBall.Name = "Golden Ball";
-            TexturePlanet = contentManager.Load<Texture2D>("planet");
-            TexturePlanet.Name = "Planet";
+            objectTextures = new List<Texture2D>();
+            LoadTexture("Mercury", "mercury");
+            LoadTexture("Sun", "sun");
+            LoadTexture("Venus", "venus");
+            LoadTexture("Earth", "earth");
+            LoadTexture("Moon", "moon");
+            LoadTexture("Mars", "mars");
+            LoadTexture("Jupiter", "jupiter");
+            LoadTexture("Saturn", "saturn");
+            LoadTexture("Neptune", "neptune");
+            LoadTexture("Uranus", "uranus");
+            LoadTexture("Pluto", "pluto");
+            LoadTexture("Planet", "planet");
+            LoadTexture("Gas Giant", "gasgiant");
+            LoadTexture("Asteroid", "asteroid");
+            LoadTexture("Red Dwarf", "starreddwarf_m");
+            LoadTexture("Brown Dwarf", "starbrowndwarf");
+            LoadTexture("Yellow Dwarf", "staryellowdwarf_f");
+            LoadTexture("White Dwarf", "starwhitedwarf_a");
+            LoadTexture("Blue Giant", "starbluegiant_ob");
+            LoadTexture("Red giant", "starredgiant");
+            LoadTexture("Red Supergiant", "starredsupergiant_k");
+            LoadTexture("Red Ball", "ball");
+            LoadTexture("Metal Ball", "metalball");
+            LoadTexture("Golden Ball", "goldenball");
+            LoadTexture("Point", "largedot");
+            // TextureCustomShape is created seperately because it is frequently used.
+            TextureCustomShape = new Texture2D(GraphicsDevice, CustomShape.PixelSize, CustomShape.PixelSize);
+            TextureCustomShape.Name = "<Custom Shape>";
+            objectTextures.Add(TextureCustomShape);
+
             TextureArrow = contentManager.Load<Texture2D>("arrow");
             TextureArrow.Name = "Arrow";
             TextureVector = contentManager.Load<Texture2D>("vector");
             TextureVector.Name = "Vector";
-            TextureLargeDot = contentManager.Load<Texture2D>("largedot");
-            TextureLargeDot.Name = "Point";
-            TextureAsteroid = contentManager.Load<Texture2D>("asteroid");
-            TextureAsteroid.Name = "Asteroid";
+
+            textureSmallCircle = contentManager.Load<Texture2D>("smalldot9");
             rectVector = new Rectangle(0, 0, TextureVector.Width, TextureVector.Height);
             fontLindsey = contentManager.Load<SpriteFont>("font_lindsey");
             fontNormal = contentManager.Load<SpriteFont>("font_segoeuimono");
             fontSmall = contentManager.Load<SpriteFont>("font_small");
-            TextureSmallDot = new Texture2D(GraphicsDevice, SmallDot.PixelSize, SmallDot.PixelSize);
 
-            TextureTrace = new Texture2D(GraphicsDevice, 2, 2);
-            Color[] az = Enumerable.Range(0, 4).Select(i => new Color(255, 255, 255, 100)).ToArray();
-            TextureTrace.SetData(az);
+            textureTrace = contentManager.Load<Texture2D>("cross3");   // new Texture2D(GraphicsDevice, 2, 2);
+                                                                       //            Color[] az = Enumerable.Range(0, 4).Select(i => new Color(255, 255, 255, 100)).ToArray();
+                                                                       //            TextureTrace.SetData(az);
 
             // create 1x1 texture for line drawing
             textureLine = new Texture2D(GraphicsDevice, 1, 1);
@@ -576,7 +545,7 @@ namespace GravityOne.CustomControls
             foreach (GravityObject o in gravitySystem.GravityObjects)
             {
                 o.Trace = isTrue;
-                if (isTrue==false)
+                if (isTrue == false)
                 {
                     // remove all traces
                     o.GetTraces().Clear();
@@ -584,104 +553,46 @@ namespace GravityOne.CustomControls
             }
         }
 
-        public Texture2D getTextureByName(string text)
+        public Texture2D GetTextureByName(string text)
         {
-            Texture2D texture = null;
-
-            switch (text)
-            {
-                case "Planet":
-                    texture = TexturePlanet;
-                    break;
-                case "Earth":
-                    texture = TextureEarth;
-                    break;
-                case "Sun":
-                    texture = TextureSun;
-                    break;
-                case "Moon":
-                    texture = TextureMoon;
-                    break;
-                case "Mercury":
-                    texture = TextureMercury;
-                    break;
-                case "Venus":
-                    texture = TextureVenus;
-                    break;
-                case "Mars":
-                    texture = TextureMars;
-                    break;
-                case "Jupiter":
-                    texture = TextureJupiter;
-                    break;
-                case "Saturn":
-                    texture = TextureSaturn;
-                    break;
-                case "Uranus":
-                    texture = TextureUranus;
-                    break;
-                case "Neptune":
-                    texture = TextureNeptune;
-                    break;
-                case "Pluto":
-                    texture = TexturePluto;
-                    break;
-                case "Red Ball":
-                    texture = TextureRedBall;
-                    break;
-                case "Metal Ball":
-                    texture = TextureMetalBall;
-                    break;
-                case "Golden Ball":
-                    texture = TextureGoldenBall;
-                    break;
-                case "Point":
-                case "Large Dot":
-                    texture = TextureLargeDot;
-                    break;
-                case "<Custom Shape>":
-                    texture = TextureSmallDot;
-                    break;
-                case "Asteroid":
-                    texture = TextureAsteroid;
-                    break;
-            }
-
-            return texture;
+            return ObjectTextures.Find(x => x.Name.Equals(text));
         }
 
-        public void AddGravityObject(int X, int Y, bool circleHost=false, bool circleHostCCW = false)
+        public void AddGravityObject(double X, double Y, bool circleHost = false, bool circleHostCCW = false)
         {
-            Texture2D texture = getTextureByName(ParentForm.comboBoxShape.Text);
+            Texture2D texture = GetTextureByName(ParentForm.comboBoxTexture.Text);
 
             double xSpeed = Convert.ToDouble(ParentForm.textBoxXSpeed.Text);
             double ySpeed = Convert.ToDouble(ParentForm.textBoxYSpeed.Text);
 
-            if ((circleHost || circleHostCCW) && gravitySystem.GravityObjects.Count>0)
-            {
-                GravityObject hostObject = gravitySystem.findBestHost(X, Y);
-                Vector speed = gravitySystem.calcSpeedFromHost(hostObject, X, Y, Convert.ToDouble(ParentForm.textBoxMass.Text));
-                xSpeed = speed.X;
-                ySpeed = speed.Y;
-                if(circleHostCCW)
-                {
-                    xSpeed = -xSpeed;
-                    ySpeed = -ySpeed;
-                }
-            }
-
-
-            gravitySystem.AddObject(ParentForm.textBoxName.Text, 
+            GravityObject newObject = gravitySystem.AddObject(ParentForm.textBoxName.Text,
                 Convert.ToDouble(ParentForm.textBoxMass.Text),
                 X, Y, xSpeed, ySpeed,
                 texture, ParentForm.checkBoxTrace.Checked, ParentForm.checkBoxVector.Checked);
+//            gravitySystem.ScaleObject(newObject);
+            if ((circleHost || circleHostCCW) && gravitySystem.GravityObjects.Count > 1)
+            {
+                Vector speed = gravitySystem.CalculateSpeedByHost(newObject);
+                newObject.XSpeed = speed.X;
+                newObject.YSpeed = speed.Y;
+                if (circleHostCCW)
+                {
+                    newObject.XSpeed = -speed.X;
+                    newObject.YSpeed = -speed.Y;
+                }
+            }
 
-            // perform calculation to show right vectors
-            gravitySystem.CalculateStep(1/*timeUnitsPerStep*/, false);
+            // perform 1 calculation to show right vectors
+            gravitySystem.CalculateStep(1, false);
         }
-        
+
 
         void DrawLine(SpriteBatch sb, Vector2 start, Vector2 end, int width)
+        {
+            DrawLine(sb, start, end, width, Color.White);
+        }
+
+        void DrawLine(SpriteBatch sb, Vector2 start, Vector2 end, int width, Color color)
         {
             Vector2 edge = end - start;
             // calculate angle to rotate line
@@ -696,7 +607,7 @@ namespace GravityOne.CustomControls
                     (int)edge.Length(), //sb will strech the texture to fill this rectangle
                     width), //width of line, change this to make thicker line
                 null,
-                Color.White, //colour of line
+                color, //colour of line
                 angle,     //angle of line (calulated above)
                 new Vector2(0, 0), // point in line about which to rotate
                 SpriteEffects.None,
@@ -704,23 +615,138 @@ namespace GravityOne.CustomControls
 
         }
 
+        public void AdjustScale()
+        {
+            // at scale 1, one pixel = 100 km
+            // -> End of scale text = SCALE_WIDTH * 100 km = 100,000 km
+            // we want maximum SCALE_WIDTH pixels and minimum 100 pixels
+            scaleBeamLength = (SCALE_WIDTH / gravitySystem.Scale);
+            scaleFactor = 1;
+            scaleNumber = 0;
+            while (scaleBeamLength < 200)
+            {
+                scaleNumber++;
+                scaleFactor *= 5;
+                scaleBeamLength = (SCALE_WIDTH * scaleFactor / (gravitySystem.Scale));
+                if (scaleBeamLength < 500)
+                {
+                    scaleNumber++;
+                    scaleFactor *= 2;
+                    scaleBeamLength = (SCALE_WIDTH * scaleFactor / (gravitySystem.Scale));
+                }
+            }
+
+            scaleTextMax = scaleFactor + "00,000 km";
+            if (scaleFactor >= 10)
+            {
+                scaleTextMax = (scaleFactor / 10).ToString() + " mln. km";
+            }
+            if (scaleFactor >= 10000)
+            {
+                scaleTextMax = (scaleFactor / 10000).ToString() + " bln. km";
+            }
+            if (scaleFactor >= 10000000)
+            {
+                scaleTextMax = (scaleFactor / 10000000).ToString() + " tln. km";
+            }
+            if (scaleFactor >= 10000000000)
+            {
+                scaleTextMax = (scaleFactor / 10000000000).ToString() + " qdn. km";
+            }
+
+            if(GravitySystem.CenterIndex > -1)
+                GravitySystem.ScrollToCenterImmediately();
+        }
+
+        private double CalcPercentage(GravityObject o)
+        {
+            double percentage = 0;
+            if (showSpeed && gravitySystem.SpeedRange > 0)
+            {
+                percentage = (o.Speed - gravitySystem.MinSpeed) / gravitySystem.SpeedRange;
+            }
+            else if (showForce && gravitySystem.AccelerationRange > 0)
+            {
+                percentage = (o.Acceleration - gravitySystem.MinAcceleration) / gravitySystem.AccelerationRange;
+            }
+            if (percentage > 1)  // range is not 100% accurate for speed reasons
+            {
+                percentage = 1;
+            }
+
+            return percentage;
+        }
+
+        private Color DetermineColor(double percentage)
+        {
+            int color1, color2, color3;
+            if (ColorScheme == 0)        // range is not 100% accurate for speed reasons
+            {
+                // percent 0 : white 255,255,255
+                if (percentage < 20)
+                {
+                    color1 = color2 = color3 = (int)(255 - (percentage * 6.4));
+                }
+                // percent 20 : grey 128,128,128
+                else if (percentage < 50)
+                {
+                    color1 = (int)(128 - ((percentage - 20) * 4.26));
+                    color2 = (int)(127 + ((percentage - 20) * 4.26));
+                    color3 = (int)(128 - ((percentage - 20) * 4.26));
+                }
+                // percent 50 : green 0,255,0
+                else if (percentage < 80)
+                {
+                    color1 = (int)((percentage - 50) * 8.52);
+                    color2 = 255;
+                    color3 = 0;
+                }
+                // percent 80 : yellow 255,255,0
+                else
+                {
+                    color1 = 255;
+                    color2 = (int)(255 - ((percentage - 80) * 12.75));
+                    color3 = 0;
+                }
+                // percent 100 : red 255,0,0
+            }
+            else if (ColorScheme == 1)
+            {
+                color1 = (Convert.ToInt32(percentage * 2)) % 255;
+                color2 = (255 - Convert.ToInt32(percentage * 4)) % 255;
+                color3 = Convert.ToInt32(percentage * 1) % 255;
+            }
+            else if (ColorScheme == 2)
+            {
+                color1 = (Convert.ToInt32(percentage * 2)) % 255;
+                color2 = (127 + Convert.ToInt32(percentage * 3)) % 255;
+                color3 = Math.Abs((255 - Convert.ToInt32(percentage * 3)) % 255);
+            }
+            else
+            {
+                color1 = (Convert.ToInt32(percentage * 2)) % 255;
+                color2 = Convert.ToInt32(percentage * 1) % 255;
+                color3 = (255 - Convert.ToInt32(percentage * 2)) % 255; 
+            }
+            return new Color(color1, color2, color3);
+        }
+
+
         override protected void Draw()
         {
             GraphicsDevice.Clear(Color.Black);
 
-            try {
+            try
+            {
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
                 // Draw background
                 Rectangle rect;
-                if (BackgroundIndex>0)
+                if (BackgroundIndex > 0)
                 {
                     rect = new Rectangle(0, 0, Width, Height);
                     spriteBatch.Draw(TextureBackground, rect, Color.White);
                 }
-
-                // Adjust to center of object if object is centered
-                GravitySystem.CenterOnObject();
 
                 // Traces
                 foreach (GravityObject o in gravitySystem.GravityObjects)
@@ -734,12 +760,12 @@ namespace GravityOne.CustomControls
                             {
                                 try
                                 {
-                                    int screen_x = gravitySystem.RealtoScreenCoordinateX(trace.X);
-                                    int screen_y = gravitySystem.RealtoScreenCoordinateY(trace.Y);
+                                    double screen_x = gravitySystem.RealtoScreenCoordinateX(trace.X + o.SolarSystemPositionX());
+                                    double screen_y = gravitySystem.RealtoScreenCoordinateY(trace.Y + o.SolarSystemPositionY());
                                     if (screen_x > -GraphicsDevice.Viewport.Width && screen_x < 2 * GraphicsDevice.Viewport.Width
                                         && screen_y > -GraphicsDevice.Viewport.Height && screen_y < 2 * GraphicsDevice.Viewport.Height)
                                     {
-                                        spriteBatch.Draw(TextureTrace, new Rectangle(screen_x, screen_y, TextureTrace.Width, TextureTrace.Height), trace.Color);
+                                        spriteBatch.Draw(textureTrace, new Rectangle(Convert.ToInt32(screen_x), Convert.ToInt32(screen_y), textureTrace.Width, textureTrace.Height), trace.Color);
                                     }
                                 }
                                 catch (OverflowException)
@@ -756,10 +782,15 @@ namespace GravityOne.CustomControls
                     }
                 }
 
-                foreach (GravityObject o in gravitySystem.GravityObjects)
+                for (int k = gravitySystem.GravityObjects.Count - 1; k >= 0; k--)     // go through the objects in reverse order, so that the sun will be in front of planets (when zooming out)
                 {
-                    double screen_x = gravitySystem.RealtoScreenCoordinateX(o.X);
-                    double screen_y = gravitySystem.RealtoScreenCoordinateY(o.Y);
+                    GravityObject o = gravitySystem.GravityObjects[k];
+
+                    if (o.NumObjects > 0)
+                        continue;               // skip solar system objects
+
+                    double screen_x = gravitySystem.RealtoScreenCoordinateX(o.AbsolutePositionX());
+                    double screen_y = gravitySystem.RealtoScreenCoordinateY(o.AbsolutePositionY());
 
                     // Vector
                     if (o.Vector)
@@ -768,8 +799,6 @@ namespace GravityOne.CustomControls
                             && screen_y > -GraphicsDevice.Viewport.Height && screen_y < 2 * GraphicsDevice.Viewport.Height)
                         {
                             spriteBatch.Draw(TextureVector, new Rectangle(Convert.ToInt32(screen_x), Convert.ToInt32(screen_y), TextureVector.Width, TextureVector.Height), null, Color.White, (float)o.AccelerationAngle, new Vector2(0, TextureVector.Height / 2), SpriteEffects.None, 0f);
-//                            spriteBatch.Draw(textureVector, new Rectangle(Convert.ToInt32(screen_x), Convert.ToInt32(screen_y), textureVector.Width, textureVector.Height), null, Color.Red, (float)o.SpeedAngle, new Vector2(0, textureVector.Height / 2), SpriteEffects.None, 0f);
-//                            spriteBatch.DrawString(fontSmall, o.Acceleration.ToString(), new Vector2((float)screen_x, (float)screen_y), Color.LightGray);
                         }
                     }
 
@@ -777,62 +806,50 @@ namespace GravityOne.CustomControls
                     spriteBatch.Begin(SpriteSortMode.Deferred, blendState);
 
                     // Object
-                    try {
+                    try
+                    {
                         if (screen_x > -GraphicsDevice.Viewport.Width && screen_x < 2 * GraphicsDevice.Viewport.Width
                             && screen_y > -GraphicsDevice.Viewport.Height && screen_y < 2 * GraphicsDevice.Viewport.Height)
                         {
-
-                            if (!showAsDots)
+                            /* For displaying color scheme gradient..
+                            for(int x=0; x<=100; x++)
                             {
-                                rect = new Rectangle(Convert.ToInt32(screen_x - o.ScaledTextureWidth / 2), Convert.ToInt32(screen_y - o.ScaledTextureHeight / 2), o.ScaledTextureWidth, o.ScaledTextureHeight);
-                                double percentage = 0;
-                                if (SmallDot.ColorCoding > 0 && SmallDot.ColorCoding < 4 && gravitySystem.SpeedRange > 0)
-                                {
-                                    percentage = (o.Speed - gravitySystem.MinSpeed) / gravitySystem.SpeedRange;
-                                }
-                                else if (SmallDot.ColorCoding > 3 && gravitySystem.AccelerationRange > 0)
-                                {
-                                    percentage = (o.Acceleration - gravitySystem.MinAcceleration) / gravitySystem.AccelerationRange;
-                                }
-                                if (percentage > 1)  // range is not 100% accurate for speed reasons
-                                {
-                                    percentage = 1;
-                                }
-                                
-                                if (SmallDot.ColorCoding==1 || SmallDot.ColorCoding == 4)        // range is not 100% accurate for speed reasons
-                                {
-                                    int color = Convert.ToInt32(percentage * 255);
-                                    int color2 = 127 + Convert.ToInt32(percentage * 128);
-                                    int color3 = 255 - Convert.ToInt32(percentage * 255);
-                                    spriteBatch.Draw(o.Texture, rect, new Color(color, color2, color3, 255));
-                                }
-                                else if (SmallDot.ColorCoding == 2 || SmallDot.ColorCoding == 5)
-                                {
-                                    int color = Convert.ToInt32(percentage * 255);
-                                    int color2 = 255 - Convert.ToInt32(percentage * 255);
-                                    int color3 = Convert.ToInt32(percentage * 512) % 255;
-                                    spriteBatch.Draw(o.Texture, rect, new Color(color, color2, color3, 255));
-                                }
-                                else if (SmallDot.ColorCoding == 3 || SmallDot.ColorCoding == 6)
-                                {
-                                    int color = 100 + Convert.ToInt32(percentage * 155);
-                                    int color2 = Convert.ToInt32(percentage * 255);
-                                    int color3 = 2 * Convert.ToInt32(percentage * 255);
-                                    spriteBatch.Draw(o.Texture, rect, new Color(color, color2, color3, 255));
-                                }
-                                else
-                                {
-                                    spriteBatch.Draw(o.Texture, rect, Color.White);
-                                }
-
+                                rect = new Rectangle(500+x, 500, 1, 30);
+                                Color color = DetermineColor(x);
+                                Texture2D texture = new Texture2D(GraphicsDevice, 1, 1);
+                                Color[] data = { new Color(255, 255, 255, 255) }; 
+                                texture.SetData(data);
+                                spriteBatch.Draw(texture, rect, color);
+                            }
+                            */
+                            if (showForce || showSpeed)
+                            {
+                                rect = new Rectangle(Convert.ToInt32(screen_x - textureSmallCircle.Width / 2), Convert.ToInt32(screen_y - textureSmallCircle.Height / 2), textureSmallCircle.Width, textureSmallCircle.Height);
+                                Color color = Color.Red; // DetermineColor(CalcPercentage(o));
+                                spriteBatch.Draw(textureSmallCircle, rect, color);
                             }
                             else
                             {
-                                rect = new Rectangle(Convert.ToInt32(screen_x - TextureLargeDot.Width / 2), Convert.ToInt32(screen_y - TextureLargeDot.Height / 2), TextureLargeDot.Width, TextureLargeDot.Height);
-                                spriteBatch.Draw(TextureLargeDot, rect, Color.White);
+                                rect = new Rectangle(Convert.ToInt32(screen_x - o.ScaledTextureWidth / 2), Convert.ToInt32(screen_y - o.ScaledTextureHeight / 2), o.ScaledTextureWidth, o.ScaledTextureHeight);
+                                if (o.Texture.Name.Equals("<Custom Shape>"))
+                                {
+                                    spriteBatch.Draw(o.Texture, rect, new Color(255, 255, 255, 255));
+                                }
+                                else
+                                {
+                                    // future                                   if (o.RotationMode.Equals(RotationMode_.None))
+                                    // future                                    {
+                                    spriteBatch.Draw(o.Texture, rect, Color.White);
+                                    // future                                    }
+                                    // future                                   else
+                                    // future                                   {
+                                    // future                                       spriteBatch.Draw(o.Texture, new Rectangle(Convert.ToInt32(screen_x), Convert.ToInt32(screen_y), o.Texture.Width, o.Texture.Height), null, Color.White, (float)o.Angle, new Vector2(o.Texture.Width / 2, o.Texture.Height / 2), SpriteEffects.None, 0f);
+                                    // future                                   }
+                                }
                             }
                         }
-                    } catch (OverflowException)
+                    }
+                    catch (OverflowException)
                     {
                         gravitySystem.GravityObjects.Remove(o);
                     }
@@ -843,86 +860,111 @@ namespace GravityOne.CustomControls
                     // Object name
                     if (showNames)
                     {
-                        spriteBatch.DrawString(fontSmall, o.Name, new Vector2((float)(screen_x + o.ScaledTextureWidth / 2), (float)(screen_y + o.ScaledTextureHeight / 2)), Color.LightGray);
+                        if (gravitySystem.Scale < 30)
+                            spriteBatch.DrawString(fontNormal, o.Name, new Vector2((float)(screen_x + o.ScaledTextureWidth / 2), (float)(screen_y + o.ScaledTextureHeight / 2)), Color.LightGray);
+                        else
+                            spriteBatch.DrawString(fontSmall, o.Name, new Vector2((float)(screen_x + o.ScaledTextureWidth / 2), (float)(screen_y + o.ScaledTextureHeight / 2)), Color.LightGray);
                     }
 
+                }
+
+                // Grid display
+                if (showGrid)
+                {
+                    // scalefactor 1-50000000000000  -> Log(scalefactor) 0-32.5
+                    double step = SCALE_WIDTH * scaleFactor / gravitySystem.Scale / 8.0;
+                    double x = -(gravitySystem.OffsetX % step);
+                    double y = -(gravitySystem.OffsetY % step);
+                    int value = scaleNumber % 2 * 255;
+                    Color color = new Color(value / 2, (255 - value) / 2, 100);
+
+                    while (x < gravitySystem.ViewportWidth)
+                    {
+                        DrawLine(spriteBatch, new Vector2((float)x, 0), new Vector2((float)x, gravitySystem.ViewportHeight), 1, color);
+                        x += step;
+                    }
+                    while (y < gravitySystem.ViewportWidth)
+                    {
+                        DrawLine(spriteBatch, new Vector2(0, (float)y), new Vector2(gravitySystem.ViewportWidth, (float)y), 1, color);
+                        y += step;
+                    }
+
+                    x = -(gravitySystem.OffsetX) % (20 * step);
+                    y = -(gravitySystem.OffsetY) % (20 * step);
+                    value = (scaleNumber+1) % 2 * 255;
+                    color = new Color(value / 2, (255 - value) / 2, 100);
+                    while (x < gravitySystem.ViewportWidth)
+                    {
+                        DrawLine(spriteBatch, new Vector2((float)x, 0), new Vector2((float)x, gravitySystem.ViewportHeight), 1, color);
+                        DrawLine(spriteBatch, new Vector2((float)x + 1, 0), new Vector2((float)x + 1, gravitySystem.ViewportHeight), 1, color);
+                        DrawLine(spriteBatch, new Vector2((float)x + 2, 0), new Vector2((float)x + 2, gravitySystem.ViewportHeight), 1, color);
+                        x += step * 20.0;
+                    }
+                    while (y < gravitySystem.ViewportWidth)
+                    {
+                        DrawLine(spriteBatch, new Vector2(0, (float)y), new Vector2(gravitySystem.ViewportWidth, (float)y), 1, color);
+                        DrawLine(spriteBatch, new Vector2(0, (float)y + 1), new Vector2(gravitySystem.ViewportWidth, (float)y + 1), 1, color);
+                        DrawLine(spriteBatch, new Vector2(0, (float)y + 2), new Vector2(gravitySystem.ViewportWidth, (float)y + 2), 1, color);
+                        y += step * 20.0;
+                    }
                 }
 
                 // Scale display
                 if (showScale)
                 {
-                    // at scale 1, one pixel = 500 km
-                    // we want maximum 1000 pixels and minimum 100 pixels
-                    Double beamLength = (1000.0 / gravitySystem.Scale);
-                    long factor = 1;
-                    while (beamLength < 100)
-                    {
-                        factor *= 10;
-                        beamLength = (1000.0 * factor / (gravitySystem.Scale));
-                    }
+                    DrawLine(spriteBatch, new Vector2(SCALE_POSITION_X, SCALE_POSITION_Y), new Vector2(SCALE_POSITION_X + SCALE_WIDTH * scaleFactor / gravitySystem.Scale, SCALE_POSITION_Y), 3);
+                    DrawLine(spriteBatch, new Vector2(SCALE_POSITION_X, SCALE_POSITION_Y), new Vector2(SCALE_POSITION_X, SCALE_POSITION_Y - 10), 2);
+                    DrawLine(spriteBatch, new Vector2(SCALE_POSITION_X - 2 + SCALE_WIDTH * scaleFactor / gravitySystem.Scale, SCALE_POSITION_Y), new Vector2(SCALE_POSITION_X - 2 + SCALE_WIDTH * scaleFactor / gravitySystem.Scale, SCALE_POSITION_Y - 10), 2);
+                    spriteBatch.DrawString(fontLindsey, "0", new Vector2(SCALE_POSITION_X, SCALE_POSITION_Y), Color.White);
+                    spriteBatch.DrawString(fontLindsey, scaleTextMax, new Vector2(SCALE_POSITION_X + SCALE_WIDTH * scaleFactor / gravitySystem.Scale, SCALE_POSITION_Y), Color.White);
+                }
 
-                    DrawLine(spriteBatch, new Vector2(900, GraphicsDevice.Viewport.Height - 80), new Vector2(900 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), 3);
-                    DrawLine(spriteBatch, new Vector2(900, GraphicsDevice.Viewport.Height - 80), new Vector2(900, GraphicsDevice.Viewport.Height - 90), 2);
-                    DrawLine(spriteBatch, new Vector2(898 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), new Vector2(898 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 90), 2);
-                    spriteBatch.DrawString(fontLindsey, "0", new Vector2(900, GraphicsDevice.Viewport.Height - 80), Color.White);
-                    string maxScaleText = "100000 km";
-                    if (factor >= 10)
-                    {
-                        maxScaleText = (factor / 10).ToString() + " mln. km";
-                    }
-                    if (factor >= 1000)
-                    {
-                        maxScaleText = (factor / 1000).ToString() + " bln. km";
-                    }
-                    if (factor >= 1000000)
-                    {
-                        maxScaleText = (factor / 1000000).ToString() + " tln. km";
-                    }
-                    if (factor >= 1000000000)
-                    {
-                        maxScaleText = (factor / 1000000000).ToString() + " qdn. km";
-                    }
-                    spriteBatch.DrawString(fontLindsey, maxScaleText, new Vector2(GraphicsDevice.Viewport.Width - 1070 + 900 * factor / gravitySystem.Scale, GraphicsDevice.Viewport.Height - 80), Color.White);
+                if (gravitySystem.Message.Time > 0)
+                {
+                    gravitySystem.Message.Time--;
+                    spriteBatch.DrawString(fontSmall, gravitySystem.Message.Text, new Vector2(20, GraphicsDevice.Viewport.Height - 330), Color.LightSalmon);
+                }
+
+                spriteBatch.DrawString(fontSmall, "framerate: " + parentForm.FrameRate.ToString(), new Vector2(20, GraphicsDevice.Viewport.Height - 3000), Color.LightGray);
+
+                // Calculations per step
+                if (gravitySystem.IsCalculating)
+                {
+                    string text = "calculating frame: " + gravitySystem.FrameNumberCalc + "/" + gravitySystem.NumPrecalculatedFrames();
+                    spriteBatch.DrawString(fontSmall, text, new Vector2(20, GraphicsDevice.Viewport.Height - 270), Color.LightGray);
+                }
+                if (gravitySystem.FrameNumberCalc > 1)       // we have at least one calculated frame
+                {
+                    string text = "playing frame: " + gravitySystem.FrameNumberPlay + "/" + gravitySystem.NumPrecalculatedFrames();
+                    spriteBatch.DrawString(fontSmall, text, new Vector2(20, GraphicsDevice.Viewport.Height - 240), Color.LightGray);
+                }
+                else
+                {
+                    spriteBatch.DrawString(fontSmall, "calculations/step: " + gravitySystem.CalculationsPerStepActual.ToString(), new Vector2(20, GraphicsDevice.Viewport.Height - 240), Color.LightGray);
                 }
 
                 // Simulation time
-                if (secondsPerStep <= 31558150)
+                long secondsPerStep = secondsPerStepSolarSystem;
+                if (UseGalaxyTiming)
                 {
-                    spriteBatch.DrawString(fontNormal, SimulationTime1.ToString("MM/dd/yyyy HH:mm"), new Vector2(20, GraphicsDevice.Viewport.Height - 140), Color.White);
+                    secondsPerStep *= GravitySystem.TIME_GALAXY_INCREASE_FACTOR;
+                }
+
+                if (secondsPerStep <= ONE_YEAR_IN_SECONDS)
+                {
+                    spriteBatch.DrawString(fontNormal, new DateTime(SimulationTime * 10000000).ToString("MM/dd/yyyy HH:mm"), new Vector2(20, GraphicsDevice.Viewport.Height - 210), Color.White);
                 }
                 else
                 {
-                    spriteBatch.DrawString(fontNormal, "Year: " + string.Format("{0:n0}",simulationTimeLarge), new Vector2(20, GraphicsDevice.Viewport.Height - 140), Color.White);
+                    spriteBatch.DrawString(fontNormal, "Year: " + string.Format("{0:n0}", SimulationTime / ONE_YEAR_IN_SECONDS), new Vector2(20, GraphicsDevice.Viewport.Height - 210), Color.White);
                 }
 
-                // Calculations per step
-                if (GravitySystem.CalculationsPerStepSetting == -2)
+                spriteBatch.DrawString(fontSmall, "XOffset: " + GravitySystem.OffsetX + ", YOffset: " + GravitySystem.OffsetY, new Vector2(GraphicsDevice.Viewport.Width - 400, GraphicsDevice.Viewport.Height - 130), Color.White);
+                spriteBatch.DrawString(fontSmall, "Scale: " + GravitySystem.Scale, new Vector2(GraphicsDevice.Viewport.Width - 400, GraphicsDevice.Viewport.Height - 100), Color.White);
+                if (ShowClickMessage)
                 {
-                    if (gravitySystem.IsCalculating)
-                    {
-                        string text = "calculating frame: " + gravitySystem.FrameNumberCalc + "/" + gravitySystem.NumPrecalculatedFrames();
-                        if (gravitySystem.CalculationsPerStepPrecalculated > 1)
-                        {
-                            text += " (" + gravitySystem.CalculationsPerStepPrecalculated + " steps/frame)";
-                        }
-                        spriteBatch.DrawString(fontSmall, text, new Vector2(20, GraphicsDevice.Viewport.Height - 200), Color.LightGray);
-                    }
+                    spriteBatch.DrawString(fontLindsey, "Click anywhere in the Screen ", new Vector2((GraphicsDevice.Viewport.Width / 2) - 300, 180), new Color(arrowColorStrength, 0, 0));
                 }
-                else
-                {
-                    spriteBatch.DrawString(fontSmall, "calculations/step: " + gravitySystem.CalculationsPerStepActual.ToString(), new Vector2(20, GraphicsDevice.Viewport.Height - 200), Color.LightGray);
-                }
-                if (gravitySystem.CalculationsPerStepSetting == -2)
-                {
-                    spriteBatch.DrawString(fontSmall, "playing frame: " + gravitySystem.FrameNumberPlay, new Vector2(20, GraphicsDevice.Viewport.Height - 170), Color.LightGray);
-                }
-
-                if(gravitySystem.Message.Time >0)
-                {
-                    gravitySystem.Message.Time--;
-                    spriteBatch.DrawString(fontSmall, gravitySystem.Message.Text, new Vector2(20, GraphicsDevice.Viewport.Height - 230), Color.LightSalmon);
-                }
-
 
                 /*                  
                                 if (!gravitySystem.IsCalculating && gravitySystem.GravityObjects.Count>0)
@@ -947,13 +989,29 @@ namespace GravityOne.CustomControls
                 {
                     try
                     {
-                        int real_x = gravitySystem.RealtoScreenCoordinateX(gravitySystem.CurrentObject().X);
-                        int real_y = gravitySystem.RealtoScreenCoordinateY(gravitySystem.CurrentObject().Y);
-                        if (real_x > -GraphicsDevice.Viewport.Width && real_x < 2 * GraphicsDevice.Viewport.Width
-                            && real_y > -GraphicsDevice.Viewport.Height && real_y < 2 * GraphicsDevice.Viewport.Height)
+                        int screen_x = gravitySystem.RealtoScreenCoordinateX(gravitySystem.CurrentObject().AbsolutePositionX());
+                        int screen_y = gravitySystem.RealtoScreenCoordinateY(gravitySystem.CurrentObject().AbsolutePositionY());
+                        if (screen_x > -GraphicsDevice.Viewport.Width && screen_x < 2 * GraphicsDevice.Viewport.Width
+                            && screen_y > -GraphicsDevice.Viewport.Height && screen_y < 2 * GraphicsDevice.Viewport.Height)
                         {
-                            rect = new Rectangle(real_x - gravitySystem.CurrentObject().ScaledTextureWidth / 2 - 64, real_y - 14, TextureArrow.Width, TextureArrow.Height);
-                            spriteBatch.Draw(TextureArrow, rect, Color.White);
+                            if (arrowStrengthUp)
+                            {
+                                arrowColorStrength += 4;
+                                if (arrowColorStrength >= 255)
+                                {
+                                    arrowStrengthUp = false;
+                                }
+                            }
+                            else
+                            {
+                                arrowColorStrength -= 4;
+                                if (arrowColorStrength < 100)
+                                {
+                                    arrowStrengthUp = true;
+                                }
+                            }
+                            rect = new Rectangle(screen_x - gravitySystem.CurrentObject().ScaledTextureWidth / 2 - 64 - 6 + (arrowColorStrength / 40), screen_y - 14, TextureArrow.Width, TextureArrow.Height);
+                            spriteBatch.Draw(TextureArrow, rect, new Color(arrowColorStrength, arrowColorStrength, arrowColorStrength));
                         }
                     }
                     catch (OverflowException)
@@ -963,7 +1021,8 @@ namespace GravityOne.CustomControls
 
                 spriteBatch.End();
 
-            } catch (System.NullReferenceException e)
+            }
+            catch (System.NullReferenceException e)
             {
                 Console.WriteLine(e.Message);
             }
@@ -978,16 +1037,10 @@ namespace GravityOne.CustomControls
 
         public void Rewind()
         {
-            if (secondsPerStep < 31558151)
-            {
-                SimulationTime1 = SimulationTime1.AddSeconds(-secondsPerStep * GravitySystem.FrameNumberPlay);
-            }
-            else
-            {
-                simulationTimeLarge -= (secondsPerStep * GravitySystem.FrameNumberPlay / 31558150);
-            }
+            SimulationTime -= (secondsPerStepSolarSystem * GravitySystem.FrameNumberPlay);
+
             GravitySystem.FrameNumberPlay = 0;
-            foreach (GravityObject o in gravitySystem.GravityObjects) 
+            foreach (GravityObject o in gravitySystem.GravityObjects)
             {
                 // remove all traces
                 o.GetTraces().Clear();
@@ -996,51 +1049,39 @@ namespace GravityOne.CustomControls
 
         public void UpdateFrame()
         {
-            if (simulationRunning || SimulationStepping)
+            if (gravitySystem.SimulationRunning)
             {
-                SimulationStepping = false;
-                if (gravitySystem.CalculationsPerStepSetting != -2)
+                if (gravitySystem.FrameNumberCalc > 1)      // we have at least one calculated frame
                 {
-                    gravitySystem.CalculateStep(secondsPerStep);
-                } else
-                {
-                    if (gravitySystem.PlayOneFrame() || (gravitySystem.CalculationsPerStepPrecalculated==1 && gravitySystem.FrameNumberCalc<=gravitySystem.FrameNumberPlay))
+                    if (gravitySystem.PlayOneFrame() || gravitySystem.FrameNumberPlay > gravitySystem.FrameNumberCalc)
                     {
                         // back to beginning of replay
                         Rewind();
                     }
                 }
+                else
+                {
+                    gravitySystem.CalculateStep(secondsPerStepSolarSystem);
+                }
 
-                if (secondsPerStep<31558151) {
-                    try
-                    {
-                        if (reverse)
-                        {
-                            SimulationTime1 = SimulationTime1.AddSeconds(-secondsPerStep);
-                        }
-                        else
-                        {
-                            SimulationTime1 = SimulationTime1.AddSeconds(secondsPerStep);
-                        }
-                    }
-                    catch (System.ArgumentOutOfRangeException)
-                    {
-                        SimulationTime1 = DateTime.Now;
-                    }
+                if (reverse)
+                {
+                    SimulationTime -= (secondsPerStepSolarSystem);
                 }
                 else
                 {
-                    if (reverse)
-                    {
-                        simulationTimeLarge -= (secondsPerStep / 31558150);
-                    }
-                    else
-                    {
-                        simulationTimeLarge += (secondsPerStep / 31558150);
-                    }
+                    SimulationTime += (secondsPerStepSolarSystem);
                 }
-
             }
+            // Adjust to center of object if object is centered
+            GravitySystem.CenterOnObject();
+
+            if (SimulationStepping)
+            {
+                gravitySystem.SimulationRunning = false;
+                SimulationStepping = false;
+            }
+
             if (recordingVideo)
             {
                 screenRecorder.RecordOneFrame();
@@ -1055,7 +1096,7 @@ namespace GravityOne.CustomControls
         {
             Invalidate();
         }
-        
+
         /// <summary>
         /// Handles input for quitting the game and cycling
         /// through the different particle effects.
@@ -1076,7 +1117,7 @@ namespace GravityOne.CustomControls
             var usedCodec = KnownFourCCs.Codecs.Uncompressed;
             foreach (var codec in Mpeg4VideoEncoderVcm.GetAvailableCodecs())
             {
-                if(codec.Name.Equals(ParentForm.DisplayXNA.VideoCaptureCompression))
+                if (codec.Name.Equals(ParentForm.DisplayXNA.VideoCaptureCompression))
                 {
                     usedCodec = codec.Codec;
                 }

@@ -116,6 +116,9 @@
   <ItemGroup>
     <Compile Include="BarnesHut\Node.cs" />
     <Compile Include="BarnesHut\QuadTree.cs" />
+    <Compile Include="CustomControls\ColorSelector.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomControls\Display.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -128,6 +131,10 @@
     <Compile Include="CustomControls\GradientPanel2.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CustomControls\ImageCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ImageComboboxItem.cs" />
     <Compile Include="Forms\FormCircle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,13 +189,25 @@
     <Compile Include="Forms\FormRandom.Designer.cs">
       <DependentUpon>FormRandom.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSolarSystems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSolarSystems.Designer.cs">
+      <DependentUpon>FormSolarSystems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormSplashScreen.Designer.cs">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gravity\Calculation.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\GravitySystemTest.cs" />
+    <Compile Include="Gravity\Object2D.cs" />
     <Compile Include="Gravity\GravityObject.cs" />
     <Compile Include="Gravity\GravitySystem.cs" />
     <Compile Include="Gravity\GravityUtils.cs" />
@@ -203,11 +222,6 @@
     <Compile Include="MacTrackbar\MACTrackBarDesigner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ScreenRecorder.cs" />
     <Compile Include="SpaceObjects\Galaxy.cs" />
     <Compile Include="SpaceObjects\Circle.cs" />
@@ -225,6 +239,7 @@
     <Compile Include="WinformsGraphicsDevice\ServiceContainer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="MonoGame.Framework">
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -264,7 +279,9 @@
     <None Include="Resources\font_pescadero.xnb" />
     <None Include="Resources\font_segoeuimono.xnb" />
     <None Include="Resources\font_small.xnb" />
+    <None Include="Resources\gasgiant.xnb" />
     <None Include="Resources\goldenball.xnb" />
+    <None Include="Resources\greydot.xnb" />
     <None Include="Resources\jupiter.xnb" />
     <None Include="Resources\largedot.xnb" />
     <None Include="Resources\mars.xnb" />
@@ -274,6 +291,7 @@
     <None Include="Resources\neptune.xnb" />
     <None Include="Resources\planet.xnb" />
     <None Include="Resources\pluto.xnb" />
+    <None Include="Resources\reddot.xnb" />
     <None Include="Resources\saturn.xnb" />
     <None Include="Resources\smalldot10.xnb" />
     <None Include="Resources\smalldot11.xnb" />
@@ -290,6 +308,13 @@
     <None Include="Resources\space3.xnb" />
     <None Include="Resources\space4.xnb" />
     <None Include="Resources\space5.xnb" />
+    <None Include="Resources\starbluegiant_ob.xnb" />
+    <None Include="Resources\starbrowndwarf.xnb" />
+    <None Include="Resources\starreddwarf_m.xnb" />
+    <None Include="Resources\starredgiant.xnb" />
+    <None Include="Resources\starredsupergiant_k.xnb" />
+    <None Include="Resources\starwhitedwarf_a.xnb" />
+    <None Include="Resources\staryellowdwarf_f.xnb" />
     <None Include="Resources\sun.xnb" />
     <None Include="Resources\uranus.xnb" />
     <None Include="Resources\vector.xnb" />
@@ -323,6 +348,9 @@
     <EmbeddedResource Include="Forms\FormRandom.resx">
       <DependentUpon>FormRandom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSolarSystems.resx">
+      <DependentUpon>FormSolarSystems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSplashScreen.resx">
       <DependentUpon>FormSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,7 +359,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -349,8 +378,21 @@
     <None Include="Resources\icon-playone-32.png" />
     <None Include="Resources\icon-play-32.png" />
     <None Include="Resources\icon-rewind-32.png" />
+    <None Include="Resources\example_neighbourhood.png" />
+    <None Include="Resources\example_planetmoon.png" />
+    <None Include="Resources\example_planetsun.png" />
+    <None Include="Resources\example_solarsystem.png" />
+    <None Include="Resources\example_solarsystemmoons.png" />
+    <None Include="Resources\icon-record-32.png" />
+    <None Include="Resources\icon-recording-32.png" />
+    <None Include="Resources\colorscheme1.png" />
+    <None Include="Resources\colorscheme2.png" />
+    <None Include="Resources\colorscheme3.png" />
+    <None Include="Resources\colorscheme4.png" />
     <Content Include="Resources\largedot.png" />
     <None Include="Resources\splashscreen.jpg" />
+    <None Include="Resources\moonmoon.png" />
+    <None Include="Resources\sunplanetmoon.png" />
     <Content Include="Resources\vector.png" />
   </ItemGroup>
   <ItemGroup>

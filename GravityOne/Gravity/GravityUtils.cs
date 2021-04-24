@@ -22,8 +22,8 @@ namespace GravityOne.Gravity
             for (int k = 0; k < gravitySystem.GravityObjects.Count; k++)
             {
                 GravityObject o = gravitySystem.GravityObjects[k];
-                double distance = Math.Sqrt(Math.Pow((o.X - x), 2) + Math.Pow((o.Y - y), 2));
-                if (distance < closestDistance)
+                double distance = Math.Sqrt(Math.Pow((o.AbsolutePositionX() - x), 2) + Math.Pow((o.AbsolutePositionY() - y), 2));
+                if (distance < closestDistance && o.NumObjects==0)      // skip Solar Systems
                 {
                     closestDistance = distance;
                     closestObjectIndex = k;

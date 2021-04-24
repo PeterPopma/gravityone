@@ -46,15 +46,15 @@ namespace GravityOne.Forms
 
         private void gradientButtonCreate_Click(object sender, EventArgs e)
         {
-            FormMain.PlacingObject = 15;
+            FormMain.PlacingObject = PlacingObject_.Circle;
             MyParent.gradientButtonCircle.ForeColor = Color.Coral;
-            MyParent.labelClickMessage.Visible = true;
+            myParent.DisplayXNA.ShowClickMessage = true;
             this.Cursor = Cursors.Hand;
-            MyParent.DisplayXNA.PresetObjects.Circle.Mass = Convert.ToInt32(numericUpDownMass.Value);
-            MyParent.DisplayXNA.PresetObjects.Circle.Spacing = Convert.ToInt32(numericUpDownSpacing.Value);
+            MyParent.DisplayXNA.PresetObjects.Circle.Mass = Convert.ToDouble(numericUpDownMass.Value);
+            MyParent.DisplayXNA.PresetObjects.Circle.Spacing = Convert.ToDouble(numericUpDownSpacing.Value);
             MyParent.DisplayXNA.PresetObjects.Circle.NumObjectsRadius = Convert.ToInt32(numericUpDownNumObjectsRadius.Value);
             MyParent.DisplayXNA.PresetObjects.Circle.Rotations = Convert.ToDouble(numericUpDownRotations.Value);
-            MyParent.DisplayXNA.PresetObjects.Circle.Texture = MyParent.DisplayXNA.getTextureByName(comboBoxShape.Text);
+            MyParent.DisplayXNA.PresetObjects.Circle.Texture = MyParent.DisplayXNA.GetTextureByName(comboBoxShape.Text);
             MyParent.DisplayXNA.PresetObjects.Circle.SpacingUnits = comboBoxSpacingUnits.Text;
             myParent.DisplayXNA.PresetObjects.Circle.XSpeed = (double)numericUpDownXSpeed.Value;
             myParent.DisplayXNA.PresetObjects.Circle.YSpeed = (double)numericUpDownYSpeed.Value;
@@ -74,9 +74,5 @@ namespace GravityOne.Forms
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
     }
 }

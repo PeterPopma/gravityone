@@ -13,7 +13,7 @@ namespace GravityOne.SpaceObjects
         bool hasEllipse = true;
         bool hasBlackHole = true;
         bool addSolarSystem = false;
-        long crossSection = 1700000000;
+        long crossSection = 1700000000;         // in Bln. Km.  (The Milky Way is about 1,700,000,000,000,000,000 km / 170,000 light years across.)
         int numberOfObjects = 6000;
         long totalMass = 12000;
         long blackHoleMass = 4100000;

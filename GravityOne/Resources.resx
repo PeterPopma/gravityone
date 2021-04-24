@@ -169,9 +169,6 @@
   <data name="font_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\font_small.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="splashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\splashscreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cross11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\cross11.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -303,5 +300,77 @@
   </data>
   <data name="venus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\venus.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\splashscreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gasgiant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\gasgiant.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="greydot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\greydot.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="reddot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\reddot.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="example_neighbourhood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\example_neighbourhood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="example_planetmoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\example_planetmoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="example_planetsun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\example_planetsun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="example_solarsystem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\example_solarsystem.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="example_solarsystemmoons" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\example_solarsystemmoons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="moonmoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\moonmoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sunplanetmoon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sunplanetmoon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_recording_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-recording-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon_record_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\icon-record-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorscheme1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\colorscheme1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorscheme2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\colorscheme2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorscheme3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\colorscheme3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorscheme4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\colorscheme4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="starbluegiant_ob" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starbluegiant_ob.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="starbrowndwarf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starbrowndwarf.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="starreddwarf_m" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starreddwarf_m.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="starredgiant" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starredgiant.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="staryellowdwarf_f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\staryellowdwarf_f.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="starredsupergiant_k" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starredsupergiant_k.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="starwhitedwarf_a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\starwhitedwarf_a.xnb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

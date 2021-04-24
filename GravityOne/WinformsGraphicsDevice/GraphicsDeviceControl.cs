@@ -164,8 +164,8 @@ namespace WinFormsGraphicsDevice
             viewport.X = 0;
             viewport.Y = 0;
 
-            viewport.Width = ClientSize.Width;
-            viewport.Height = ClientSize.Height;
+            viewport.Width = 1920;// ClientSize.Width;
+            viewport.Height = 1080;// ClientSize.Height;
 
             viewport.MinDepth = 0;
             viewport.MaxDepth = 1;
@@ -227,8 +227,11 @@ namespace WinFormsGraphicsDevice
                     // If the device state is ok, check whether it is big enough.
                     PresentationParameters pp = GraphicsDevice.PresentationParameters;
 
-                    deviceNeedsReset = (ClientSize.Width > pp.BackBufferWidth) ||
-                                       (ClientSize.Height > pp.BackBufferHeight);
+// PP : try to fix problem with resizing..
+//deviceNeedsReset = (ClientSize.Width > pp.BackBufferWidth) ||
+//                                       (ClientSize.Height > pp.BackBufferHeight);
+                    deviceNeedsReset = (ClientSize.Width != pp.BackBufferWidth) ||
+                                       (ClientSize.Height != pp.BackBufferHeight);
                     break;
             }
 

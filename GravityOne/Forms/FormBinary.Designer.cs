@@ -30,9 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButtonTriple = new System.Windows.Forms.RadioButton();
-            this.radioButtonBinary3 = new System.Windows.Forms.RadioButton();
-            this.radioButtonBinary2 = new System.Windows.Forms.RadioButton();
-            this.radioButtonBinary1 = new System.Windows.Forms.RadioButton();
+            this.radioButtonBinaryOnePlanetHopping = new System.Windows.Forms.RadioButton();
+            this.radioButtonBinaryOnePlanetStable = new System.Windows.Forms.RadioButton();
+            this.radioButtonBinaryTwoPlanets = new System.Windows.Forms.RadioButton();
             this.gradientButtonCreate = new GravityOne.CustomControls.GradientButton();
             this.gradientPanel21 = new GravityOne.CustomControls.GradientPanel2();
             this.panel1.SuspendLayout();
@@ -43,9 +43,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.radioButtonTriple);
-            this.panel1.Controls.Add(this.radioButtonBinary3);
-            this.panel1.Controls.Add(this.radioButtonBinary2);
-            this.panel1.Controls.Add(this.radioButtonBinary1);
+            this.panel1.Controls.Add(this.radioButtonBinaryOnePlanetHopping);
+            this.panel1.Controls.Add(this.radioButtonBinaryOnePlanetStable);
+            this.panel1.Controls.Add(this.radioButtonBinaryTwoPlanets);
             this.panel1.Location = new System.Drawing.Point(36, 15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(219, 135);
@@ -53,7 +53,6 @@
             // 
             // radioButtonTriple
             // 
-            this.radioButtonTriple.AutoSize = false;
             this.radioButtonTriple.Location = new System.Drawing.Point(24, 91);
             this.radioButtonTriple.Name = "radioButtonTriple";
             this.radioButtonTriple.Size = new System.Drawing.Size(192, 17);
@@ -61,37 +60,34 @@
             this.radioButtonTriple.Text = "triple system, 1 planet orbiting 1 star";
             this.radioButtonTriple.UseVisualStyleBackColor = true;
             // 
-            // radioButtonBinary3
+            // radioButtonBinaryOnePlanetHopping
             // 
-            this.radioButtonBinary3.AutoSize = false;
-            this.radioButtonBinary3.Location = new System.Drawing.Point(24, 64);
-            this.radioButtonBinary3.Name = "radioButtonBinary3";
-            this.radioButtonBinary3.Size = new System.Drawing.Size(184, 17);
-            this.radioButtonBinary3.TabIndex = 4;
-            this.radioButtonBinary3.Text = "1 planet orbiting each star in turns";
-            this.radioButtonBinary3.UseVisualStyleBackColor = true;
+            this.radioButtonBinaryOnePlanetHopping.Location = new System.Drawing.Point(24, 64);
+            this.radioButtonBinaryOnePlanetHopping.Name = "radioButtonBinaryOnePlanetHopping";
+            this.radioButtonBinaryOnePlanetHopping.Size = new System.Drawing.Size(184, 17);
+            this.radioButtonBinaryOnePlanetHopping.TabIndex = 4;
+            this.radioButtonBinaryOnePlanetHopping.Text = "1 planet orbiting each star in turns";
+            this.radioButtonBinaryOnePlanetHopping.UseVisualStyleBackColor = true;
             // 
-            // radioButtonBinary2
+            // radioButtonBinaryOnePlanetStable
             // 
-            this.radioButtonBinary2.AutoSize = false;
-            this.radioButtonBinary2.Location = new System.Drawing.Point(24, 39);
-            this.radioButtonBinary2.Name = "radioButtonBinary2";
-            this.radioButtonBinary2.Size = new System.Drawing.Size(149, 17);
-            this.radioButtonBinary2.TabIndex = 3;
-            this.radioButtonBinary2.Text = "1 planet orbiting both stars";
-            this.radioButtonBinary2.UseVisualStyleBackColor = true;
+            this.radioButtonBinaryOnePlanetStable.Location = new System.Drawing.Point(24, 39);
+            this.radioButtonBinaryOnePlanetStable.Name = "radioButtonBinaryOnePlanetStable";
+            this.radioButtonBinaryOnePlanetStable.Size = new System.Drawing.Size(149, 17);
+            this.radioButtonBinaryOnePlanetStable.TabIndex = 3;
+            this.radioButtonBinaryOnePlanetStable.Text = "1 planet orbiting both stars";
+            this.radioButtonBinaryOnePlanetStable.UseVisualStyleBackColor = true;
             // 
-            // radioButtonBinary1
+            // radioButtonBinaryTwoPlanets
             // 
-            this.radioButtonBinary1.AutoSize = false;
-            this.radioButtonBinary1.Checked = true;
-            this.radioButtonBinary1.Location = new System.Drawing.Point(24, 13);
-            this.radioButtonBinary1.Name = "radioButtonBinary1";
-            this.radioButtonBinary1.Size = new System.Drawing.Size(112, 17);
-            this.radioButtonBinary1.TabIndex = 2;
-            this.radioButtonBinary1.TabStop = true;
-            this.radioButtonBinary1.Text = "both stars 1 planet";
-            this.radioButtonBinary1.UseVisualStyleBackColor = true;
+            this.radioButtonBinaryTwoPlanets.Checked = true;
+            this.radioButtonBinaryTwoPlanets.Location = new System.Drawing.Point(24, 13);
+            this.radioButtonBinaryTwoPlanets.Name = "radioButtonBinaryTwoPlanets";
+            this.radioButtonBinaryTwoPlanets.Size = new System.Drawing.Size(112, 17);
+            this.radioButtonBinaryTwoPlanets.TabIndex = 2;
+            this.radioButtonBinaryTwoPlanets.TabStop = true;
+            this.radioButtonBinaryTwoPlanets.Text = "both stars 1 planet";
+            this.radioButtonBinaryTwoPlanets.UseVisualStyleBackColor = true;
             // 
             // gradientButtonCreate
             // 
@@ -130,7 +126,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create Binary System";
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.gradientPanel21.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -139,9 +134,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radioButtonBinary3;
-        private System.Windows.Forms.RadioButton radioButtonBinary2;
-        private System.Windows.Forms.RadioButton radioButtonBinary1;
+        private System.Windows.Forms.RadioButton radioButtonBinaryOnePlanetHopping;
+        private System.Windows.Forms.RadioButton radioButtonBinaryOnePlanetStable;
+        private System.Windows.Forms.RadioButton radioButtonBinaryTwoPlanets;
         internal CustomControls.GradientButton gradientButtonCreate;
         private CustomControls.GradientPanel2 gradientPanel21;
         private System.Windows.Forms.RadioButton radioButtonTriple;

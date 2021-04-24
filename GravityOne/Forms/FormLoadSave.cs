@@ -21,7 +21,7 @@ namespace GravityOne.Forms
         private FormMain myParent = null;
         private List<Recording> Recordings = new List<Recording>();
         NumberFormatInfo providerDecimalPoint = new NumberFormatInfo();
-
+        const string VERSION_NUMBER_RECORDINGS = "1.5";
 
         public FormLoadSave()
         {
@@ -106,7 +106,7 @@ namespace GravityOne.Forms
                                 double xSpeed = Convert.ToDouble(stream.ReadLine(), providerDecimalPoint);
                                 double ySpeed = Convert.ToDouble(stream.ReadLine(), providerDecimalPoint);
                                 bool scaleObject = Convert.ToBoolean(stream.ReadLine());
-                                myParent.DisplayXNA.GravitySystem.AddObjectRealPosition(name, mass, x, y, xSpeed, ySpeed, myParent.DisplayXNA.getTextureByName(textureName), color, trace, vector, scaleObject);
+                                myParent.DisplayXNA.GravitySystem.AddObject(name, mass, x, y, xSpeed, ySpeed, myParent.DisplayXNA.GetTextureByName(textureName), color, trace, vector, scaleObject);
                             }
 
                             myParent.DisplayXNA.GravitySystem.InitCalculation();
@@ -133,11 +133,7 @@ namespace GravityOne.Forms
                                         myParent.DisplayXNA.GravitySystem.Calculation[i][k].Y = Convert.ToDouble(stream.ReadLine(), providerDecimalPoint);
                                     }
                                 }
-                                if (calculationsPerStepPrecalculated == 1 || myParent.DisplayXNA.GravitySystem.PrecalcAutoIncrease)
-                                {
-                                    myParent.DisplayXNA.GravitySystem.StartCalculation();
-                                }
-//                                myParent.DisplayXNA.GravitySystem.IsCalculating = true;     // there was a calculation, so we have been calculating
+                                myParent.DisplayXNA.GravitySystem.StartCalculation();
                             }
                         }
                     }
@@ -196,15 +192,10 @@ namespace GravityOne.Forms
             using (StreamReader srFile = new StreamReader(rec.FileName))
             {
                 string version = srFile.ReadLine();      // version
-                Double versionNumber = Convert.ToDouble(version.Substring(1), providerDecimalPoint);
-                if(versionNumber<1.3)
+                string versionNumber = version.Substring(1);
+                if(!versionNumber.Equals(VERSION_NUMBER_RECORDINGS))
                 {
-                    MessageBox.Show("The recording you are trying to load is of version " + version.Substring(1) + ". Only recordings of version 1.3 can be loaded by this program.", "Older version recording");
-                    return;
-                }
-                if(versionNumber != 1.3)
-                {
-                    MessageBox.Show("The recording you are trying to load is of an unknown type and cannot be loaded.", "Unknown recording file");
+                    MessageBox.Show("The recording you are trying to load is of version " + versionNumber + ". Only recordings of version " + VERSION_NUMBER_RECORDINGS + " can be loaded by this program.", "Older version recording");
                     return;
                 }
 
@@ -227,22 +218,20 @@ namespace GravityOne.Forms
                 myParent.DisplayXNA.GravitySystem.ObjectIndex = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.CenterIndex = Convert.ToInt32(srFile.ReadLine());
                 string date = srFile.ReadLine();
-                myParent.DisplayXNA.SimulationTime = DateTime.ParseExact(date, "dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                myParent.DisplayXNA.SimulationTimeLarge = long.Parse(srFile.ReadLine());
+                myParent.DisplayXNA.SimulationTime = long.Parse(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.OffsetX = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.OffsetY = Convert.ToInt32(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.Scale = Convert.ToInt64(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.CalculationsPerStepSetting = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.SecondsPerStep = Convert.ToInt64(srFile.ReadLine());
+                myParent.DisplayXNA.SecondsPerStepSolarSystem = Convert.ToInt64(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.UseBarnesHut = Convert.ToBoolean(srFile.ReadLine());
                 myParent.DisplayXNA.GravitySystem.QuadTree.Treshold = Convert.ToDouble(srFile.ReadLine(), providerDecimalPoint);
                 myParent.DisplayXNA.BlendState = myParent.ConvertToBlendState(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.PixelSize = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.Type = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.Alpha = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.ColorCoding = Convert.ToInt32(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.RandomSize = Convert.ToBoolean(srFile.ReadLine());
-                myParent.DisplayXNA.SmallDot.RandomColor = Convert.ToBoolean(srFile.ReadLine());
+                myParent.DisplayXNA.CustomShape.PixelSize = Convert.ToInt32(srFile.ReadLine());
+                myParent.DisplayXNA.CustomShape.Type = Convert.ToInt32(srFile.ReadLine());
+                myParent.DisplayXNA.CustomShape.Alpha = Convert.ToInt32(srFile.ReadLine());
+                myParent.DisplayXNA.CustomShape.RandomSize = Convert.ToBoolean(srFile.ReadLine());
+                myParent.DisplayXNA.CustomShape.RandomColor = Convert.ToBoolean(srFile.ReadLine());
                 bool compressed = Convert.ToBoolean(srFile.ReadLine());
 
                 int totalCalculationsInRecording = frameNumberCalc;
@@ -273,7 +262,7 @@ namespace GravityOne.Forms
                         double xSpeed = Convert.ToDouble(srFile.ReadLine(), providerDecimalPoint);
                         double ySpeed = Convert.ToDouble(srFile.ReadLine(), providerDecimalPoint);
                         bool scaleObject = Convert.ToBoolean(srFile.ReadLine());
-                        myParent.DisplayXNA.GravitySystem.AddObjectRealPosition(name, mass, x, y, xSpeed, ySpeed, myParent.DisplayXNA.getTextureByName(textureName), color, trace, vector, scaleObject);
+                        myParent.DisplayXNA.GravitySystem.AddObject(name, mass, x, y, xSpeed, ySpeed, myParent.DisplayXNA.GetTextureByName(textureName), color, trace, vector, scaleObject);
                     }
 
                     myParent.DisplayXNA.GravitySystem.InitCalculation();
@@ -300,22 +289,18 @@ namespace GravityOne.Forms
                                 myParent.DisplayXNA.GravitySystem.Calculation[i][k].Y = Convert.ToDouble(srFile.ReadLine(), providerDecimalPoint);
                             }
                         }
-                        if (calculationsPerStepPrecalculated == 1 || myParent.DisplayXNA.GravitySystem.PrecalcAutoIncrease)
-                        {
-                            myParent.DisplayXNA.GravitySystem.StartCalculation();
-                        }
-//                        myParent.DisplayXNA.GravitySystem.IsCalculating = true;     // there was a calculation, so we have been calculating
+                        myParent.DisplayXNA.GravitySystem.StartCalculation();
                     }
                 }
-                myParent.DisplayXNA.GravitySystem.CalculationsPerStepPrecalculated = calculationsPerStepPrecalculated;      // lost with InitCalculation()
+                myParent.DisplayXNA.GravitySystem.CalculationsPerStepPrecalculatedGalaxy = calculationsPerStepPrecalculated;      // lost with InitCalculation()
                 myParent.DisplayXNA.GravitySystem.FrameNumberCalc = frameNumberCalc;      // lost with InitCalculation()
+                myParent.DisplayXNA.GravitySystem.DetermineCalculationsPerStepActual();
                 myParent.DisplayXNA.GravitySystem.ScaleObjects();
                 // perform calculation to show right vectors
                 myParent.DisplayXNA.GravitySystem.CalculateStep(0, false);
-                myParent.comboBoxCalcsUnit.SelectedIndex = calcs_per_unit_index;    // triggers the pre-calculation, so postpone until previous calcs are loaded
                 myParent.UpdateObjectProperties();
                 myParent.DisplayXNA.GravitySystem.ObtainMinMaxValues();
-                myParent.DisplayXNA.updateSmallDots();
+                myParent.DisplayXNA.updateCustomShapes();
                 myParent.DisplayXNA.Rewind();
                 myParent.DisplayXNA.GravitySystem.DisplayFrame();
             }
@@ -348,35 +333,32 @@ namespace GravityOne.Forms
 
             using (StreamWriter srFile = new StreamWriter(FileName))
             {
-                srFile.WriteLine("v1.3");
+                srFile.WriteLine("v"+VERSION_NUMBER_RECORDINGS);
                 srFile.WriteLine(textBoxName.Text);
                 srFile.WriteLine(DateTime.Now.ToString("dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture));
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.GravityObjects.Count);
-                srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CalculationsPerStepPrecalculated);
+                srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CalculationsPerStepPrecalculatedGalaxy);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.TargetFrameRate);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.PreCalculationTime);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.FrameNumberCalc);
-                srFile.WriteLine(myParent.comboBoxCalcsUnit.SelectedIndex.ToString());
                 srFile.WriteLine(myParent.macTrackBarSpeed.Value.ToString());
                 srFile.WriteLine(myParent.macTrackBarScale.Value.ToString());
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.ObjectIndex);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CenterIndex);
-                srFile.WriteLine(myParent.DisplayXNA.SimulationTime.ToString("dd/MM/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture));
-                srFile.WriteLine(myParent.DisplayXNA.SimulationTimeLarge);
+                srFile.WriteLine(myParent.DisplayXNA.SimulationTime);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.OffsetX);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.OffsetY);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.Scale);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.CalculationsPerStepSetting);
-                srFile.WriteLine(myParent.DisplayXNA.SecondsPerStep);
+                srFile.WriteLine(myParent.DisplayXNA.SecondsPerStepSolarSystem);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.UseBarnesHut);
                 srFile.WriteLine(myParent.DisplayXNA.GravitySystem.QuadTree.Treshold.ToString(providerDecimalPoint));
                 srFile.WriteLine(myParent.DisplayXNA.BlendState);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.PixelSize);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.Type);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.Alpha);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.ColorCoding);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.RandomSize);
-                srFile.WriteLine(myParent.DisplayXNA.SmallDot.RandomColor);
+                srFile.WriteLine(myParent.DisplayXNA.CustomShape.PixelSize);
+                srFile.WriteLine(myParent.DisplayXNA.CustomShape.Type);
+                srFile.WriteLine(myParent.DisplayXNA.CustomShape.Alpha);
+                srFile.WriteLine(myParent.DisplayXNA.CustomShape.RandomSize);
+                srFile.WriteLine(myParent.DisplayXNA.CustomShape.RandomColor);
                 srFile.WriteLine(myParent.CompressRecordings);
                 srFile.Flush();
                 if (myParent.CompressRecordings)
@@ -420,7 +402,7 @@ namespace GravityOne.Forms
                             progressBarLoadSave.Invalidate();
                             for (int k = 0; k < myParent.DisplayXNA.GravitySystem.GravityObjects.Count; k++)
                             {
-                                Calculation myCalc = myParent.DisplayXNA.GravitySystem.Calculation[i][k];
+                                Object2D myCalc = myParent.DisplayXNA.GravitySystem.Calculation[i][k];
                                 srFile.WriteLine(myCalc.X.ToString(providerDecimalPoint));
                                 srFile.WriteLine(myCalc.Y.ToString(providerDecimalPoint));
                             }
@@ -475,7 +457,7 @@ namespace GravityOne.Forms
                                 progressBarLoadSave.Invalidate();
                                 for (int k = 0; k < myParent.DisplayXNA.GravitySystem.GravityObjects.Count; k++)
                                 {
-                                    Calculation myCalc = myParent.DisplayXNA.GravitySystem.Calculation[i][k];
+                                    Object2D myCalc = myParent.DisplayXNA.GravitySystem.Calculation[i][k];
                                     writer.WriteLine(myCalc.X.ToString(providerDecimalPoint));
                                     writer.WriteLine(myCalc.Y.ToString(providerDecimalPoint));
                                 }

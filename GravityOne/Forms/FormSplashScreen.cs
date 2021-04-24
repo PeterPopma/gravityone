@@ -17,7 +17,7 @@ namespace GravityOne.Forms
         {
             // Create a timer with a 4000 msec interval.
             splashTimer = new System.Windows.Forms.Timer();
-            splashTimer.Interval = 5000;
+            splashTimer.Interval = 1;//5000;
             splashTimer.Tick += new EventHandler(splashTimer_Tick);
             splashTimer.Start();
 

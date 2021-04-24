@@ -192,7 +192,7 @@ namespace XComponent.SliderBar
 
 		private bool _autoSize = true;
 
-		private bool leftButtonDown = false;
+//		private bool leftButtonDown = false;
 		private float mouseStartPos = -1;
 
 		/// <summary>
@@ -1665,10 +1665,11 @@ namespace XComponent.SliderBar
 			currentPoint = new PointF(e.X, e.Y);
 			if(_trackerRect.Contains(currentPoint))
 			{
-				if(!leftButtonDown)
-				{
-					leftButtonDown = true;
-					this.Capture = true;
+                if (Control.MouseButtons == MouseButtons.Left)
+                //				if(!leftButtonDown)
+                {
+                    //					leftButtonDown = true;          // TODO : left button stays up when you move out of the object, causing movemove event to move slider
+                    this.Capture = true;
 					switch(this._orientation)
 					{
 						case Orientation.Horizontal:
@@ -1724,7 +1725,7 @@ namespace XComponent.SliderBar
 
 		private void OnMouseUpSlider (object sender, MouseEventArgs e)
 		{
-			leftButtonDown = false;
+//			leftButtonDown = false;
 			this.Capture = false;
 
 		}
@@ -1737,7 +1738,8 @@ namespace XComponent.SliderBar
 
 			currentPoint = new PointF(e.X, e.Y);
 
-			if(leftButtonDown)
+            if (Control.MouseButtons == MouseButtons.Left)
+//            if (leftButtonDown)
 			{
 				try
 				{

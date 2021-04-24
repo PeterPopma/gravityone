@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GravityOne.SpaceObjects;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -7,48 +8,82 @@ using System.Text;
 
 namespace GravityOne.Gravity
 {
+    enum RotationMode_ { None, Circle, Square, Triangle, Bar, BiasedBar };
+
     class GravityObject
     {
         const int MINIMUM_TEXTURE_SIZE = 10;
+        
 
         private string name;
-        protected double mass;
-        protected double x;
-        protected double y;
-        protected double xSpeed;
-        protected double ySpeed;
-        protected double xAcceleration;
-        protected double yAcceleration;
+        protected double mass;      // 10^22 kg
+        protected double x;         // m (this is the x-coordinate of the center of mass for solar system objects)
+        protected double y;         // m (this is the y-coordinate of the center of mass for solar system objects)
+        protected double xSpeed;    // m/s
+        protected double ySpeed;    // m/s
+        protected double xAcceleration;     // m/s^2
+        protected double yAcceleration;     // m/s^2        // TODO : make of type object2D
         protected Texture2D texture;
         protected bool trace;
         protected bool vector;
+        private int numObjects;     // Used for solar systems
+        private GravityObject solarSystem;
         private bool scaleTexture;
+        private bool isActive = true;
         private int scaledTextureWidth;
         private int scaledTextureHeight;
         private Color color;
         List<Trace> traces = new List<Trace>();
+        internal GravityObject SolarSystem { get => solarSystem; set => solarSystem = value; }
 
-        public GravityObject(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, Color color_, bool trace_, long scale_, bool vector_, bool scaleTexture_=true)
+        public GravityObject(string name_, double mass_, double x_, double y_, double xSpeed_, double ySpeed_, Texture2D texture_, Color color_, bool trace_, long scale_, bool vector_, bool scaleTexture_ = true, double rotationSpeed_ = 0)
         {
             name = name_;
-            mass = mass_;
-            x = x_;
-            y = y_;
-            xSpeed = xSpeed_;
-            ySpeed = ySpeed_;
-            xAcceleration = 0;
-            yAcceleration = 0;
+            mass = mass_;   // 10^22 kg
+            x = x_;     // m
+            y = y_;     // m
+            xSpeed = xSpeed_;   // m/s
+            ySpeed = ySpeed_;   // m/s
+            xAcceleration = 0;  // m/s^2
+            yAcceleration = 0;  // m/s^2
             texture = texture_;
             color = color_;
             trace = trace_;
-            scaledTextureWidth = texture_.Width;
-            scaledTextureHeight = texture_.Height;
             ScaleTexture = scaleTexture_;
-            if (ScaleTexture)
+            if (texture != null)
             {
-                Scale(scale_);
+                scaledTextureWidth = texture_.Width;
+                scaledTextureHeight = texture_.Height;
+                if (ScaleTexture)
+                {
+                    Scale(scale_);
+                }
             }
             vector = vector_;
+        }
+
+        public GravityObject(string name, double x, double y, double mass, double xSpeed_, double ySpeed_)
+        {
+            this.name = name;
+            this.mass = mass;
+            this.x = x;
+            this.y = y;
+            xSpeed = xSpeed_;   // m/s
+            ySpeed = ySpeed_;   // m/s
+            trace = false;
+            vector = false;
+            numObjects = 1;     // this constructor is only used for solar systems
+        }
+
+        public GravityObject(string name, double x, double y, double mass)
+        {
+            this.name = name;
+            this.mass = mass;
+            this.x = x;
+            this.y = y;
+            trace = false;
+            vector = false;
+            numObjects = 1;     // this constructor is only used for solar systems
         }
 
         private void Scale(long Scale)
@@ -68,6 +103,12 @@ namespace GravityOne.Gravity
             }
             ScaledTextureWidth = (int)(texture.Width / scale_);
             ScaledTextureHeight = (int)(texture.Height / scale_);
+        }
+
+        public void SetSpeed(Vector vector)
+        {
+            XSpeed = vector.X;
+            YSpeed = vector.Y;
         }
 
         public void AddTrace(double x_, double y_)
@@ -230,7 +271,7 @@ namespace GravityOne.Gravity
                 return Math.Sqrt(Math.Pow(xSpeed, 2) + Math.Pow(ySpeed, 2));
             }
 
-       }
+        }
 
         public double Acceleration
         {
@@ -307,7 +348,74 @@ namespace GravityOne.Gravity
                 color = value;
             }
         }
-    }
 
+        public int NumObjects { get => numObjects; set => numObjects = value; }
+        public bool IsActive { get => isActive; set => isActive = value; }
+        public double SolarSystemPositionX()
+        {
+            if(solarSystem==null)
+            {
+                return 0;
+            }
+            else
+            {
+                return solarSystem.X;
+            }
+        }
+
+        public double SolarSystemPositionY()
+        {
+            if (solarSystem == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return solarSystem.Y;
+            }
+        }
+
+        public double AbsolutePositionX()
+        {
+            if (solarSystem == null)
+            {
+                return x;
+            }
+            else
+            {
+                return x + solarSystem.X;
+            }
+        }
+
+        public double AbsolutePositionY()
+        {
+            if (solarSystem == null)
+            {
+                return y;
+            }
+            else
+            {
+                return y + solarSystem.Y;
+            }
+        }
+
+        public void AddObject(GravityObject addingObject)
+        {
+            addingObject.SolarSystem = this;
+            Mass += addingObject.Mass;
+            NumObjects++;
+        }
+
+        // Returns true if the Solar system objects itself must be deleted
+        public bool RemoveObject(GravityObject deletingObject)
+        {
+            Mass -= deletingObject.Mass;
+            NumObjects--;
+            if (NumObjects < 2)
+                return true;
+            else
+                return false;
+        }
+    }
 
 }

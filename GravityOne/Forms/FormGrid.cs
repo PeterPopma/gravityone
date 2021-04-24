@@ -46,16 +46,16 @@ namespace GravityOne.Forms
 
         private void gradientButtonCreate_Click(object sender, EventArgs e)
         {
-            FormMain.PlacingObject = 10;
+            FormMain.PlacingObject = PlacingObject_.Grid;
             MyParent.gradientButtonGrid.ForeColor = Color.Coral;
-            MyParent.labelClickMessage.Visible = true;
+            MyParent.DisplayXNA.ShowClickMessage = true;
             this.Cursor = Cursors.Hand;
             MyParent.DisplayXNA.PresetObjects.Grid.Mass = Convert.ToInt32(numericUpDownMass.Value);
             MyParent.DisplayXNA.PresetObjects.Grid.Spacing = Convert.ToInt32(numericUpDownSpacing.Value);
             MyParent.DisplayXNA.PresetObjects.Grid.XAmount = Convert.ToInt32(numericUpDownColumns.Value);
             MyParent.DisplayXNA.PresetObjects.Grid.YAmount = Convert.ToInt32(numericUpDownRows.Value);
             MyParent.DisplayXNA.PresetObjects.Grid.Rotations = Convert.ToDouble(numericUpDownRotations.Value);
-            MyParent.DisplayXNA.PresetObjects.Grid.Texture = MyParent.DisplayXNA.getTextureByName(comboBoxShape.Text);
+            MyParent.DisplayXNA.PresetObjects.Grid.Texture = MyParent.DisplayXNA.GetTextureByName(comboBoxShape.Text);
             MyParent.DisplayXNA.PresetObjects.Grid.SpacingUnits = comboBoxSpacingUnits.Text;
             myParent.DisplayXNA.PresetObjects.Grid.XSpeed = (double)numericUpDownXSpeed.Value;
             myParent.DisplayXNA.PresetObjects.Grid.YSpeed = (double)numericUpDownYSpeed.Value;

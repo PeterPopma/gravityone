@@ -75,23 +75,16 @@ namespace GravityOne.Forms
             UpdateBarControls();
         }
 
-        private void gradientButtonCreate_Click(object sender, EventArgs e)
+        private void gradientButtonCreateGalaxy_Click(object sender, EventArgs e)
         {
-            FormMain.PlacingObject = 14;
-            myParent.labelClickMessage.Visible = true;
+            FormMain.PlacingObject = PlacingObject_.Galaxy;
+            myParent.DisplayXNA.ShowClickMessage = true;
             myParent.gradientButtonGalaxy.ForeColor = Color.Coral;
             this.Cursor = Cursors.Hand;
-/*            if (myParent.DisplayXNA.TimeUnitsPerStep < 315581500000)
-            {
-                myParent.comboBoxUnits.SelectedIndex = myParent.comboBoxUnits.FindStringExact("100.000 years");
-            }*/
+
             myParent.DisplayXNA.BlendState = BlendState.Additive;
             myParent.checkBoxShowNames.Checked = false;
             myParent.checkBoxTraceAll.Checked = false;
-//            if(numericUpDownNumberOfObjects.Value>=1000)
-            {
-                myParent.comboBoxCalcsUnit.SelectedItem = "Pre-Calculate";
-            }
             //        myParent.DisplayXNA.BackgroundIndex = 0;
             myParent.DisplayXNA.PresetObjects.Galaxy.TotalMass = (long)numericUpDownMass.Value;
             myParent.DisplayXNA.PresetObjects.Galaxy.BlackHoleMass = (long)numericUpDownBlackHoleMass.Value;
@@ -136,10 +129,15 @@ namespace GravityOne.Forms
             }
 
             // Set the Scale so that the new galaxy fits in 2 times
-            myParent.macTrackBarScale.Value = myParent.CalcScaleBarValueFromMlnMetersPerPixel((myParent.DisplayXNA.PresetObjects.Galaxy.CrossSection*2000000.0)/myParent.DisplayXNA.Height);
+            //myParent.macTrackBarScale.Value = myParent.CalcScaleBarValueFromMlnMetersPerPixel((myParent.DisplayXNA.PresetObjects.Galaxy.CrossSection*2000000.0)/myParent.DisplayXNA.Height);
             //            myParent.macTrackBarScale.Value = 22;//13;
 
             myParent.DisplayXNA.BlendState = BlendState.Additive;       // looks better on galaxies
+
+            if (myParent.macTrackBarScale.Value > 324)          // Zoom out, so we can place galaxy
+            {
+                myParent.macTrackBarScale.Value = 324;
+            }
             Close();
         }
 
@@ -221,27 +219,27 @@ namespace GravityOne.Forms
         {
             if(comboBoxPreset.SelectedIndex==0)
             {
-                myParent.PresetToMilkyWay();
+                myParent.DisplayXNA.PresetObjects.PresetToMilkyWay();
             }
             if (comboBoxPreset.SelectedIndex == 1)
             {
-                myParent.PresetToSmallGalaxy();
+                myParent.DisplayXNA.PresetObjects.PresetToSmallGalaxy();
             }
             if (comboBoxPreset.SelectedIndex == 2)
             {
-                myParent.PresetToEllipse();
+                myParent.DisplayXNA.PresetObjects.PresetToEllipse();
             }
             if (comboBoxPreset.SelectedIndex == 3)
             {
-                myParent.PresetToSpiral();
+                myParent.DisplayXNA.PresetObjects.PresetToSpiral();
             }
             if (comboBoxPreset.SelectedIndex == 4)
             {
-                myParent.PresetToSmallEllipse();
+                myParent.DisplayXNA.PresetObjects.PresetToSmallEllipse();
             }
-            if (comboBoxPreset.SelectedIndex == 4)
+            if (comboBoxPreset.SelectedIndex == 5)
             {
-                myParent.PresetToLargeStableGalaxy();
+                myParent.DisplayXNA.PresetObjects.PresetToLargeStableGalaxy();
             }
 
             Initialize();

@@ -44,13 +44,13 @@ namespace GravityOne.Forms
 
         private void gradientButtonCreate_Click(object sender, EventArgs e)
         {
-            FormMain.PlacingObject = 9;
+            FormMain.PlacingObject = PlacingObject_.Random;
             myParent.gradientButtonRandom.ForeColor = Color.Coral;
-            myParent.labelClickMessage.Visible = true;
+            myParent.DisplayXNA.ShowClickMessage = true;
             this.Cursor = Cursors.Hand;
             myParent.DisplayXNA.PresetObjects.RandomObjects.Mass = Convert.ToInt64(numericUpDownMass.Value);
             myParent.DisplayXNA.PresetObjects.RandomObjects.NumberOfObjects = Convert.ToInt32(numericUpDownNumberOfObjects.Value);
-            MyParent.DisplayXNA.PresetObjects.RandomObjects.Texture = MyParent.DisplayXNA.getTextureByName(comboBoxShape.Text);
+            MyParent.DisplayXNA.PresetObjects.RandomObjects.Texture = MyParent.DisplayXNA.GetTextureByName(comboBoxShape.Text);
             MyParent.DisplayXNA.PresetObjects.RandomObjects.AreaUnits = comboBoxAreaUnits.Text;
             MyParent.DisplayXNA.PresetObjects.RandomObjects.Area = Convert.ToUInt64(numericUpDownArea.Value);
             MyParent.DisplayXNA.PresetObjects.RandomObjects.Speed = Convert.ToInt32(numericUpDownSpeed.Value);

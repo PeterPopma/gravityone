@@ -14,20 +14,22 @@ namespace GravityOne.BarnesHut
 {
     class QuadTree
     {
-        double minX;
-        double maxX;
-        double minY;
-        double maxY;
-        double rangeX;
-        double rangeY;
+        public const uint TIME_GALAXY_INCREASE_FACTOR = 125000000;      // moon circles in 28 days, milky way in 73000 million days
+
+        double minX;            // minimum X value of bounding box
+        double maxX;            // maximum X value of bounding box
+        double minY;            // minimum Y value of bounding box
+        double maxY;            // maximum X value of bounding box
+        double rangeX;          // maxX-minX of bounding box
+        double rangeY;          // maxY-minY of bounding box
         Node rootNode;
         double treshold = 0.5;
-        double secondsPerStep;
         double gravitationalConstant;
         int numNodesInternal;
         int numNodesExternal;
         BackgroundWorker backgroundWorkerPreCalculate;
         DoWorkEventArgs e;
+        double secondsInCalculation;
 
         long scale;
         long offsetX;
@@ -49,19 +51,6 @@ namespace GravityOne.BarnesHut
             }
         }
 
-        public double SecondsPerStep
-        {
-            get
-            {
-                return secondsPerStep;
-            }
-
-            set
-            {
-                secondsPerStep = value;
-            }
-        }
-
         public double GravitationalConstant
         {
             get
@@ -74,6 +63,8 @@ namespace GravityOne.BarnesHut
                 gravitationalConstant = value;
             }
         }
+
+        public double SecondsInCalculation { get => secondsInCalculation; set => secondsInCalculation = value; }
 
         public void DetermineBoundingBox(List<GravityObject> objects)
         {
@@ -227,7 +218,7 @@ namespace GravityOne.BarnesHut
             }
         }
 
-        public void Create(Calculation[][] calculations, List<GravityObject> objects, int frameNumber, BackgroundWorker backgroundWorkerPreCalculate_, DoWorkEventArgs e_, Message message)
+        public void Create(Object2D[][] calculations, List<GravityObject> objects, int frameNumber, BackgroundWorker backgroundWorkerPreCalculate_, DoWorkEventArgs e_, Message message)
         {
             backgroundWorkerPreCalculate = backgroundWorkerPreCalculate_;
             e = e_;
@@ -236,25 +227,30 @@ namespace GravityOne.BarnesHut
             rootNode = new Node(minX, minY, rangeX, rangeY, 0, 0, 0);
             totalMassExpected = 0;
 
-            for (int k = 0; k < calculations[0].Length; k++)
+            for (int currentObjectNumber = 0; currentObjectNumber < calculations[0].Length; currentObjectNumber++)
             {
-                if (objects.Count > k)
+                if (objects.Count <= currentObjectNumber)
                 {
-                    totalMassExpected += objects[k].Mass;
-                    Calculation calculation = calculations[frameNumber][k];
-                    if (calculation.X < minX || calculation.Y < minY || calculation.X > minX+rangeX || calculation.Y > minY + rangeY)
+                    message.Text = "Tried to calculate non-existing object!";
+                    return;
+                }
+                if (objects[currentObjectNumber].SolarSystem == null)       // skip Solar System objects for Barnes Hut
+                {
+                    totalMassExpected += objects[currentObjectNumber].Mass;
+                    Object2D calculation = calculations[frameNumber][currentObjectNumber];
+                    if (calculation.X < minX || calculation.Y < minY || calculation.X > minX + rangeX || calculation.Y > minY + rangeY)
                     {
                         message.Text = "Resized bounding box for Barnes-Hut approximation.";
                         DetermineBoundingBox(objects);
                     }
-                    InsertCalculation(rootNode, calculation, objects[k].Mass);
+                    InsertCalculation(rootNode, calculation, objects[currentObjectNumber].Mass);
                 }
             }
 
 //            Debug.Write("Tree created. Internal nodes: "+numNodesInternal + " external nodes: "+ numNodesExternal + "\r\n");
         }
 
-        private void InsertCalculation(Node currentNode, Calculation calculation, double mass)
+        private void InsertCalculation(Node currentNode, Object2D calculation, double mass)
         {
             if (backgroundWorkerPreCalculate.CancellationPending)
             {
@@ -297,25 +293,25 @@ namespace GravityOne.BarnesHut
             }
         }
 
-        public void CalculateValues(Calculation[][] calculations, Vector[] calculationCurrentAccelerations,  int frameNumber, BackgroundWorker backgroundWorkerPreCalculate_, DoWorkEventArgs e_, double accelerationLimit, Message message)
+        public void CalculateValues(Object2D[][] calculations, Vector[] calculationCurrentAccelerations,  int frameNumber, BackgroundWorker backgroundWorkerPreCalculate_, DoWorkEventArgs e_, double accelerationLimit, Message message)
         {
             backgroundWorkerPreCalculate = backgroundWorkerPreCalculate_;
             e = e_;
-            for (int k = 0; k < calculations[0].Length; k++)
+            for (int object_number = 0; object_number < calculations[0].Length; object_number++)
             {
-                Calculation calculation = calculations[frameNumber][k];   // Start with old value
-                Vector acceleration = calculationCurrentAccelerations[k];
+                Object2D calculation = calculations[frameNumber][object_number];   // Start with old value
+                Vector acceleration = calculationCurrentAccelerations[object_number];
                 acceleration.X = 0;
                 acceleration.Y = 0;
                 totalMass = 0;
                 CalculateNode(rootNode, calculation, acceleration, accelerationLimit, message);       // calculates the new acceleration for this object
 //                Debug.Write("Quadtree calculated. Total mass: " + totalMass + " Expected:" + totalMassExpected + "\r\n");
-                calculationCurrentAccelerations[k].X = acceleration.X * GravitationalConstant;
-                calculationCurrentAccelerations[k].Y = acceleration.Y * GravitationalConstant;
+                calculationCurrentAccelerations[object_number].X = acceleration.X * GravitationalConstant;
+                calculationCurrentAccelerations[object_number].Y = acceleration.Y * GravitationalConstant;
             }
         }
 
-        private void CalculateNode(Node node, Calculation calculation, Vector acceleration, double accelerationLimit, Message message)
+        private void CalculateNode(Node node, Object2D calculation, Vector acceleration, double accelerationLimit, Message message)
         {
             double x_difference = node.CenterMassX - calculation.X;
             double y_difference = node.CenterMassY - calculation.Y;
@@ -337,17 +333,21 @@ namespace GravityOne.BarnesHut
                     // objects exactly on top of each other (or the object itself!); bail out to prevent division by zero
                     return;
                 }
+                if (node.Equals(rootNode))
+                {
+                    // not a real gravity object 
+                    return;
+                }
+
                 double accel = node.TotalMass / square_radius;
 
-                // cap on acceleration
-                double limit = node.NumExternalChildNodes * accelerationLimit / SecondsPerStep;
-
-                if (accel > limit)
+                // limit the acceleration to prevent objects very close to each other to get insane accelerations.
+                if (accel > accelerationLimit / SecondsInCalculation)
                 {
-                    message.Text = "Acceleration of object has been limited, because it is to close to another object.";
-                    accel = limit;
+                    message.Text = "Acceleration of object has been limited, because it is too close to another object.";
+                    accel = (accelerationLimit / SecondsInCalculation);
                 }
-               
+
                 // divide acceleration in X and Y component
                 double angle = Math.Atan2(y_difference, x_difference);      // angle with positive X axis
                 acceleration.X += Math.Cos(angle) * accel;

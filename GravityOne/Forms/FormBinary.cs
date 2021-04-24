@@ -34,31 +34,23 @@ namespace GravityOne.Forms
         private void gradientButtonCreate_Click(object sender, EventArgs e)
         {
             myParent.gradientButtonBinary.ForeColor = Color.Coral;
-            myParent.labelClickMessage.Visible = true;
+            myParent.DisplayXNA.ShowClickMessage = true;
             this.Cursor = Cursors.Hand;
-            if (radioButtonBinary1.Checked)
+            if (radioButtonBinaryTwoPlanets.Checked)
             {
-                FormMain.PlacingObject = 7;
-                myParent.macTrackBarScale.Value = 292;
-                myParent.SetSpeed(60 * 60 * 2);
+                FormMain.PlacingObject = PlacingObject_.BinaryTwoPlanets;
             }
-            if (radioButtonBinary2.Checked)
+            if (radioButtonBinaryOnePlanetStable.Checked)
             {
-                FormMain.PlacingObject = 8;
-                myParent.macTrackBarScale.Value = 297;
-                myParent.SetSpeed(60 * 60 * 24);
+                FormMain.PlacingObject = PlacingObject_.BinaryOnePlanetStable;
             }
-            if (radioButtonBinary2.Checked)
+            if (radioButtonBinaryOnePlanetHopping.Checked)
             {
-                FormMain.PlacingObject = 11;
-                myParent.macTrackBarScale.Value = 294;
-                myParent.SetSpeed(60 * 60 * 8);
+                FormMain.PlacingObject = PlacingObject_.BinaryOnePlanetHopping;
             }
             if (radioButtonTriple.Checked)
             {
-                FormMain.PlacingObject = 12;
-                myParent.macTrackBarScale.Value = 294;
-                myParent.SetSpeed(60 * 60 * 8);
+                FormMain.PlacingObject = PlacingObject_.TripleStar;
             }
 
             Close();

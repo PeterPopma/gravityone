@@ -31,37 +31,111 @@ namespace GravityOne.Forms
             }
         }
 
-        private void gradientButtonCreate_Click(object sender, EventArgs e)
+        private void gradientButtonSolarSystem_Click(object sender, EventArgs e)
         {
             myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
-            myParent.labelClickMessage.Visible = true;
+            myParent.DisplayXNA.ShowClickMessage = true;
             this.Cursor = Cursors.Hand;
-            if (radioButtonSolarMoons.Checked)
-            {
-                FormMain.PlacingObject = 13;
-            }
-            if (radioButtonPlanetMoon.Checked)
-            {
-                FormMain.PlacingObject = 1;
-                myParent.macTrackBarScale.Value = 379;
-            }
-            if (radioButtonSunPlanet.Checked)
-            {
-                FormMain.PlacingObject = 4;
-                myParent.macTrackBarScale.Value = 300;
-            }
-            if (radioButtonSunPlanetMoon.Checked)
-            {
-                FormMain.PlacingObject = 3;
-                myParent.macTrackBarScale.Value = 299;
-            }
-            if (radioButtonMoonMoon.Checked)
-            {
-                FormMain.PlacingObject = 6;
-                myParent.macTrackBarScale.Value = 287;
-            }
-
+            FormMain.PlacingObject = PlacingObject_.SolarSystem;
             Close();
+        }
+
+        private void gradientButtonSolarSystemMoons_Click_1(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.SolarSystemMoons;
+            Close();
+        }
+
+        private void gradientButtonPlanetMoon_Click(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.PlanetMoon;
+            Close();
+        }
+
+        private void gradientButtonPlanetSun_Click(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.SunPlanet;
+            Close();
+        }
+
+        private void gradientButtonNeighbourhood_Click(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.Neighbourhood;
+            Close();
+        }
+
+        private void gradientButton7_Click(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.MoonMoon;
+            Close();
+        }
+
+        private void gradientButton2_Click(object sender, EventArgs e)
+        {
+            myParent.gradientButtonPlanetSystems.ForeColor = Color.Coral;
+            myParent.DisplayXNA.ShowClickMessage = true;
+            this.Cursor = Cursors.Hand;
+            FormMain.PlacingObject = PlacingObject_.SunPlanetMoon;
+            Close();
+        }
+
+        private void gradientButtonSolarSystem_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.example_solarsystem;
+        }
+
+        private void gradientPanel21_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = null;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void gradientButtonSolarSystemMoons_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.example_solarsystemmoons;
+        }
+
+        private void gradientButtonNeighbourhood_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.example_neighbourhood;
+        }
+
+        private void gradientButtonPlanetMoon_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.example_planetmoon;
+        }
+
+        private void gradientButtonPlanetSun_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.example_planetsun;
+        }
+
+        private void gradientButton2_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.sunplanetmoon;
+        }
+
+        private void gradientButton7_MouseMove(object sender, MouseEventArgs e)
+        {
+            pictureBoxPreview.Image = Resources.moonmoon;
         }
     }
 }

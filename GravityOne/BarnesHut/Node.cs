@@ -10,7 +10,7 @@ namespace GravityOne.BarnesHut
     class Node
     {
         List<Node> childNodes = new List<Node>();
-        Calculation calculation;
+        Object2D calculation;
         double centerMassX;
         double centerMassY;
         double x;
@@ -37,7 +37,7 @@ namespace GravityOne.BarnesHut
             return childNodes.Count>0;
         }
 
-        public Node CreateQuadrantNode(Calculation calculation, double mass)
+        public Node CreateQuadrantNode(Object2D calculation, double mass)
         {
             double newX = x;     // left quadrant
             if (calculation.X - newX > width * .5)
@@ -60,7 +60,7 @@ namespace GravityOne.BarnesHut
         }
 
 
-        public Node FindOrCreateQuadrantNode(Calculation calculation, double mass)
+        public Node FindOrCreateQuadrantNode(Object2D calculation, double mass)
         {
             NumExternalChildNodes++;
 
@@ -139,7 +139,7 @@ namespace GravityOne.BarnesHut
             }
         }
 
-        internal Calculation Calculation
+        internal Object2D Calculation
         {
             get
             {
